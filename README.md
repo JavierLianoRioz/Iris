@@ -1,11 +1,11 @@
 # Iris 🪻
 
-Este es un proyecto universitario que busca solucionar un problema claro que tenemos los estudiantes, la perdida de información y la poca claridad de ella al recibir un correo.
+Iris es un proyecto universitario diseñado para resolver un problema común entre los estudiantes: la pérdida de información y la falta de claridad en los correos electrónicos relacionados con las asignaturas.
 
 ## Problema
 
-La situación es la siguiente: 
-Te llega un correo como el siguiente 
+Cuando recibimos correos como el siguiente:
+
 ```
 CSJ038-v1||2025: Re: [XXX] [YYY] Fechas importantes de la asignatura
 [Nombre Oculto] (vía [Nombre Universidad]) <noreply@[dominio].es>
@@ -25,34 +25,35 @@ Mostrar mensaje anterior
 Ver el mensaje en su contexto
 Dar de baja mi suscripción a este foro Dar de baja mi suscripción a esta discusión Cambie sus preferencias de resumen del foro
 ```
-¿Es poco legible? Realmente no sirve de mucho, no nos informa casi de nada y encima tenemos que hacer un esfuerzo en entender de qué clase es, cuál es el contexto, de qué habla el correo, quién lo ha enviado, etc.
+
+El correo es demasiado largo, poco legible y difícil de interpretar. Nos cuesta entender de qué clase se trata, quién lo envió, qué información es relevante, etc. Es común perder detalles importantes y no entender con claridad el contenido.
 
 ## Solución
 
-La optativa por la que optamos es la siguiente:
-Te llagaría un mensaje a whatsapp con la siguiente información:
+Iris ofrece una solución simple y efectiva. En lugar de recibir correos largos y difíciles de interpretar, recibirás un mensaje claro y directo en tu WhatsApp, como el siguiente:
+
 ```
-[Profesor], profesor de [asignatura], ha cambiado los temas de estudio para los Quiz y Parcial.
+[Profesor], profesor de [asignatura], ha actualizado los temas de estudio para los Quiz y Parcial.
 ```
 
-### Un giro más
-Pero la cosa no queda aquí, sino que nuestro sistema es totalmente flexible. Dependiendo del correo sabrá qué decir, qué destacar y de qué informar.
+Este mensaje es preciso, fácil de entender y proporciona solo la información esencial. Pero eso no es todo: el sistema es flexible y se adapta al contenido del correo, destacando solo lo más relevante y proporcionando un resumen adecuado.
 
-## ¿Cuál sería nuestra hoja de ruta?
+### Hoja de ruta
 
-- [x] recibir correos de gmail.
-- [x] filtrar correos por etiquetas de gmail.
-- [x] enviar mensajes a usuarios y/o grupos de whatsapp
-- [x] transcripción y aclaración de los temas.
-- [ ] comprensión del contexto del correo fuera de lo que el propio correo menciona.
-- [ ] filtrar los correos no deseados. [hoja de resolución](./Filtro_Correos_Primera_Iteracion)
-- [ ] mvp abierto a uso para más personas.
+* [x] Recibir correos desde Gmail.
+* [x] Filtrar correos por etiquetas de Gmail.
+* [x] Enviar mensajes a usuarios y/o grupos de WhatsApp.
+* [x] Transcripción y aclaración de los temas.
+* [ ] Comprensión del contexto del correo fuera de lo que el propio correo menciona.
+* [ ] Filtrar correos no deseados. [Ver hoja de resolución](./Filtro_Correos_Primera_Iteracion)
+* [ ] Publicar MVP accesible para más usuarios.
 
-## ¿Cómo aportar al proyecto?
+## ¿Cómo contribuir?
 
-Si teneis sugerencias para el proyecto os agradecería que pusieraís [issues](https://github.com/JavierLianoRioz/Proyecto-Iris/issues) con el fin de mejorar el enfoque de este y su futuro. <3
+Si tienes sugerencias para mejorar Iris o deseas aportar al proyecto, te agradeceríamos que crees un [issue en GitHub](https://github.com/JavierLianoRioz/Proyecto-Iris/issues). ¡Nos encantaría recibir tu retroalimentación y contribuciones!
 
 ## Agradecimientos
 
-Quería agradecer a personas que han dado opiniones o ayudas al proyecto:
-- [Manuel Masias](https://manuel.masiasweb.com/)
+Queremos agradecer a todas las personas que han colaborado con opiniones y sugerencias:
+
+* [Manuel Masias](https://manuel.masiasweb.com/)
