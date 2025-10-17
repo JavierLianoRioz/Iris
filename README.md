@@ -44,7 +44,7 @@ Este mensaje es preciso, fácil de entender y proporciona solo la información e
 * [x] Filtrar correos por etiquetas de Gmail.
 * [x] Enviar mensajes a usuarios y/o grupos de WhatsApp.
 * [x] Transcripción y aclaración de los temas.
-* [ ] Comprensión del contexto del correo fuera de lo que el propio correo menciona.
+* [ ] [Comprensión del contexto del correo fuera de lo que el propio correo menciona.](https://github.com/JavierLianoRioz/Proyecto-Iris/issues/2)
 * [ ] [Filtrar correos no deseados.](https://github.com/JavierLianoRioz/Proyecto-Iris/issues/1)
 * [ ] Publicar MVP accesible para más usuarios.
 
