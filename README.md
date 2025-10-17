@@ -45,7 +45,7 @@ Este mensaje es preciso, fácil de entender y proporciona solo la información e
 * [x] Enviar mensajes a usuarios y/o grupos de WhatsApp.
 * [x] Transcripción y aclaración de los temas.
 * [ ] Comprensión del contexto del correo fuera de lo que el propio correo menciona.
-* [ ] Filtrar correos no deseados. [Ver hoja de resolución](./Filtro_Correos_Primera_Iteracion)
+* [ ] [Filtrar correos no deseados.](https://github.com/JavierLianoRioz/Proyecto-Iris/issues/1)
 * [ ] Publicar MVP accesible para más usuarios.
 
 ## ¿Cómo contribuir?
