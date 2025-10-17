@@ -51,3 +51,8 @@ Pero la cosa no queda aquí, sino que nuestro sistema es totalmente flexible. De
 ## ¿Cómo aportar al proyecto?
 
 Si teneis sugerencias para el proyecto os agradecería que pusieraís [issues](https://github.com/JavierLianoRioz/Proyecto-Iris/issues) con el fin de mejorar el enfoque de este y su futuro. <3
+
+## Agradecimientos
+
+Quería agradecer a personas que han dado opiniones o ayudas al proyecto:
+- [Manuel Masias](https://manuel.masiasweb.com/)
