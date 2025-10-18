@@ -1,7 +1,15 @@
 # Iris 🪻
 
-Iris es un proyecto universitario diseñado para resolver un problema común entre los estudiantes: la pérdida de información y la falta de claridad en los correos electrónicos relacionados con las asignaturas.
-
+<table>
+  <tr>
+    <td width="30%" valign="top">
+      <img src="img/iris.png" alt="Logo de Iris" width="100%">
+    </td>
+    <td valign="top">
+      <p>En el torbellino de la comunicación académica, donde los mensajes importantes se pierden como susurros en una tormenta, nace <strong>Iris</strong>. Inspirada en la <strong>mensajera de los dioses</strong>, este proyecto transforma el <strong>caos en claridad</strong>, llevando la <strong>esencia de cada mensaje</strong> directamente a ti.</p>
+    </td>
+  </tr>
+</table>
 ## Problema
 
 Cuando recibimos correos como el siguiente:
@@ -36,17 +44,18 @@ Iris ofrece una solución simple y efectiva. En lugar de recibir correos largos 
 [Profesor], profesor de [asignatura], ha actualizado los temas de estudio para los Quiz y Parcial.
 ```
 
-Este mensaje es preciso, fácil de entender y proporciona solo la información esencial. Pero eso no es todo: el sistema es flexible y se adapta al contenido del correo, destacando solo lo más relevante y proporcionando un resumen adecuado.
+Preciso, elegante y directo. Iris se asegura de que solo recibas la esencia, permitiéndote actuar con conocimiento y serenidad.
 
-### Hoja de ruta
+### El Viaje de Iris
 
-* [x] Recibir correos desde Gmail.
-* [x] Filtrar correos por etiquetas de Gmail.
-* [x] Enviar mensajes a usuarios y/o grupos de WhatsApp.
-* [x] Transcripción y aclaración de los temas.
-* [ ] [Comprensión del contexto del correo fuera de lo que el propio correo menciona.](https://github.com/JavierLianoRioz/Proyecto-Iris/issues/2)
-* [ ] [Filtrar correos no deseados.](https://github.com/JavierLianoRioz/Proyecto-Iris/issues/1)
-* [ ] Publicar MVP accesible para más usuarios.
+El desarrollo de Iris es una odisea en sí misma, marcada por eras que definen su evolución.
+
+#### Las Eras Celestiales
+
+*   **Whisper of the Gods** — *(Fase Actual)* Fase alfa de comunicación inicial y forja del núcleo del proyecto.
+*   **Golden Messenger** — Versión beta, donde Iris expandirá sus habilidades y ganará robustez.
+*   **Rainbow Path** — Una fase de transición y enlace, enfocada en la integración y la preparación para su ascensión.
+*   **Celestial Call** — La fase final, el lanzamiento público, con un sistema pulido y listo para una audiencia general.
 
 ## Despliegue con Docker
 
@@ -97,5 +106,4 @@ Si tienes sugerencias para mejorar Iris o deseas aportar al proyecto, te agradec
 ## Agradecimientos
 
 Queremos agradecer a todas las personas que han colaborado con opiniones y sugerencias:
-
 * [Manuel Masias](https://manuel.masiasweb.com/)
