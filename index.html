@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>n8n Subscription</title>
+    <style>
+        body { font-family: sans-serif; max-width: 600px; margin: auto; padding: 20px; }
+        .form-group { margin-bottom: 15px; }
+        .form-group > label { display: block; margin-bottom: 5px; }
+        input[type="text"], input[type="email"], input[type="tel"], select { width: 100%; padding: 8px; box-sizing: border-box; }
+        button { padding: 10px 15px; background-color: #007bff; color: white; border: none; cursor: pointer; }
+        #classes-checkboxes div {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        #classes-checkboxes input[type="checkbox"] {
+            width: auto;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Subscribe to n8n Classes</h1>
+
+    <form id="subscription-form">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="whatsapp">WhatsApp Number</label>
+            <input type="tel" id="whatsapp" name="whatsapp" placeholder="612345678" required>
+        </div>
+        <div class="form-group">
+            <label>Select Classes</label>
+            <div id="classes-checkboxes">
+                <div><input type="checkbox" name="classes" value="IYA023" id="class-iya023"> <label for="class-iya023">Bases de Datos I</label></div>
+                <div><input type="checkbox" name="classes" value="CSJ038" id="class-csj038"> <label for="class-csj038">Estadística I</label></div>
+                <div><input type="checkbox" name="classes" value="IYA025" id="class-iya025"> <label for="class-iya025">Estructuras de Datos y Algoritmos I</label></div>
+                <div><input type="checkbox" name="classes" value="IYA028" id="class-iya028"> <label for="class-iya028">Matemática Numérica</label></div>
+                <div><input type="checkbox" name="classes" value="IYA022" id="class-iya022"> <label for="class-iya022">Redes de Ordenadores</label></div>
+                <div><input type="checkbox" name="classes" value="IYA024" id="class-iya024"> <label for="class-iya024">Bases de Datos II</label></div>
+                <div><input type="checkbox" name="classes" value="IYA026" id="class-iya026"> <label for="class-iya026">Estructuras de Datos y Algoritmos II</label></div>
+                <div><input type="checkbox" name="classes" value="IDI002" id="class-idi002"> <label for="class-idi002">Inglés II</label></div>
+                <div><input type="checkbox" name="classes" value="IYA027" id="class-iya027"> <label for="class-iya027">Lenguajes de Programación</label></div>
+                <div><input type="checkbox" name="classes" value="IYA004" id="class-iya004"> <label for="class-iya004">Sistemas Operativos</label></div>
+            </div>
+        </div>
+        <button type="submit">Subscribe</button>
+    </form>
+
+    <script>
+        document.getElementById('subscription-form').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const n8nWebhookUrl = 'http://localhost:5678/webhook-test/subscripcion'; // <-- IMPORTANT: Replace with your n8n webhook URL
+
+            if (n8nWebhookUrl === 'YOUR_N8N_WEBHOOK_URL') {
+                alert('Please replace YOUR_N8N_WEBHOOK_URL in the index.html file with your actual n8n webhook URL.');
+                return;
+            }
+
+            const form = event.target;
+            const formData = new FormData(form);
+            const selectedClasses = Array.from(document.querySelectorAll('input[name="classes"]:checked')).map(checkbox => checkbox.value);
+
+            const data = {
+                name: formData.get('name'),
+                whatsapp_number: '34' + formData.get('whatsapp'),
+                subscribed_classes: selectedClasses
+            };
+
+            try {
+                const response = await fetch(n8nWebhookUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                if (response.ok) {
+                    alert('Subscription successful!');
+                    form.reset();
+                } else {
+                    alert('Subscription failed. Please try again.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again.');
+            }
+        });
+    </script>
+</body>
+</html>
