@@ -1,0 +1,90 @@
+@startuml
+!theme plain
+
+skinparam component {
+  BorderColor #303030
+  BackgroundColor #F0F0F0
+  ArrowColor #303030
+  ArrowFontColor #303030
+}
+
+skinparam database {
+  BorderColor #303030
+  BackgroundColor #F0F0F0
+  ArrowColor #303030
+  ArrowFontColor #303030
+}
+
+skinparam cloud {
+  BorderColor #303030
+  BackgroundColor #F0F0F0
+  ArrowColor #303030
+  ArrowFontColor #303030
+}
+
+skinparam queue {
+  BorderColor #303030
+  BackgroundColor #F0F0F0
+  ArrowColor #303030
+  ArrowFontColor #303030
+}
+
+title Iris Project - Bird's-Eye View
+
+cloud "User" as User {
+  [User Browser] as Browser
+}
+
+node "Docker Compose Environment" as Docker {
+
+  package "Frontend" {
+    component "Web Page" as Web
+    component "Subscription Form" as Form {
+        [WhatsApp Field]
+        [Classes Selector]
+    }
+  }
+
+  component "Backend (FastAPI)" as Backend
+  database "PostgreSQL Database" as Postgres {
+    collections "subjects"
+    collections "subscribers"
+  }
+  component "n8n Workflow Automation" as N8N {
+    [Webhook Trigger] as Webhook
+    component "Workflow" as N8NWorkflow {
+        [Store Subscriber]
+        [Send Confirmation]
+    }
+  }
+  queue "Redis Cache" as Redis
+  component "Evolution API" as EvolutionAPI
+  component "pgAdmin" as PgAdmin
+
+  User --> Browser : Accesses
+  Browser --> Web : Displays UI
+  Web --> Form : Contains
+  Form --> Webhook : Submits Data (HTTP:5678)
+  Web --> Backend : Fetches Subjects (HTTP:8000)
+
+  Backend --> Postgres : Queries Subjects
+
+  Webhook --> N8NWorkflow
+  N8NWorkflow --> Postgres : Stores Subscribers
+  N8NWorkflow --> EvolutionAPI : Requests Message Sending
+
+  EvolutionAPI --> User : Sends WhatsApp Message
+
+  Postgres <--> PgAdmin : Manages DB (HTTP:5050)
+  N8N --> Redis : Caching/Session
+  EvolutionAPI --> Redis : Caching/Session
+
+  ' Hidden connections for layout
+  Web -[hidden]-> Backend
+  Backend -[hidden]-> Postgres
+  N8N -[hidden]-> Redis
+  EvolutionAPI -[hidden]-> Postgres
+  PgAdmin -[hidden]-> Postgres
+}
+
+@enduml
