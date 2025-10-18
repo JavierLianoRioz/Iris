@@ -1,0 +1,6 @@
+
+{
+  "name": "Suscripción a Clases de Iris",
+  "description": "Una aplicación web moderna para suscribirse a las clases de Iris. Los usuarios pueden introducir su nombre, número de WhatsApp y seleccionar de una lista de clases disponibles. El formulario envía los datos a un webhook de n8n especificado.",
+  "requestFramePermissions": []
+}

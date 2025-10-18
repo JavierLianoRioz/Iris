@@ -31,7 +31,7 @@ services:
       PGADMIN_SETUP_SERVER_USERNAME: ${POSTGRES_USER}
       PGADMIN_SETUP_SERVER_PASSWORD: ${POSTGRES_PASSWORD}
     ports:
-      - "80:80"
+      - "5050:80"
     volumes:
       - pgadmin_data:/var/lib/pgadmin
     depends_on:
@@ -55,6 +55,12 @@ services:
       - DB_POSTGRESDB_DATABASE=${POSTGRES_DB_N8N}
       - DB_POSTGRESDB_USER=${POSTGRES_USER}
       - DB_POSTGRESDB_PASSWORD=${POSTGRES_PASSWORD}
+      - N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false
+      - N8N_CORS_ALLOW_ORIGINS=http://localhost:3000
+      - N8N_EDITOR_BASE_URL=http://localhost:5678
+      - WEBHOOK_URL=http://localhost:5678/
+    env_file:
+      - ../.env
     volumes:
       - n8n_data:/home/node/.n8n
     depends_on:
@@ -74,6 +80,9 @@ services:
       - "8080:8080"
     env_file:
       - ../.env
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     volumes:
       - evolution_store:/evolution/store
       - evolution_instances:/evolution/instances
@@ -83,19 +92,24 @@ services:
       redis:
         condition: service_started
 
-  pgadmin:
-    image: dpage/pgadmin4
-    restart: always
-    environment:
-      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
-      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+  backend:
+    build: ../backend
     ports:
-      - "5050:80"
-    volumes:
-      - pgadmin_data:/var/lib/pgadmin
+      - "8000:8000"
+    env_file:
+      - ../.env
     depends_on:
       postgres:
         condition: service_healthy
+
+  frontend:
+    build:
+      context: ../frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"
+    restart: always
+
 
 volumes:
   postgres_data:
@@ -103,4 +117,3 @@ volumes:
   n8n_data:
   evolution_store:
   evolution_instances:
-  pgadmin_data:
