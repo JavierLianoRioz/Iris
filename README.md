@@ -48,6 +48,48 @@ Este mensaje es preciso, fácil de entender y proporciona solo la información e
 * [ ] [Filtrar correos no deseados.](https://github.com/JavierLianoRioz/Proyecto-Iris/issues/1)
 * [ ] Publicar MVP accesible para más usuarios.
 
+## Despliegue con Docker
+
+Este proyecto está configurado para funcionar con Docker y Docker Compose, lo que simplifica enormemente su despliegue.
+
+### Prerrequisitos
+
+*   Tener instalados [Docker](https://www.docker.com/products/docker-desktop/) y Docker Compose.
+
+### 1. Configuración Inicial
+
+Antes de lanzar la aplicación por primera vez, necesitas configurar tus variables de entorno:
+
+1.  Copia el archivo `.env.example` y renómbralo a `.env`.
+2.  Abre el archivo `.env` y revisa todas las variables. Asegúrate de cambiar las contraseñas y la API key por valores seguros:
+    *   `POSTGRES_PASSWORD`
+    *   `REDIS_PASSWORD`
+    *   `AUTHENTICATION_API_KEY`
+
+### 2. Iniciar la Aplicación
+
+Para facilitar el proceso, se han incluido scripts de inicio:
+
+*   **En Windows:** Simplemente ejecuta el archivo:
+    ```sh
+    .\start.bat
+    ```
+*   **En Linux o macOS:** Primero da permisos de ejecución al script y luego ejecútalo:
+    ```sh
+    chmod +x start.sh
+    ./start.sh
+    ```
+
+Estos scripts levantarán todos los servicios en segundo plano (`-d`).
+
+### 3. Detener la Aplicación
+
+Para detener todos los servicios, puedes usar el siguiente comando desde la carpeta `compose/`:
+
+```sh
+docker-compose --env-file ../.env down
+```
+
 ## ¿Cómo contribuir?
 
 Si tienes sugerencias para mejorar Iris o deseas aportar al proyecto, te agradeceríamos que crees un [issue en GitHub](https://github.com/JavierLianoRioz/Proyecto-Iris/issues). ¡Nos encantaría recibir tu retroalimentación y contribuciones!
