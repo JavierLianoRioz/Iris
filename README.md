@@ -78,31 +78,63 @@ Antes de lanzar la aplicación por primera vez, necesitas configurar tus variabl
 
 ### 2. Iniciar la Aplicación
 
-Para facilitar el proceso, se han incluido scripts de inicio:
+Para facilitar el proceso, todos los scripts se encuentran en la carpeta `scripts/`.
 
-*   **En Windows:** Simplemente ejecuta el archivo:
+*   **En Windows:**
     ```sh
-    .\start.bat
+    .\scripts\start.bat
     ```
-*   **En Linux o macOS:** Primero da permisos de ejecución al script y luego ejecútalo:
+*   **En Linux o macOS:**
     ```sh
-    chmod +x start.sh
-    ./start.sh
+    chmod +x scripts/start.sh
+    ./scripts/start.sh
     ```
-
 Estos scripts levantarán todos los servicios en segundo plano (`-d`).
 
-### 3. Detener la Aplicación
+### 3. Gestión del Entorno (Backup, Restore y Apagado Seguro)
 
-Para detener todos los servicios, puedes usar el siguiente comando desde la carpeta `compose/`:
+Para evitar la pérdida de datos de la base de datos, se ha implementado un sistema de backup y restauración.
 
-```sh
-docker-compose --env-file ../.env down
-```
+#### **Apagado Seguro (Recomendado)**
+
+**¡IMPORTANTE!** Para detener y limpiar el entorno de forma segura, **utiliza siempre los scripts `safe-down`**. Estos scripts crean un backup completo de las bases de datos antes de eliminar los volúmenes de datos.
+
+*   **En Windows:**
+    ```sh
+    .\scripts\safe-down.bat
+    ```
+*   **En Linux o macOS:**
+    ```sh
+    ./scripts/safe-down.sh
+    ```
+
+#### **Backup y Restauración Manual**
+
+Si solo quieres hacer un backup o restaurar datos sin detener el entorno, puedes usar los siguientes scripts:
+
+*   **Crear un Backup:**
+    ```sh
+    # Windows
+    .\scripts\backup.bat
+
+    # Linux/macOS
+    ./scripts/backup.sh
+    ```
+    Esto guardará un respaldo de las bases de datos `iris`, `n8n` y `evolution` en la carpeta `backups/`.
+
+*   **Restaurar desde un Backup:**
+    ```sh
+    # Windows
+    .\scripts\restore.bat
+
+    # Linux/macOS
+    ./scripts/restore.sh
+    ```
+    Esto restaurará el último backup encontrado para cada base de datos. El script esperará a que la base de datos esté lista antes de intentar la restauración.
 
 ## ¿Cómo contribuir?
 
-Si tienes sugerencias para mejorar Iris o deseas aportar al proyecto, te agradeceríamos que crees un [issue en GitHub](https://github.com/JavierLianoRioz/Proyecto-Iris/issues). ¡Nos encantaría recibir tu retroalimentación y contribuciones!
+Si tienes sugerencias para mejorar Iris o deseas aportar al proyecto, te agradeceríamos que crees un [issue en GitHub](https://github.com/JavierLianoRioz/Iris/issues). ¡Nos encantaría recibir tu retroalimentación y contribuciones!
 
 ## Agradecimientos
 
