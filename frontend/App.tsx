@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { N8N_WEBHOOK_URL } from './constants';
 import { type SubscriptionPayload } from './types';
 
 interface Subject {
-    id: number;
+    code: string; // Changed to code
     name: string;
 }
 
@@ -71,14 +70,14 @@ const App: React.FC = () => {
             return;
         }
 
-        const payload: SubscriptionPayload = {
+        const payload = {
             name: name,
-            whatsapp_number: '34' + whatsapp,
-            subscribed_classes: selectedClasses
+            phone: '34' + whatsapp,
+            subject_codes: selectedClasses
         };
 
         try {
-            const response = await fetch(N8N_WEBHOOK_URL, {
+            const response = await fetch('http://localhost:8000/subscriptions/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -87,7 +86,7 @@ const App: React.FC = () => {
             });
 
             if (response.ok) {
-                setSuccess('¡Suscripción exitosa! Gracias.');
+                setSuccess('¡Suscripción actualizada con éxito! Gracias.');
                 resetForm();
             } else {
                 const errorData = await response.json().catch(() => ({ message: 'La suscripción falló. Por favor, inténtalo de nuevo.' }));
@@ -154,7 +153,7 @@ const App: React.FC = () => {
                         <div className="overflow-y-auto pr-2 custom-scrollbar">
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                                 {subjects.map((subject) => {
-                                    const isChecked = selectedClasses.includes(subject.name);
+                                    const isChecked = selectedClasses.includes(subject.code);
                                     return (
                                         <label
                                             key={subject.code}
@@ -169,7 +168,7 @@ const App: React.FC = () => {
                                                 type="checkbox"
                                                 id={subject.code}
                                                 name="classes"
-                                                value={subject.name}
+                                                value={subject.code} // Changed from subject.name
                                                 checked={isChecked}
                                                 onChange={handleCheckboxChange}
                                                 className="sr-only"
