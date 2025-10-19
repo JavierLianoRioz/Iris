@@ -6,7 +6,11 @@ set -e
 
 psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "postgres" <<-EOSQL
     CREATE DATABASE iris;
+    CREATE DATABASE n8n;
+    CREATE DATABASE evolution;
     GRANT ALL PRIVILEGES ON DATABASE iris TO "$POSTGRES_USER";
+    GRANT ALL PRIVILEGES ON DATABASE n8n TO "$POSTGRES_USER";
+    GRANT ALL PRIVILEGES ON DATABASE evolution TO "$POSTGRES_USER";
 EOSQL
 
 psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "iris" <<-EOSQL

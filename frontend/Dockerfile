@@ -1,20 +1,20 @@
-# Use a Node.js base image
-FROM node:20-alpine as build
+# Use an official Bun base image
+FROM oven/bun:1 as build
 
 # Set the working directory
 WORKDIR /app
 
-# Copy package.json and package-lock.json (if available)
-COPY package*.json ./
+# Copy package files
+COPY package.json bun.lockb* ./
 
 # Install dependencies
-RUN npm install
+RUN bun install --frozen-lockfile
 
 # Copy the rest of the frontend code
 COPY . .
 
 # Build the React app
-RUN npm run build
+RUN bun run build
 
 # Use a lightweight web server to serve the static files
 FROM nginx:alpine

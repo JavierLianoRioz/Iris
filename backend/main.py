@@ -23,8 +23,7 @@ app.add_middleware(
 # Database configuration
 PG_USER = os.getenv("POSTGRES_USER")
 PG_PASSWORD = os.getenv("POSTGRES_PASSWORD")
-PG_DB = os.getenv("POSTGRES_DB_N8N")
-DATABASE_URL = f"postgresql://{PG_USER}:{PG_PASSWORD}@postgres:5432/{PG_DB}"
+DATABASE_URL = f"postgresql://{PG_USER}:{PG_PASSWORD}@postgres:5432/iris"
 
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
