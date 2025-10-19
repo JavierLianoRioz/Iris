@@ -34,3 +34,6 @@ docker-compose.override.yml
 *.njsproj
 *.sln
 *.sw?
+
+# Backups
+backups/
