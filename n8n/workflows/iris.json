@@ -1,0 +1,422 @@
+{
+  "name": "iris",
+  "nodes": [
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "simple": false,
+        "filters": {
+          "q": "from:(\"(vía UNEATLANTICO)\") -{from:(No contestar a este correo)} -{label:bot_leido}"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmailTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        -240,
+        0
+      ],
+      "id": "0d57335f-d1d2-4c7f-b1e0-684c76b4ba8c",
+      "name": "Gmail Trigger",
+      "alwaysOutputData": false,
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "zyV3iu9pGms6fXOg",
+          "name": "javier.liano"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "z-ai/glm-4.5-air:free",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        736,
+        224
+      ],
+      "id": "02f286f2-86c0-4c49-a22d-9adcefb034a4",
+      "name": "OpenRouter Chat Model",
+      "credentials": {
+        "openRouterApi": {
+          "id": "RbomGpSCODBKMYds",
+          "name": "OpenRouter account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "z-ai/glm-4.5-air:free",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        1312,
+        224
+      ],
+      "id": "8fe408db-15d6-4e0d-a0c9-50f89cb788a2",
+      "name": "OpenRouter Chat Model1",
+      "credentials": {
+        "openRouterApi": {
+          "id": "RbomGpSCODBKMYds",
+          "name": "OpenRouter account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1304f024-5cd6-4d22-bbd3-a600d6c69143",
+              "name": "subject",
+              "value": "={{ $json.subject }}",
+              "type": "string"
+            },
+            {
+              "id": "77de5a9f-26a5-4851-98d4-ef711adc3127",
+              "name": "from",
+              "value": "={{ $json.from.value[0].name }}",
+              "type": "string"
+            },
+            {
+              "id": "d24e46ed-d92c-4788-a1ed-552e8602ed3c",
+              "name": "text",
+              "value": "={{ $json.text }}",
+              "type": "string"
+            },
+            {
+              "id": "fa051dbc-5f84-4962-af31-e2c50a289c2e",
+              "name": "id",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -16,
+        0
+      ],
+      "id": "338c2c0d-8178-4720-b228-3f7412399af0",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "text": "={{ $('Edit Fields').item.json.subject }}",
+        "attributes": {
+          "attributes": [
+            {
+              "name": "codigo de clase",
+              "description": "=El código de la clase|por ejemplo:  {{ $json.code }}",
+              "required": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.informationExtractor",
+      "typeVersion": 1.2,
+      "position": [
+        656,
+        0
+      ],
+      "id": "b876a8da-5b2e-473b-8c08-27c8297e366d",
+      "name": "extraer clase"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT code FROM public.subjects",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        208,
+        0
+      ],
+      "id": "b720de64-3090-416d-89d6-18d9579b62ab",
+      "name": "extraer codigos de clases",
+      "credentials": {
+        "postgres": {
+          "id": "b0S5iyNs32tv2jmK",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fieldsToAggregate": {
+          "fieldToAggregate": [
+            {
+              "fieldToAggregate": "code"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        432,
+        0
+      ],
+      "id": "0b5cd1d7-cc60-4052-9075-9f8756b75ed8",
+      "name": "unir codigos en una lista"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT\n    U.phone AS phone\nFROM\n    users U\nINNER JOIN\n    user_subjects US ON U.id = US.user_id\nINNER JOIN\n    subjects S ON US.subject_code = S.code\nWHERE\n    S.code = '{{ $('extraer clase').item.json.output['codigo de clase'] }}';",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        1584,
+        0
+      ],
+      "id": "cd5e846b-492b-41b3-8d23-5319b8b41a3f",
+      "name": "extraer destinatarios",
+      "credentials": {
+        "postgres": {
+          "id": "b0S5iyNs32tv2jmK",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "messages-api",
+        "instanceName": "bot",
+        "remoteJid": "={{ $json.phone }}",
+        "messageText": "={{ $('creador de mensajes').item.json.output }}",
+        "options_message": {}
+      },
+      "type": "n8n-nodes-evolution-api-spanish.evolutionApi",
+      "typeVersion": 1,
+      "position": [
+        1808,
+        0
+      ],
+      "id": "532b49ef-a7ce-4bdb-9327-161013216267",
+      "name": "Enviar texto",
+      "credentials": {
+        "evolutionApi": {
+          "id": "hI59MvVK7Coiis4p",
+          "name": "Evolution account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=CLASE DE LA QUE TRATA EL CORREO: {{ $json.name }}\n\nCORREO: {{ $('Edit Fields').item.json.text }}",
+        "options": {
+          "systemMessage": "Contexto y Rol\nActúas como un asistente experto en comunicación y síntesis de información, especializado en adaptar comunicaciones formales (como correos de un campus virtual) a un formato optimizado para mensajería instantánea (como WhatsApp). Tu rol no es solo resumir, sino *priorizar* y *reformatear* para una legibilidad móvil y una comprensión rápida. Debes identificar lo urgente, destacarlo, usar elementos visuales (negritas y emojis) para guiar la lectura y preservar el tono original del mensaje (ej. amable, formal, etc.).\n\nConsulta/Tarea\nRecibirás un bloque de texto (un correo o notificación de foro). Tu tarea es analizar su contenido, identificar la jerarquía de la información (de la más crítica/urgente a la menos relevante), extraer los datos clave y generar un nuevo mensaje optimizado para ser leído de un vistazo en un dispositivo móvil.\n\nEspecificaciones\n\n  * *Priorización Urgente:* Debes identificar la información más crítica o que requiere acción inmediata (ej. \"examen parcial\", \"fecha límite\", \"cancelación\"). Esta información *debe* colocarse al principio del mensaje.\n  * *Formato y Énfasis:*\n      * Debes usar *negritas* obligatoriamente para destacar todas las fechas clave (ej. \"*29 de octubre*\"), eventos importantes (ej. \"*Examen Parcial*\") y datos críticos.\n      * Debes usar listas con viñetas (`*`) para desglosar información secundaria, como tareas semanales, agendas o listas de temas (ej. \"\\* Sesión de problemas\", \"\\* Empezar tema 5\").\n      * *Uso de Emojis:* Debes usar emojis relevantes de forma moderada para mejorar la legibilidad y señalar visualmente tipos de información (ej. 🚨 o ❗️ para urgencia, 🗓️ para fechas, 🔗 para enlaces, 📚 para temas/tareas, 👤 para remitente, 📋 para asunto).\n  * *Inclusión de Enlaces:* Debes extraer e incluir el *enlace directo* a la fuente original (el foro de discusión, el recurso) si está presente en el cuerpo del mensaje.\n  * *Exclusión:* Debes ignorar y omitir activamente todo el \"ruido\": metadatos (IDs, códigos de curso), pies de página, enlaces de \"Darse de baja\", enlaces de navegación del campus que no sean el enlace directo al mensaje, y firmas automáticas.\n\nCriterios de Calidad\n\n  * *Jerarquía de Información:* El resultado es bueno si la información más importante (ej. un examen) es lo primero que se ve y no \"pasa desapercibida mezclada con el resto\".\n  * *Escaneabilidad Visual:* El formato debe ser limpio, usando una combinación efectiva de negritas, listas y emojis para que pueda ser escaneado rápidamente en un móvil.\n  * *Integridad de Información:* El mensaje final no debe omitir información crítica, especialmente el enlace directo a la fuente y las fechas exactas.\n  * *Uso de Emojis:* Los emojis deben ser relevantes y no sobrecargar el mensaje; deben ayudar a escanear, no distraer.\n  * *Tono:* El tono del mensaje original (ej. \"amable\") debe conservarse en el resumen.\n\nCómo debe ser la respuesta\nDebes estructurar la respuesta final en Markdown, siguiendo este formato exacto. El mensaje debe ser claro y listo para copiar y pegar:\n\nPablo, profesor de matemáticas, informa que las clases cambian de clase al aula -1.15.\n\nSi ves necesario (no lo hagas si crea redundancia) puedes utilizar estos ejemplos de strings:\n\nEn caso de urgencia:\n\n🚨 [MENSAJE MÁS URGENTE AQUÍ, con *fechas* y *eventos clave* en negrita, ej. 🚨*Examen Parcial*: 🗓️ *29 de octubre*]\n\nO si tenemos una lista puedes utilizar:\n\n*Resumen de Actividades:*\n* 📚 [Actividad/Tema 1, usando formato de lista]\n* 💻 [Actividad/Tema 2]\n* [Etc.]\n\nAl terminar añade el enlace de la siguiente manera:\n\n*Enlace Directo:*\n🔗 https://www.gauthmath.com/solution/1802257815523333/-D-nde-est-la-entrada-A-la-vuelta-de-la-esquina-Digo-que-d-nde-tienes-la-entrada\n\nVerificación\nAntes de entregar la respuesta, revisa tu trabajo para asegurar que:\n\n1.  La información más urgente (como una fecha de examen) está al principio, destacada con negritas y un emoji de alerta (como 🚨 o ❗️).\n2.  El enlace directo al foro/recurso está incluido y precedido por un emoji de enlace (🔗).\n3.  Las actividades secundarias están formateadas como una lista de viñetas, usando emojis relevantes (como 📚 o 💻).\n4.  Todo el ruido (metadatos, pies de página, enlaces de baja) ha sido eliminado.\n5. ¿Has puesto quien es el profesor y la asignatura de la que se trata?\n6. Recuerda que es whatsapp, así que utiliza la sintaxis de texto adecuada a whatsapp"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        1232,
+        0
+      ],
+      "id": "90c77e60-a8d2-4c07-b43d-b6d38e6e3f97",
+      "name": "creador de mensajes"
+    },
+    {
+      "parameters": {
+        "operation": "addLabels",
+        "messageId": "={{ $('Edit Fields').item.json.id }}",
+        "labelIds": [
+          "Label_3459595238207572271"
+        ]
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        2032,
+        0
+      ],
+      "id": "a080d84e-a97d-4a73-a48c-828cca406878",
+      "name": "Add label to message",
+      "webhookId": "4bab4772-7d03-48db-8045-0ca8b9bc6b06",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "zyV3iu9pGms6fXOg",
+          "name": "javier.liano"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT name FROM public.subjects WHERE code = '{{ $json.output['codigo de clase'] }}'",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        1008,
+        0
+      ],
+      "id": "cf5255b6-2301-49f1-8215-985998b4fdad",
+      "name": "Execute a SQL query",
+      "credentials": {
+        "postgres": {
+          "id": "b0S5iyNs32tv2jmK",
+          "name": "Postgres account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Gmail Trigger": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenRouter Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "extraer clase",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenRouter Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "creador de mensajes",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "extraer codigos de clases",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "extraer clase": {
+      "main": [
+        [
+          {
+            "node": "Execute a SQL query",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "extraer codigos de clases": {
+      "main": [
+        [
+          {
+            "node": "unir codigos en una lista",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "unir codigos en una lista": {
+      "main": [
+        [
+          {
+            "node": "extraer clase",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "extraer destinatarios": {
+      "main": [
+        [
+          {
+            "node": "Enviar texto",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "creador de mensajes": {
+      "main": [
+        [
+          {
+            "node": "extraer destinatarios",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enviar texto": {
+      "main": [
+        [
+          {
+            "node": "Add label to message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute a SQL query": {
+      "main": [
+        [
+          {
+            "node": "creador de mensajes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "4757fa4c-ed40-4374-a054-243484de4c1f",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "e890aaca46e7124604fb95694a9385ab3f6cbd1ba16eef34d3d3356171ab1e29"
+  },
+  "id": "TouPzh0j9fymXXcZ",
+  "tags": []
+}
