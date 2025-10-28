@@ -64,6 +64,51 @@ The core logic of the application is orchestrated by an [n8n](https://n8n.io/) w
 4.  Querying the database for subscribed users.
 5.  Sending notifications via the Evolution API (WhatsApp).
 
+## Git Workflow and Branching Convention
+
+To maintain the project organized and ensure a stable and clear version history, we will follow a branching model based on GitFlow.
+
+### Main Branches
+
+The repository has two main long-lived branches with specific roles:
+
+*   **`main`**: This is the production branch. It must always be stable and ready for deployment. Code is only merged into `main` from `develop` (for new releases) or `hotfix` branches. **Direct commits to `main` are not allowed.**
+*   **`develop`**: This is the main development branch. It serves as an integration point for all new features and fixes. All topic branches are created from and merged back into `develop`.
+
+### Topic Branches (Naming Convention)
+
+For day-to-day work, create a new branch from `develop` following this naming convention:
+
+**`type/short-description`**
+
+The `type` specifies the kind of work being done:
+
+*   **`feat`**: For a new **feature**.
+    *   *Example:* `feat/google-authentication`
+*   **`fix`**: For a **bug fix**.
+    *   *Example:* `fix/form-submission-error`
+*   **`refactor`**: For code changes that neither add a feature nor fix a bug.
+    *   *Example:* `refactor/simplify-user-service`
+*   **`docs`**: For changes to **documentation**.
+    *   *Example:* `docs/update-readme-setup`
+*   **`style`**: For code **style** changes (formatting, etc.).
+    *   *Example:* `style/format-backend-files`
+*   **`test`**: For adding or modifying **tests**.
+    *   *Example:* `test/add-subscription-tests`
+*   **`chore`**: For routine **maintenance** tasks (e.g., updating dependencies).
+    *   *Example:* `chore/update-react-version`
+
+### Workflow Summary
+
+1.  **Feature Development**:
+    *   Create your branch from `develop`: `git checkout -b feat/my-new-feature develop`
+    *   When finished, merge it back into `develop`: `git checkout develop && git merge feat/my-new-feature`
+2.  **Release**:
+    *   When `develop` is stable and ready for a release, merge it into `main`: `git checkout main && git merge develop`
+3.  **Hotfix (Urgent Production Fix)**:
+    *   Create your branch from `main`: `git checkout -b hotfix/critical-bug main`
+    *   When finished, merge it into **both** `main` and `develop`.
+
 ## Development Log
 
 ### 2025-10-28: Project Refactoring and Build Optimization
