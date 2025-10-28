@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
-from app.db.models import User, UserSubject, Subject
-from app.models.subscription import SubscriptionRequest
+from .models import User, UserSubject, Subject
+from .schemas import SubscriptionRequest
 
 def update_subscriptions(db: Session, request: SubscriptionRequest):
     # Find user by phone, or create if not exists

@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
-from app.db.session import get_db
-from app.models.subscription import SubscriptionRequest
-from app.services import subscription_service
+from .session import get_db
+from .schemas import SubscriptionRequest
+from . import service as subscription_service
 
 router = APIRouter()
 
