@@ -91,7 +91,7 @@ services:
         condition: service_started
 
   backend:
-    build: ./backend
+    build: ./src/backend
     ports:
       - "8000:8000"
     environment:
@@ -104,12 +104,10 @@ services:
 
   frontend:
     build:
-      context: ./frontend
+      context: ./src/frontend
       dockerfile: Dockerfile
     ports:
       - "3000:80"
-    restart: always
-
 
 volumes:
   postgres_data:
