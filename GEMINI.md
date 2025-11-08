@@ -115,6 +115,17 @@ The `type` specifies the kind of work being done:
     *   Create your branch from `main`: `git checkout -b hotfix/critical-bug main`
     *   When finished, merge it into **both** `main` and `develop`.
 
+### Issue Branching Workflow
+
+To manage work related to specific issues, we will follow this workflow:
+
+1.  **Issue Branch Creation**: When starting work on an issue, create a dedicated branch from `develop` named `issue/<issue-number>-<short-description>`.
+    *   *Example:* `issue/33-implement-health-checks`
+2.  **Feature/Fix/Docs Branches**: From this `issue` branch, create further topic branches (e.g., `feat/`, `fix/`, `docs/`) for individual changes related to that issue, following the existing naming conventions.
+3.  **Merging Topic Branches**: Merge these topic branches back into their parent `issue` branch.
+4.  **Pull Request for Issue**: Once all work for an issue is complete and all its related topic branches have been merged into the `issue` branch, create a Pull Request (PR) from the `issue` branch to `develop`.
+5.  **PR Closure and Issue Resolution**: The PR for the `issue` branch will only be closed once all associated topic branches are closed and merged. Closing this PR will automatically close the corresponding issue.
+
 ### Granularidad de los Commits
 
 Es crucial mantener un alto nivel de granularidad en los commits. Cada commit debe representar un cambio único, lógico y atómico. Evita agrupar múltiples cambios no relacionados en un solo commit.
