@@ -27,5 +27,6 @@ Este archivo `GEMINI.md` sirve como un índice y una guía rápida para la docum
 - Siempre que sea posible, ejecuta varios comandos a la vez.
 - El flujo de trabajo de Git del usuario implica crear una rama y un pull request para cada issue. Las ramas de trabajo se derivan de la rama del issue. El usuario cerrará los issues y fusionará las ramas usando el comando /cerrar-issue.
 - La convención de nombres de rama para los issues es: "issue/{titulo. Ej: Consolidar 3 Backends en 1}(#{id. Ej:43})"
+- La convención de nombres de rama para los issues es: "issue/{titulo. Ej: Consolidar 3 Backends en 1}(#{id. Ej:43})"
 - Siempre debo escribir los títulos y descripciones de issues, Pull Requests y cualquier otro contenido relacionado en español.
 - Cuando se me asigne un issue, primero debo recopilar el título, la descripción y los mensajes del issue para comprender la tarea, y luego crear la rama del issue y proceder con el flujo de trabajo.
