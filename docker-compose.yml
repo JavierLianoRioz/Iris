@@ -103,15 +103,11 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
-      servicio-usuarios:
-        condition: service_started
-      servicio-asignaturas:
-        condition: service_started
-      servicio-suscripciones:
+      backend:
         condition: service_started
 
-  servicio-usuarios:
-    build: ./src/servicio-usuarios
+  backend:
+    build: ./src/backend
     environment:
       - POSTGRES_DB=iris
     env_file:
@@ -119,26 +115,11 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
-
-  servicio-asignaturas:
-    build: ./src/servicio-asignaturas
-    environment:
-      - POSTGRES_DB=iris
-    env_file:
-      - ./.env
-    depends_on:
-      postgres:
-        condition: service_healthy
-
-  servicio-suscripciones:
-    build: ./src/servicio-suscripciones
-    environment:
-      - POSTGRES_DB=iris
-    env_file:
-      - ./.env
-    depends_on:
-      postgres:
-        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   frontend:
     build:
