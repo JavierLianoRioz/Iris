@@ -58,79 +58,10 @@ El desarrollo de Iris es una odisea en sí misma, marcada por eras que definen s
 *   **Rainbow Path** — Una fase de transición y enlace, enfocada en la integración y la preparación para su ascensión.
 *   **Celestial Call** — La fase final, el lanzamiento público, con un sistema pulido y listo para una audiencia general.
 
-## Despliegue con Docker
+## Documentación
 
-Este proyecto está configurado para funcionar con Docker y Docker Compose, lo que simplifica enormemente su despliegue.
+Toda la documentación del proyecto se encuentra en la carpeta [`documentation`](./documentation/README.md).
 
-### Prerrequisitos
-
-*   Tener instalados [Docker](https://www.docker.com/products/docker-desktop/) y Docker Compose.
-
-### 1. Configuración Inicial
-
-Antes de lanzar la aplicación por primera vez, necesitas configurar tus variables de entorno:
-
-1.  Copia el archivo `.env.example` y renómbralo a `.env`.
-2.  Abre el archivo `.env` y revisa todas las variables. Asegúrate de cambiar las contraseñas y la API key por valores seguros:
-    *   `POSTGRES_PASSWORD`
-    *   `REDIS_PASSWORD`
-    *   `AUTHENTICATION_API_KEY`
-
-### 2. Iniciar la Aplicación
-
-Para facilitar el proceso, todos los scripts se encuentran en la carpeta `scripts/`.
-
-*   **En Windows:**
-    ```sh
-    .\scripts\start.bat
-    ```
-*   **En Linux o macOS:**
-    ```sh
-    chmod +x scripts/start.sh
-    ./scripts/start.sh
-    ```
-Estos scripts levantarán todos los servicios en segundo plano (`-d`).
-
-### 3. Gestión del Entorno (Backup, Restore y Apagado Seguro)
-
-Para evitar la pérdida de datos de la base de datos, se ha implementado un sistema de backup y restauración.
-
-#### **Apagado Seguro (Recomendado)**
-
-**¡IMPORTANTE!** Para detener y limpiar el entorno de forma segura, **utiliza siempre los scripts `safe-down`**. Estos scripts crean un backup completo de las bases de datos antes de eliminar los volúmenes de datos.
-
-*   **En Windows:**
-    ```sh
-    .\scripts\safe-down.bat
-    ```
-*   **En Linux o macOS:**
-    ```sh
-    ./scripts/safe-down.sh
-    ```
-
-#### **Backup y Restauración Manual**
-
-Si solo quieres hacer un backup o restaurar datos sin detener el entorno, puedes usar los siguientes scripts:
-
-*   **Crear un Backup:**
-    ```sh
-    # Windows
-    .\scripts\backup.bat
-
-    # Linux/macOS
-    ./scripts/backup.sh
-    ```
-    Esto guardará un respaldo de las bases de datos `iris`, `n8n` y `evolution` en la carpeta `backups/`.
-
-*   **Restaurar desde un Backup:**
-    ```sh
-    # Windows
-    .\scripts\restore.bat
-
-    # Linux/macOS
-    ./scripts/restore.sh
-    ```
-    Esto restaurará el último backup encontrado para cada base de datos. El script esperará a que la base de datos esté lista antes de intentar la restauración.
 
 ## ¿Cómo contribuir?
 

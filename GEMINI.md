@@ -9,6 +9,7 @@ Este archivo `GEMINI.md` sirve como un índice y una guía rápida para la docum
 *   [Convenciones de Desarrollo](./documentation/development_conventions.md)
 *   [Flujo de Trabajo de Git y Convención de Ramificación](./documentation/git_workflow.md)
 *   [Registro de Desarrollo](./documentation/development_log.md)
+*   [Auditoría del Proyecto](./documentation/auditoria_del_proyecto.md)
 
 ---
 
