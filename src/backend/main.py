@@ -5,7 +5,6 @@ from app.session import engine
 
 app = FastAPI()
 
-# Crear las tablas en la base de datos
 Base.metadata.create_all(bind=engine)
 
 app.include_router(router)

@@ -4,7 +4,6 @@ import httpx
 
 app = FastAPI()
 
-# URL base del servicio backend
 BACKEND_SERVICE_URL = "http://backend:8000"
 
 @app.get("/")
@@ -15,12 +14,10 @@ def read_root():
 def health_check():
     return {"status": "ok"}
 
-# Enrutamiento para el servicio backend
 @app.api_route("/{path:path}", methods=["GET", "POST", "PUT", "DELETE", "OPTIONS", "HEAD", "PATCH", "TRACE"])
 async def catch_all(request: Request, path: str):
     url = f"{BACKEND_SERVICE_URL}/{path}"
     headers = dict(request.headers)
-    # Eliminar el encabezado 'host' para evitar problemas de enrutamiento interno
     if 'host' in headers:
         del headers['host']
 
