@@ -1,17 +1,22 @@
-# Documentation
+# Documentación del Proyecto Iris
 
-This directory contains all the documentation related to the Iris project.
+Bienvenido a la documentación del proyecto Iris. Aquí encontrarás toda la información necesaria para entender, desarrollar y mantener el proyecto.
 
-## Project Structure
+## Índice
 
-The project is divided into the following directories:
+### 1. Descripción General del Proyecto
+*   [Visión General del Proyecto](./project/overview.md)
+*   [Auditoría del Proyecto](./project/audit.md)
 
-- `src`: Contains the source code of the different services.
-  - `backend`: FastAPI application.
-  - `frontend`: React application.
-  - `n8n`: n8n workflows.
-- `documentation`: Contains all the documentation.
-  - `diagrams`: Contains the Mermaid diagrams.
-  - `docs`: Contains the original project documentation.
-- `docker`: Contains Docker-related files.
-- `scripts`: Contains useful scripts for managing the project.
+### 2. Arquitectura
+*   [Arquitectura del Sistema](./architecture/system_architecture.md)
+*   [Diagramas de Arquitectura](./architecture/diagrams/README.md)
+
+### 3. Desarrollo
+*   [Construcción y Ejecución del Proyecto](./development/building_and_running.md)
+*   [Convenciones de Desarrollo](./development/conventions.md)
+*   [Flujo de Trabajo de Git](./development/git_workflow.md)
+*   [Registro de Desarrollo](./development/log.md)
+
+### 4. Solución de Problemas
+*   [Fallo en el Arranque de Postgres en Docker](./troubleshooting/postgres_startup_issue.md)
