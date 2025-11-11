@@ -103,11 +103,11 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
-      backend-unificado:
+      backend:
         condition: service_started
 
-  backend-unificado:
-    build: ./src/backend-unificado
+  backend:
+    build: ./src/backend
     environment:
       - POSTGRES_DB=iris
     env_file:
