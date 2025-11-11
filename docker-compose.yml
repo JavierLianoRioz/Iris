@@ -103,35 +103,11 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
-      servicio-usuarios:
-        condition: service_started
-      servicio-asignaturas:
-        condition: service_started
-      servicio-suscripciones:
+      backend-unificado:
         condition: service_started
 
-  servicio-usuarios:
-    build: ./src/servicio-usuarios
-    environment:
-      - POSTGRES_DB=iris
-    env_file:
-      - ./.env
-    depends_on:
-      postgres:
-        condition: service_healthy
-
-  servicio-asignaturas:
-    build: ./src/servicio-asignaturas
-    environment:
-      - POSTGRES_DB=iris
-    env_file:
-      - ./.env
-    depends_on:
-      postgres:
-        condition: service_healthy
-
-  servicio-suscripciones:
-    build: ./src/servicio-suscripciones
+  backend-unificado:
+    build: ./src/backend-unificado
     environment:
       - POSTGRES_DB=iris
     env_file:
