@@ -1,20 +1,35 @@
 # Iris 🪻
 
+> Inspirada en la mensajera de los dioses, Iris transforma el caos de la comunicación académica en claridad, llevando la esencia de cada mensaje directamente a tu WhatsApp.
+
 <table>
   <tr>
     <td width="30%" valign="top">
       <img src="img/iris.png" alt="Logo de Iris" width="100%">
     </td>
     <td valign="top">
-      <p>En el torbellino de la comunicación académica, donde los mensajes importantes se pierden como susurros en una tormenta, nace <strong>Iris</strong>. Inspirada en la <strong>mensajera de los dioses</strong>, este proyecto transforma el <strong>caos en claridad</strong>, llevando la <strong>esencia de cada mensaje</strong> directamente a ti.</p>
+      <p>En el torbellino de la comunicación académica, donde los mensajes importantes se pierden como susurros en una tormenta, nace <strong>Iris</strong>. Este proyecto pone fin al ruido y la confusión.</p>
     </td>
   </tr>
 </table>
 
-## Problema
+---
 
-Cuando recibimos correos como el siguiente:
+### 📜 Tabla de Contenidos
 
+1.  [El Problema](#-el-problema)
+2.  [La Solución](#-la-solución)
+3.  [🗺️ Roadmap del Proyecto](#️-roadmap-del-proyecto)
+4.  [🤝 ¿Cómo Contribuir?](#-cómo-contribuir)
+5.  [✨ Agradecimientos](#-agradecimientos)
+
+---
+
+### 🎯 El Problema
+
+Recibimos correos largos, confusos y llenos de ruido. Es fácil perder detalles importantes sobre fechas, tareas o actualizaciones de nuestras asignaturas.
+
+**Ejemplo de correo caótico:**
 ```
 CSJ038-v1||2025: Re: [XXX] [YYY] Fechas importantes de la asignatura
 [Nombre Oculto] (vía [Nombre Universidad]) <noreply@[dominio].es>
@@ -35,39 +50,36 @@ Ver el mensaje en su contexto
 Dar de baja mi suscripción a este foro Dar de baja mi suscripción a esta discusión Cambie sus preferencias de resumen del foro
 ```
 
-El correo es demasiado largo, poco legible y difícil de interpretar. Nos cuesta entender de qué clase se trata, quién lo envió, qué información es relevante, etc. Es común perder detalles importantes y no entender con claridad el contenido.
+### ✨ La Solución
 
-## Solución
+Iris procesa esos correos y te envía un mensaje claro y directo a tu WhatsApp. Sin ruido, solo la información esencial.
 
-Iris ofrece una solución simple y efectiva. En lugar de recibir correos largos y difíciles de interpretar, recibirás un mensaje claro y directo en tu WhatsApp, como el siguiente:
-
+**Notificación de Iris:**
 ```
 [Profesor], profesor de [asignatura], ha actualizado los temas de estudio para los Quiz y Parcial.
 ```
+Preciso, elegante y directo.
 
-Preciso, elegante y directo. Iris se asegura de que solo recibas la esencia, permitiéndote actuar con conocimiento y serenidad.
+---
 
-### El Viaje de Iris
+### 🗺️ Roadmap del Proyecto: El Viaje de Iris
 
 El desarrollo de Iris es una odisea en sí misma, marcada por eras que definen su evolución.
 
-#### Las Eras Celestiales
+-   **Whisper of the Gods** — *(Fase Actual)*  Fase alfa de comunicación inicial y forja del núcleo del proyecto.
+-   **Golden Messenger** — Versión beta, donde Iris expandirá sus habilidades y ganará robustez.
+-   **Rainbow Path** — Fase de integración y preparación para su ascensión.
+-   **Celestial Call** — Lanzamiento público con un sistema pulido y listo para una audiencia general.
 
-*   **Whisper of the Gods** — *(Fase Actual)* Fase alfa de comunicación inicial y forja del núcleo del proyecto.
-*   **Golden Messenger** — Versión beta, donde Iris expandirá sus habilidades y ganará robustez.
-*   **Rainbow Path** — Una fase de transición y enlace, enfocada en la integración y la preparación para su ascensión.
-*   **Celestial Call** — La fase final, el lanzamiento público, con un sistema pulido y listo para una audiencia general.
+---
 
-## Documentación
+### 🤝 ¿Cómo Contribuir?
 
-Toda la documentación del proyecto se encuentra en la carpeta [`documentation`](./documentation/README.md).
+¡Tu ayuda es bienvenida! Si tienes sugerencias o quieres aportar código, por favor, crea un [issue en GitHub](https://github.com/JavierLianoRioz/Iris/issues) para discutir tus ideas.
 
+Toda la documentación detallada del proyecto se encuentra en la carpeta [`documentation`](./documentation/README.md).
 
-## ¿Cómo contribuir?
+### ✨ Agradecimientos
 
-Si tienes sugerencias para mejorar Iris o deseas aportar al proyecto, te agradeceríamos que crees un [issue en GitHub](https://github.com/JavierLianoRioz/Iris/issues). ¡Nos encantaría recibir tu retroalimentación y contribuciones!
-
-## Agradecimientos
-
-Queremos agradecer a todas las personas que han colaborado con opiniones y sugerencias:
-* [Manuel Masias](https://manuel.masiasweb.com/)
+Un agradecimiento especial a quienes han colaborado con sus ideas y sugerencias:
+- [Manuel Masias](https://manuel.masiasweb.com/)

@@ -1,32 +1,57 @@
-# Iris Project
+# Gemini Agent Creation
 
-Este archivo `GEMINI.md` sirve como un índice y una guía rápida para la documentación del proyecto Iris. Para obtener información detallada sobre cada sección, por favor, consulta los archivos Markdown en el directorio `documentation/`.
+To create a custom agent for the Gemini CLI, you need to build a Gemini CLI extension. This involves scaffolding a new extension and then configuring it with your agent's specific prompt and tools.
 
-## Contenido
+## Steps to Create an Agent:
 
-*   [Descripción General del Proyecto y Arquitectura del Sistema](./documentation/project_overview.md)
-*   [Construcción y Ejecución del Proyecto](./documentation/building_and_running.md)
-*   [Convenciones de Desarrollo](./documentation/development_conventions.md)
-*   [Flujo de Trabajo de Git y Convención de Ramificación](./documentation/git_workflow.md)
-*   [Registro de Desarrollo](./documentation/development_log.md)
-*   [Auditoría del Proyecto](./documentation/auditoria_del_proyecto.md)
+1.  **Scaffold a New Extension:**
+    Open your terminal and run the following command. Replace `[your-extension-name]` with a suitable name for your agent (e.g., `mermaid-agent`):
+    ```bash
+    gemini extensions new [your-extension-name] mcp-server
+    ```
+    This command creates a new directory with the basic structure for your extension.
+
+2.  **Understand the Extension Structure:**
+    The scaffolded directory will contain files like `gemini-extension.json` (the manifest) and an MCP server implementation file (e.g., `example.ts`). These files define your extension's metadata and the custom tools your agent will expose.
+
+3.  **Implement Your Agent's Logic:**
+    You will then need to modify the MCP server implementation file to define your agent's behavior, including its prompt and any custom tools it might use. The agent's prompt can often be included directly in a `GEMINI.md` file within the extension itself, or embedded in the tool definitions.
+
+4.  **Configure and Test:**
+    Configure `gemini-extension.json` to correctly point to your MCP server. You can link your local extension for testing using `gemini extensions link <path-to-your-extension>`.
 
 ---
 
-## Gemini Added Memories
-- When running docker-compose commands for this project, I should always use the --env-file ./.env flag to ensure the environment variables are loaded correctly.
-- Always create a new thematic branch before making changes and committing.
-- The GEMINI.md file for the Iris project has been created and is located in the root directory. It contains a comprehensive overview of the project, including its architecture, setup instructions, and development conventions.
-- At the start of every new conversation, run `git pull` on the `main` and `develop` branches to ensure the local repository is up-to-date.
-- I must always respond and write all content in Spanish, unless explicitly asked otherwise.
-- I should use Mermaid diagrams to visually explain architectures, workflows, or complex systems to make them easier to understand.
-- I must always make small, atomic commits, each representing a single logical change. Avoid bundling multiple changes into one commit. Test after each significant change and commit.
-- No fusionar ninguna rama sin la confirmación explícita del usuario de que el trabajo en ella ha finalizado. Siempre debo avisar antes de proponer una fusión.
-- Cuando resuelvo un problema técnico, debo crear un archivo de documentación en la carpeta `documentation` que explique el problema y la solución, con un nombre de archivo explícito para que otros puedan encontrarlo.
-- Tengo acceso al CLI de GitHub a través del comando `gh`. Debo considerar su uso para interactuar con GitHub.
-- Siempre que sea posible, ejecuta varios comandos a la vez.
-- El flujo de trabajo de Git del usuario implica crear una rama y un pull request para cada issue. Las ramas de trabajo se derivan de la rama del issue. El usuario cerrará los issues y fusionará las ramas usando el comando /cerrar-issue.
-- La convención de nombres de rama para los issues es: "issue/{titulo. Ej: Consolidar 3 Backends en 1}(#{id. Ej:43})"
-- La convención de nombres de rama para los issues es: "issue/{titulo. Ej: Consolidar 3 Backends en 1}(#{id. Ej:43})"
-- Siempre debo escribir los títulos y descripciones de issues, Pull Requests y cualquier otro contenido relacionado en español.
-- Cuando se me asigne un issue, primero debo recopilar el título, la descripción y los mensajes del issue para comprender la tarea, y luego crear la rama del issue y proceder con el flujo de trabajo.
+# Project Overview
+
+Iris is a notification system designed to bridge the communication gap between universities and students. It captures official emails from the university, processes them, and delivers them as concise and clear WhatsApp notifications to subscribed students. The system is being developed with a focus on functionality, sustainability, maintainability, and clarity.
+
+The system has two main flows:
+1.  **Subscription:** Students can subscribe to notifications for specific subjects through a web interface.
+2.  **Notification:** When the university sends an email, the system identifies the relevant subscribed students, uses an AI service (OpenRouter) to rephrase the content for clarity, and sends it as a WhatsApp message.
+
+## Main Technologies
+
+The project is built on a containerized microservices architecture using Docker.
+
+-   **Frontend:** React (served with Nginx)
+-   **Backend:** FastAPI (Python)
+-   **Database:** PostgreSQL (for storing subscriptions and session data)
+-   **Orchestration/Automation:** n8n
+-   **WhatsApp Integration:** Evolution API
+-   **AI Content Processing:** OpenRouter
+
+## Building and Running
+
+The project is designed to run with Docker Compose.
+
+**TODO:** Add detailed instructions on how to configure and run the project using Docker Compose. A `docker-compose.yml` file will be the entry point for starting the application.
+
+```bash
+# Example command to start the system
+docker-compose up -d
+```
+
+## Development Conventions
+
+**TODO:** Define and document coding styles, testing practices, and contribution guidelines for the project.
