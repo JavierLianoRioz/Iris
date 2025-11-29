@@ -23,4 +23,4 @@ Empezaré creando una serie de documentos que recojan el funcionamiento y planif
 
 Se ha desarrollado desde cero la interfaz web del sistema utilizando Astro, React y Tailwind CSS. Se ha implementado el sistema de autenticación con Google, el dashboard de usuario, la gestión de suscripciones y el onboarding de teléfono.
 
-Detalles completos en: [Logs: Desarrollo Frontend](logs/2025-11-29_Frontend_Development.md)
+Detalles completos en: [Logs: Desarrollo Frontend](journal/2025-11-29_Frontend_Development.md)
