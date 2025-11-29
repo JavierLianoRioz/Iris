@@ -119,3 +119,12 @@ dist/
 
 # Gemini CLI temp directory
 .gemini/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+*.db
+.pytest_cache/
