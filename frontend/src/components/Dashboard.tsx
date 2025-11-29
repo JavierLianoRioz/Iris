@@ -44,17 +44,51 @@ export default function Dashboard({ children }: DashboardProps) {
   const [error, setError] = useState<string | null>(null);
   const [isSavingProfile, setIsSavingProfile] = useState(false);
 
-  // Initial Load
+  // Initial Load and Sync
   useEffect(() => {
-    const storedUser = localStorage.getItem('irisUser');
-    if (storedUser) {
-      const parsedUser = JSON.parse(storedUser);
+    const loadUser = async () => {
+      const storedUserStr = localStorage.getItem('irisUser');
+      if (!storedUserStr) {
+        window.location.href = '/';
+        return;
+      }
+
+      const parsedUser = JSON.parse(storedUserStr);
+      
+      // Optimistically set user from local storage first
       setUser(parsedUser);
-      setNameInput(parsedUser.name); // Initialize nameInput to prevent validation errors on phone-only save
-      if (!parsedUser.phone) setShowPhoneModal(true);
-    } else {
-      window.location.href = '/';
-    }
+      setNameInput(parsedUser.name);
+
+      // Sync with backend
+      try {
+        const backendUser = await api.getUser(parsedUser.email);
+        if (backendUser) {
+            // Merge local user (Google profile) with backend data (phone, subjects)
+            const updatedUser = {
+                ...parsedUser,
+                phone: backendUser.phone,
+                subjects: backendUser.subjects,
+            };
+            setUser(updatedUser);
+            localStorage.setItem('irisUser', JSON.stringify(updatedUser));
+            
+            // Check if phone is missing in backend data to show modal
+            if (!backendUser.phone) {
+                setShowPhoneModal(true);
+            }
+        } else {
+            // User not found in backend (should be rare if created on login, but possible)
+            // In this case, rely on local storage check or show modal
+             if (!parsedUser.phone) setShowPhoneModal(true);
+        }
+      } catch (err) {
+        console.error("Error syncing user with backend:", err);
+        // Fallback to local check if sync fails
+        if (!parsedUser.phone) setShowPhoneModal(true);
+      }
+    };
+
+    loadUser();
   }, []);
 
   const handleLogout = () => {
@@ -88,7 +122,8 @@ export default function Dashboard({ children }: DashboardProps) {
         try {
             const subscribedSubjectCodes = subjects.filter(s => s.subscribed).map(s => s.id);
             const updatedBackendUser = await api.updateSubscription({
-                username: user.email, // Assuming email is the username for backend
+                email: user.email,
+                name: nameInput,
                 phone: cleanPhone,
                 subjects: subscribedSubjectCodes,
             });
@@ -96,7 +131,7 @@ export default function Dashboard({ children }: DashboardProps) {
             // Update local user state with the response from the backend
             const updatedUser = { 
                 ...user, 
-                name: nameInput, 
+                name: updatedBackendUser.name, 
                 phone: updatedBackendUser.phone, 
                 subjects: updatedBackendUser.subjects // Backend returns BackendSubject[]
             };
@@ -108,6 +143,9 @@ export default function Dashboard({ children }: DashboardProps) {
         } catch (err: any) {
             console.error("Error saving profile:", err);
             setPhoneError(err.message || "Failed to save profile.");
+        } finally {
+            setIsSavingProfile(false);
+        }
     }
   };
 
@@ -117,8 +155,9 @@ export default function Dashboard({ children }: DashboardProps) {
     try {
       const subscribedSubjectCodes = subjects.filter(s => s.subscribed).map(s => s.id);
       const updatedBackendUser = await api.updateSubscription({
-        username: user.email, // Assuming email is the username for backend
-        phone: user.phone || '', // Use current phone, which should be set by handleSaveProfile
+        email: user.email,
+        name: user.name, // Ensure name is passed
+        phone: user.phone || '', 
         subjects: subscribedSubjectCodes,
       });
 

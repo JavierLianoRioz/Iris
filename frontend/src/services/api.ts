@@ -6,14 +6,16 @@ interface Subject {
 }
 
 interface UserSubscription {
-    username: string;
+    email: string;
+    name: string;
     phone: string;
     subjects: string[]; // List of subject codes
 }
 
 interface User {
     id: number;
-    username: string;
+    email: string;
+    name: string;
     phone: string;
     subjects: Subject[];
 }
@@ -38,6 +40,17 @@ export const api = {
         if (!response.ok) {
             const errorData = await response.json();
             throw new Error(`Error updating subscription: ${errorData.detail || response.statusText}`);
+        }
+        return response.json();
+    },
+
+    getUser: async (email: string): Promise<User | null> => {
+        const response = await fetch(`${API_BASE_URL}/users/${email}`);
+        if (response.status === 404) {
+            return null;
+        }
+        if (!response.ok) {
+            throw new Error(`Error fetching user: ${response.statusText}`);
         }
         return response.json();
     },
