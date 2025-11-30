@@ -1,5 +1,5 @@
 import pytest
-from unittest.mock import AsyncMock, patch
+from unittest.mock import AsyncMock, patch, MagicMock
 from src.infrastructure.evolution_client import EvolutionClient
 from src.services.evolution import EvolutionService
 
@@ -8,8 +8,10 @@ async def test_evolution_client_send_text_message():
     mock_response = {"key": {"id": "123"}, "message": "sent"}
     
     with patch("httpx.AsyncClient.post", new_callable=AsyncMock) as mock_post:
-        mock_post.return_value.status_code = 200
-        mock_post.return_value.json.return_value = mock_response
+        mock_response_obj = MagicMock()
+        mock_response_obj.status_code = 200
+        mock_response_obj.json.return_value = mock_response
+        mock_post.return_value = mock_response_obj
         
         client = EvolutionClient(base_url="http://test-url", api_key="test-key")
         result = await client.send_text_message("instance1", "1234567890", "Hello")
