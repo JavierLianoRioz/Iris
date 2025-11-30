@@ -2,7 +2,7 @@
 erDiagram
     users {
         INTEGER id PK
-        VARCHAR username
+        VARCHAR name
         VARCHAR phone
     }
 
@@ -32,3 +32,4 @@ erDiagram
     
     teachers ||--o{ teacher_subjects : "teaches"
     subjects ||--o{ teacher_subjects : "is taught by"
+```
