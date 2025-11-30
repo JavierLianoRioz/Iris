@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Modal from '../ui/Modal';
+import { Modal } from '../ui/Modal';
 
 interface EditProfileModalProps {
     isOpen: boolean;
@@ -40,8 +40,8 @@ export default function EditProfileModal({ isOpen, onClose, onSave, initialName,
             <div className="space-y-4">
                 <div>
                     <label htmlFor="edit-name" className="block text-sm font-medium text-slate-700 mb-1">Nombre completo</label>
-                    <input 
-                        type="text" 
+                    <input
+                        type="text"
                         id="edit-name"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
@@ -50,8 +50,8 @@ export default function EditProfileModal({ isOpen, onClose, onSave, initialName,
                 </div>
                 <div>
                     <label htmlFor="edit-phone" className="block text-sm font-medium text-slate-700 mb-1">Número de teléfono</label>
-                    <input 
-                        type="tel" 
+                    <input
+                        type="tel"
                         id="edit-phone"
                         value={phone}
                         onChange={(e) => { setPhone(e.target.value); setError(''); }}

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Modal from '../ui/Modal';
+import { Modal } from '../ui/Modal';
 
 interface PhoneOnboardingModalProps {
     isOpen: boolean;
@@ -20,8 +20,8 @@ export default function PhoneOnboardingModal({ isOpen, onSave }: PhoneOnboarding
     };
 
     return (
-        <Modal 
-            isOpen={isOpen} 
+        <Modal
+            isOpen={isOpen}
             title="Vincula tu WhatsApp"
             icon={
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8">
@@ -33,8 +33,8 @@ export default function PhoneOnboardingModal({ isOpen, onSave }: PhoneOnboarding
                 <p className="text-slate-500 text-center text-sm mb-4">Para enviarte las notificaciones, necesitamos tu número de teléfono activo en WhatsApp.</p>
                 <div>
                     <label htmlFor="phone" className="block text-sm font-medium text-slate-700 mb-1">Número de teléfono</label>
-                    <input 
-                        type="tel" 
+                    <input
+                        type="tel"
                         id="phone"
                         placeholder="+34 600 000 000"
                         value={phoneInput}

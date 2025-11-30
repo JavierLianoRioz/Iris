@@ -26,6 +26,7 @@ export const useUser = () => {
                         if (backendUser) {
                                 const updatedUser = {
                                         ...parsedUser,
+                                        name: backendUser.name,
                                         phone: backendUser.phone,
                                         subjects: backendUser.subjects,
                                 };
