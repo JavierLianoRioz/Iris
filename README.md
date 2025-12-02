@@ -1,3 +1,5 @@
+![Banner](img/Banner.png)
+
 # Iris 🪻
 
 > Inspirada en la mensajera de los dioses, Iris transforma el caos de la comunicación académica en claridad, llevando la esencia de cada mensaje directamente a tu WhatsApp.
