@@ -130,3 +130,5 @@ venv/
 .pytest_cache/
 pgdata/
 n8n_data/
+
+n8n\flujos
