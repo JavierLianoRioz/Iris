@@ -62,3 +62,10 @@ def read_user(email: str, db: Session = Depends(get_db)):
     if db_user is None:
         raise HTTPException(status_code=404, detail="User not found")
     return db_user
+
+@app.delete("/users/{email}", status_code=status.HTTP_204_NO_CONTENT)
+def delete_user(email: str, db: Session = Depends(get_db)):
+    success = crud.delete_user_by_email(db, email=email)
+    if not success:
+        raise HTTPException(status_code=404, detail="User not found")
+    return None
