@@ -1,0 +1,113 @@
+---
+---
+
+<div class="bg-white dark:bg-slate-900 rounded-2xl p-6 shadow-sm border border-slate-200/60 dark:border-slate-800 mb-8 flex flex-col sm:flex-row items-center justify-between gap-6 relative overflow-hidden" id="user-header" style="visibility: hidden;">
+    {/* Background decoration */}
+    <div class="absolute top-0 right-0 -mt-10 -mr-10 w-64 h-64 bg-indigo-50 dark:bg-indigo-900/20 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
+
+    <div class="flex items-center gap-5 z-10 w-full sm:w-auto">
+        <div class="relative group">
+            <img
+                id="user-avatar"
+                src=""
+                alt="User Avatar"
+                class="w-16 h-16 rounded-full border-4 border-white dark:border-slate-800 shadow-md object-cover transition-transform duration-300 group-hover:scale-105"
+            />
+            <div class="absolute inset-0 rounded-full ring-1 ring-inset ring-black/10 dark:ring-white/10"></div>
+        </div>
+        <div class="flex-1 min-w-0">
+            <h2 id="user-name" class="text-2xl font-bold text-slate-900 dark:text-white truncate tracking-tight">Cargando...</h2>
+            <div class="flex items-center gap-2 text-slate-500 dark:text-slate-400 text-sm mt-0.5">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 opacity-70">
+                    <path d="M3 4a2 2 0 00-2 2v1.161l8.441 4.221a1.25 1.25 0 001.118 0L19 7.162V6a2 2 0 00-2-2H3z" />
+                    <path d="M19 8.839l-7.77 3.885a2.75 2.75 0 01-2.46 0L1 8.839V14a2 2 0 002 2h14a2 2 0 002-2V8.839z" />
+                </svg>
+                <span id="user-email" class="truncate">...</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex items-center gap-3 z-10 w-full sm:w-auto">
+        <button
+            id="btn-edit-profile"
+            class="flex-1 sm:flex-none px-4 py-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 rounded-xl text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-700 hover:border-slate-300 dark:hover:border-slate-600 transition-all shadow-sm hover:shadow active:scale-95"
+        >
+            Editar Perfil
+        </button>
+        <button
+            id="btn-logout"
+            class="flex-1 sm:flex-none px-4 py-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 rounded-xl text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-700 hover:border-slate-300 dark:hover:border-slate-600 transition-all shadow-sm hover:shadow active:scale-95"
+        >
+            Cerrar Sesión
+        </button>
+        <button
+            id="btn-delete-account"
+            class="flex-1 sm:flex-none px-4 py-2.5 bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 border border-red-100 dark:border-red-900/30 rounded-xl text-sm font-semibold hover:bg-red-100 dark:hover:bg-red-900/30 hover:border-red-200 dark:hover:border-red-900/50 transition-all shadow-sm hover:shadow active:scale-95"
+            title="Eliminar cuenta y todos los datos"
+        >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/></svg>
+        </button>
+    </div>
+</div>
+
+<script>
+    import { googleLogout } from '@react-oauth/google';
+    import { api } from '../../services/api';
+
+    const userHeader = document.getElementById('user-header');
+    const userName = document.getElementById('user-name');
+    const userEmail = document.getElementById('user-email');
+    const userAvatar = document.getElementById('user-avatar') as HTMLImageElement;
+    const btnLogout = document.getElementById('btn-logout');
+    const btnEditProfile = document.getElementById('btn-edit-profile');
+    const btnDeleteAccount = document.getElementById('btn-delete-account');
+
+    // Load User from LocalStorage
+    const storedUserStr = localStorage.getItem('irisUser');
+    let user = null;
+    if (storedUserStr) {
+        user = JSON.parse(storedUserStr);
+        if (userName) userName.innerText = user.name;
+        if (userEmail) userEmail.innerText = user.email;
+        if (userAvatar) userAvatar.src = user.picture;
+        if (userHeader) userHeader.style.visibility = 'visible';
+    } else {
+        window.location.href = '/';
+    }
+
+    // Logout Logic
+    if (btnLogout) {
+        btnLogout.addEventListener('click', () => {
+            googleLogout();
+            localStorage.removeItem('irisUser');
+            window.location.href = '/';
+        });
+    }
+
+    // Edit Profile Logic
+    if (btnEditProfile) {
+        btnEditProfile.addEventListener('click', () => {
+            window.dispatchEvent(new CustomEvent('open-profile-modal'));
+        });
+    }
+
+    // Delete Account Logic
+    if (btnDeleteAccount) {
+        btnDeleteAccount.addEventListener('click', async () => {
+            if (confirm('¿Estás seguro de que quieres eliminar tu cuenta? Esta acción borrará todos tus datos y suscripciones de forma permanente.')) {
+                try {
+                    if (user && user.email) {
+                        await api.deleteUser(user.email);
+                        googleLogout();
+                        localStorage.removeItem('irisUser');
+                        alert('Tu cuenta ha sido eliminada correctamente.');
+                        window.location.href = '/';
+                    }
+                } catch (error) {
+                    console.error('Error deleting account:', error);
+                    alert('Hubo un error al intentar eliminar tu cuenta. Por favor, inténtalo de nuevo.');
+                }
+            }
+        });
+    }
+</script>

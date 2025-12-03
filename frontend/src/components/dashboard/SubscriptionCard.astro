@@ -1,0 +1,40 @@
+---
+interface Props {
+    subject: {
+        code: string;
+        name: string;
+    };
+}
+
+const { subject } = Astro.props;
+---
+
+<div
+    data-subject-id={subject.code}
+    class="subscription-card group relative flex items-center p-4 rounded-xl border-2 transition-all duration-300 cursor-pointer overflow-hidden border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-slate-300 dark:hover:border-slate-700 hover:shadow-sm"
+>
+    <div class="flex-1 min-w-0 z-10">
+        <div class="flex items-center gap-3 mb-1">
+            <span class="subject-badge text-xs font-bold px-2 py-0.5 rounded-md uppercase tracking-wider transition-colors bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 group-hover:bg-slate-200 dark:group-hover:bg-slate-700">
+                {subject.code}
+            </span>
+        </div>
+        <h4 class="subject-name font-semibold text-base truncate transition-colors text-slate-700 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-white">
+            {subject.name}
+        </h4>
+    </div>
+
+    <div class="status-icon w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all duration-300 z-10 ml-4 border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 group-hover:border-indigo-400 dark:group-hover:border-indigo-500">
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            class="check-icon w-3.5 h-3.5 text-white transition-transform duration-300 scale-0"
+        >
+            <path fill-rule="evenodd" d="M19.916 4.626a.75.75 0 01.208 1.04l-9 13.5a.75.75 0 01-1.154.114l-6-6a.75.75 0 011.06-1.06l5.353 5.353 8.493-12.739a.75.75 0 011.04-.208z" clip-rule="evenodd" />
+        </svg>
+    </div>
+
+    {/* Subtle background decoration (Hidden by default) */}
+    <div class="bg-decoration absolute right-0 top-0 -mt-4 -mr-4 w-24 h-24 bg-indigo-100/50 dark:bg-indigo-900/30 rounded-full blur-2xl pointer-events-none hidden"></div>
+</div>

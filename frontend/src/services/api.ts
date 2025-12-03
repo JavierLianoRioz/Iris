@@ -22,7 +22,11 @@ interface User {
 
 export const api = {
     getSubjects: async (): Promise<Subject[]> => {
-        const response = await fetch(`${API_BASE_URL}/subjects`);
+        const response = await fetch(`${API_BASE_URL}/subjects`, {
+            headers: {
+                'ngrok-skip-browser-warning': 'true',
+            },
+        });
         if (!response.ok) {
             throw new Error(`Error fetching subjects: ${response.statusText}`);
         }
@@ -34,6 +38,7 @@ export const api = {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                'ngrok-skip-browser-warning': 'true',
             },
             body: JSON.stringify(userSubscription),
         });
@@ -45,7 +50,11 @@ export const api = {
     },
 
     getUser: async (email: string): Promise<User | null> => {
-        const response = await fetch(`${API_BASE_URL}/users/${email}`);
+        const response = await fetch(`${API_BASE_URL}/users/${email}`, {
+            headers: {
+                'ngrok-skip-browser-warning': 'true',
+            },
+        });
         if (response.status === 404) {
             return null;
         }
@@ -54,4 +63,16 @@ export const api = {
         }
         return response.json();
     },
+
+    deleteUser: async (email: string): Promise<void> => {
+        const response = await fetch(`${API_BASE_URL}/users/${email}`, {
+            method: 'DELETE',
+            headers: {
+                'ngrok-skip-browser-warning': 'true',
+            },
+        });
+        if (!response.ok) {
+            throw new Error('Failed to delete user');
+        }
+    }
 };

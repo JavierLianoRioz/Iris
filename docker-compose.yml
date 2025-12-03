@@ -2,6 +2,7 @@ version: '3.8'
 
 services:
   backend:
+    restart: always
     build: ./backend
     ports:
       - "8000:8000"
@@ -15,8 +16,12 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+    volumes:
+      - ./backend:/app
+
 
   frontend:
+    restart: always
     build: ./frontend
     ports:
       - "4321:4321"
@@ -25,8 +30,13 @@ services:
         condition: service_healthy
     environment:
       - PUBLIC_API_BASE_URL=https://rowan-courtly-milena.ngrok-free.dev/api
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+
 
   n8n:
+    restart: always
     build: ./n8n
     ports:
       - "5678:5678"
@@ -48,6 +58,7 @@ services:
       - n8n_data:/home/node/.n8n
 
   redis:
+    restart: always
     image: redis:alpine
     command: redis-server --appendonly yes
     volumes:
@@ -77,9 +88,10 @@ services:
       - redis
 
   db:
+    restart: always
     image: postgres:16
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - ./pgdata:/var/lib/postgresql/data
       - ./docker/postgres:/docker-entrypoint-initdb.d
     environment:
       - POSTGRES_USER=user
@@ -94,6 +106,7 @@ services:
       retries: 5
 
   pgadmin:
+    restart: always
     image: dpage/pgadmin4
     environment:
       PGADMIN_DEFAULT_EMAIL: admin@admin.com
@@ -104,6 +117,7 @@ services:
       - db
 
   proxy:
+    restart: always
     image: nginx:alpine
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
@@ -115,7 +129,7 @@ services:
 
   ngrok:
     image: ngrok/ngrok:latest
-    restart: unless-stopped
+    restart: always
     command: http proxy:80
     environment:
       NGROK_AUTHTOKEN: ${NGROK_AUTHTOKEN}
@@ -128,7 +142,7 @@ services:
       - default
 
 volumes:
-  postgres_data:
+
   n8n_data:
   redis_data:
   evolution_store:

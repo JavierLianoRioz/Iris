@@ -21,17 +21,17 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col font-['Inter'] antialiased selection:bg-indigo-100 selection:text-indigo-700">
+	<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 min-h-screen flex flex-col font-['Inter'] antialiased selection:bg-indigo-100 selection:text-indigo-700 dark:selection:bg-indigo-900 dark:selection:text-indigo-300">
 		
-		<div class="fixed inset-0 -z-10 h-full w-full bg-white [background:radial-gradient(125%_125%_at_50%_10%,#fff_40%,#63e_100%)] opacity-20"></div>
+		<div class="fixed inset-0 -z-10 h-full w-full bg-white dark:bg-slate-950 [background:radial-gradient(125%_125%_at_50%_10%,#fff_40%,#63e_100%)] dark:[background:radial-gradient(125%_125%_at_50%_10%,#020617_40%,#4338ca_100%)] opacity-20"></div>
 
-		<header class="sticky top-0 z-50 w-full border-b border-slate-200/50 bg-white/80 backdrop-blur-xl transition-all">
+		<header class="sticky top-0 z-50 w-full border-b border-slate-200/50 dark:border-slate-800/50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl transition-all">
 			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
 				<div class="flex items-center gap-3">
 					<div class="w-8 h-8 rounded-xl bg-gradient-to-br from-indigo-600 to-violet-600 flex items-center justify-center shadow-lg shadow-indigo-500/30">
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-white"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
 					</div>
-					<h1 class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-700 tracking-tight">Iris</h1>
+					<h1 class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-700 dark:from-white dark:to-slate-300 tracking-tight">Iris</h1>
 				</div>
 			</div>
 		</header>
@@ -40,15 +40,19 @@ const { title } = Astro.props;
 			<slot />
 		</main>
 
-		<footer class="border-t border-slate-200 bg-white/50 backdrop-blur-sm mt-auto">
+		<footer class="border-t border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-950/50 backdrop-blur-sm mt-auto">
 			<div class="max-w-7xl mx-auto px-4 py-8 flex flex-col items-center justify-center gap-2">
-				<p class="text-slate-500 text-sm font-medium">
+				<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">
 					&copy; {new Date().getFullYear()} Iris System
 				</p>
-				<p class="text-slate-400 text-xs">
+				<p class="text-slate-400 dark:text-slate-600 text-xs">
 					Universidad del Atlántico
 				</p>
 			</div>
 		</footer>
+		<script>
+			// Force Dark Mode
+			document.documentElement.classList.add('dark');
+		</script>
 	</body>
 </html>

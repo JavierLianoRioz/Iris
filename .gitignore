@@ -128,3 +128,4 @@ __pycache__/
 venv/
 *.db
 .pytest_cache/
+pgdata/
