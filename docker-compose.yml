@@ -51,11 +51,12 @@ services:
       - N8N_BASIC_AUTH_USER=admin
       - N8N_BASIC_AUTH_PASSWORD=password
       - N8N_CUSTOM_EXTENSIONS=/home/node/custom-nodes
+      - N8N_ENCRYPTION_KEY=${N8N_ENCRYPTION_KEY}
     depends_on:
       db:
         condition: service_healthy
     volumes:
-      - n8n_data:/home/node/.n8n
+      - ./n8n_data:/home/node/.n8n
 
   redis:
     restart: always
@@ -143,7 +144,7 @@ services:
 
 volumes:
 
-  n8n_data:
+
   redis_data:
   evolution_store:
   evolution_instances:

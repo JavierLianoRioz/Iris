@@ -129,3 +129,4 @@ venv/
 *.db
 .pytest_cache/
 pgdata/
+n8n_data/
