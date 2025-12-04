@@ -63,7 +63,7 @@ services:
     image: redis:alpine
     command: redis-server --appendonly yes
     volumes:
-      - redis_data:/data
+      - ./redis_data:/data
 
   evolution-api:
     image: evoapicloud/evolution-api:v2.2.2
@@ -82,8 +82,8 @@ services:
       - CACHE_REDIS_SAVE_INSTANCES=true
       - CONFIG_SESSION_PHONE_VERSION=${CONFIG_SESSION_PHONE_VERSION}
     volumes:
-      - evolution_store:/evolution/store
-      - evolution_instances:/evolution/instances
+      - ./evolution_store:/evolution/store
+      - ./evolution_instances:/evolution/instances
     depends_on:
       - db
       - redis
@@ -142,9 +142,4 @@ services:
     networks:
       - default
 
-volumes:
 
-
-  redis_data:
-  evolution_store:
-  evolution_instances:
