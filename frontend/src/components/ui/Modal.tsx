@@ -26,7 +26,7 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children, 
   if (!isVisible && !isOpen) return null;
 
   const modalContent = (
-    <div className={`fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 transition-opacity duration-300 ${isOpen ? 'opacity-100' : 'opacity-0'}`}>
+    <div className={`fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 transition-opacity duration-300 ${isOpen ? 'opacity-100' : 'opacity-0'}`}>
       {/* Backdrop */}
       <div
         className="absolute inset-0 bg-slate-900/40 backdrop-blur-sm transition-opacity"

@@ -14,6 +14,7 @@ export default function PhoneOnboarding() {
                         window.location.reload();
                 } catch (error) {
                         console.error("Failed to save phone", error);
+                        alert("Error al guardar el teléfono. Revisa la consola para más detalles.");
                 }
         };
 
