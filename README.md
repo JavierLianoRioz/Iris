@@ -68,8 +68,8 @@ Preciso, elegante y directo.
 
 El desarrollo de Iris es una odisea en sí misma, marcada por eras que definen su evolución.
 
--   **Whisper of the Gods** — *(Fase Actual)*  Fase alfa de comunicación inicial y forja del núcleo del proyecto.
--   **Golden Messenger** — Versión beta, donde Iris expandirá sus habilidades y ganará robustez.
+-   **Whisper of the Gods** — *(Completada)* Fase alfa de comunicación inicial y forja del núcleo del proyecto.
+-   **Golden Messenger** — *(Fase Actual)* Versión beta, donde Iris expandirá sus habilidades y ganará robustez.
 -   **Rainbow Path** — Fase de integración y preparación para su ascensión.
 -   **Celestial Call** — Lanzamiento público con un sistema pulido y listo para una audiencia general.
 
