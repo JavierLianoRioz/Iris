@@ -1,36 +1,17 @@
 version: '3.8'
 
 services:
-  backend:
-    restart: always
-    build: ./backend
-    ports:
-      - "10000:8000"
-    depends_on:
-      db:
-        condition: service_healthy
-    environment:
-      - DATABASE_URL=${DATABASE_URL}
-      - EVOLUTION_API_URL=http://evolution-api:8080
-      - EVOLUTION_API_KEY=${AUTHENTICATION_API_KEY}
-    healthcheck:
-      test: [ "CMD-SHELL", "curl -f http://localhost:8000/" ]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-    volumes:
-      - ./backend:/app
-
   frontend:
     restart: always
     build: ./frontend
     ports:
       - "10001:4321"
     depends_on:
-      backend:
+      db:
         condition: service_healthy
     environment:
-      - PUBLIC_API_BASE_URL=${PUBLIC_API_BASE_URL}
+      - PUBLIC_API_BASE_URL=/api
+      - DATABASE_URL=${DATABASE_URL}
     volumes:
       - ./frontend:/app
       - /app/node_modules
