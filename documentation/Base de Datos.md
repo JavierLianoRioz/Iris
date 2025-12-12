@@ -2,6 +2,7 @@
 erDiagram
     users {
         INTEGER id PK
+        VARCHAR email
         VARCHAR name
         VARCHAR phone
     }
@@ -29,7 +30,7 @@ erDiagram
     %% Relationships
     users ||--o{ user_subjects : "subscribes to"
     subjects ||--o{ user_subjects : "has subscribers"
-    
+
     teachers ||--o{ teacher_subjects : "teaches"
     subjects ||--o{ teacher_subjects : "is taught by"
 ```
