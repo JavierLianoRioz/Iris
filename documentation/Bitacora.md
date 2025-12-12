@@ -13,6 +13,7 @@ Por lo tanto, este documento servirá para llevar un registro de los cambios y d
 Decidido reencarnar el proyecto desde cero, con planificación y sin prisas.
 
 Empezaré creando una serie de documentos que recojan el funcionamiento y planificación del proyecto:
+
 - [Contexto del Sistema](<Contexto del Sistema.md>)
 - [Arquitectura](Arquitectura.md)
 - [Flujo de Suscripción](<Flujo de Suscripcion.md>)
@@ -28,27 +29,31 @@ Detalles completos en: [Logs: Desarrollo Frontend](journal/2025-11-29_Frontend_D
 ### 30/11/2025 - Integración Docker, Evolution API y Correcciones Críticas
 
 #### Infraestructura y DevOps
+
 - **Docker Compose completo**: Configurado entorno completo con 9 servicios (Backend, Frontend, PostgreSQL, n8n, Redis, Evolution API, pgAdmin, Nginx proxy, Ngrok)
 - **Ngrok**: Configurado túnel público con dominio estático (`rowan-courtly-milena.ngrok-free.dev`) para exponer la aplicación
 - **Nginx Proxy**: Implementado proxy reverso para enrutar peticiones a frontend (`/`), backend (`/api/`) y webhooks n8n (`/webhook/`)
 
 #### Evolution API (WhatsApp)
+
 - Integrado Evolution API v2.2.2 para gestión de mensajes de WhatsApp
 - Configuración con PostgreSQL y Redis para persistencia y caché
 - Documentación en `Evolution API.md` con guías de configuración y uso
 
 #### Backend
+
 - Actualizado modelo de usuarios y endpoints para soportar gestión de perfil
 - Endpoint `/users/{email}` para obtener información de usuario registrado
 - Endpoint `/subscribe` para crear/actualizar suscripciones con nombre, teléfono y asignaturas
 - Sistema de sincronización de datos usuario entre Google Auth y base de datos
 
 #### Frontend - Correcciones Críticas
+
 1. **Fix 502 Bad Gateway**: Resuelto error de compilación por imports incorrectos del componente `Modal`
    - Corregido en `PhoneOnboardingModal.tsx` y `EditProfileModal.tsx`
    - Cambiado de default import a named import: `import { Modal } from '../ui/Modal'`
-   
-2. **Fix Lógica de Nombre de Usuario**: 
+2. **Fix Lógica de Nombre de Usuario**:
+
    - Problema: Frontend mostraba nombre de Google en lugar del nombre de la base de datos para usuarios registrados
    - Solución: Actualizado `useUser.ts` para sincronizar el campo `name` desde el backend
    - Ahora el nombre almacenado en la base de datos tiene prioridad sobre el nombre de Google
@@ -59,16 +64,49 @@ Detalles completos en: [Logs: Desarrollo Frontend](journal/2025-11-29_Frontend_D
    - Hook `useSubjects` para manejo de suscripciones
 
 #### Verificación y Deployment
+
 - Actualizado y verificado sistema Docker completo sin errores
 - Todos los servicios funcionando correctamente con health checks
 - URL pública accesible y funcional
 - Merge exitoso de `develop` a `main`
 
 **Commits del día:**
+
 - `1b03d73`: Configuración entorno Docker para integración full stack
 - `0003b15`: Actualización modelo usuario y endpoints backend
 - `11ebe12`: Añadidos servicios ngrok y proxy a docker-compose
 - `5fef809`: Mejoras componentes UI frontend con diseño premium
 - `1cbf417`: Gestión perfil usuario con modales onboarding y edición
 
-**Estado actual**: Sistema completamente funcional con todos los servicios integrados, accesible públicamente vía ngrok, y listo para testing de flujo completo.
+### 09/12/2025 - Correcciones y Mejoras de Infraestructura
+
+**Commits del día:**
+
+- `b866d1f`: Actualización de reglas y documentación.
+- `80bf63f`: Fix Nginx proxy para resolución dinámica de DNS.
+
+### 30/11/2025 - Refactorización de Servicios
+
+**Commits del día:**
+
+- `612ff16`: Refactor: Move subject logic to service layer.
+
+### 12/12/2025 - Actualización de Documentación y Limpieza
+
+Se ha realizado una revisión y actualización de la documentación del proyecto para reflejar el estado actual del sistema, corrigiendo discrepancias en la arquitectura y los puertos utilizados.
+
+**Cambios Realizados:**
+
+- Actualización de `Arquitectura.md`:
+  - Corrección de la tecnología de Frontend a Astro/React.
+  - Actualización de la tabla de puertos para coincidir con `docker-compose.yml`.
+- Actualización de `Bitacora.md`: Inclusión del historial de commits recientes.
+
+**Commits Recientes:**
+
+- `b866d1f`: Actualización de reglas de código limpio y tema oscuro.
+- `0f8abfd`: feat(backend): añadido endpoint para eliminar usuarios.
+- `32c2c87`: Añadido banner al README.
+
+**Estado Actual:**
+El sistema está estabilizado con la integración de Astro en el frontend. La documentación ahora refleja fielmente la infraestructura Dockerizada.
