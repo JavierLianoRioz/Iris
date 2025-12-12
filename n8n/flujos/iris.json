@@ -1,0 +1,1024 @@
+{
+  "name": "Iris",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "iris-correo",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -560,
+        -272
+      ],
+      "id": "2c408083-80a6-44f0-8148-45044facfae8",
+      "name": "Webhook",
+      "webhookId": "6e58356e-624a-455d-a374-fa314c56cc3d",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n\t\"code\": \"XXXXXXX\",\n\t\"error\": false\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        336,
+        -48
+      ],
+      "id": "ed41d137-1042-496d-926c-5fe0b69caaf5",
+      "name": "Structured Output Parser"
+    },
+    {
+      "parameters": {
+        "resource": "messages-api",
+        "instanceName": "iris",
+        "remoteJid": "={{ $json.phone }}",
+        "messageText": "={{ $('Redactor de texto').item.json.output }}\n\nMENSAJE ORIGINAL: {{ $('Extractor de url').item.json.output.url }}",
+        "options_message": {}
+      },
+      "type": "CUSTOM.evolutionApi",
+      "typeVersion": 1,
+      "position": [
+        2144,
+        -272
+      ],
+      "id": "be62c814-5951-4aa6-b69f-dd531e109a3b",
+      "name": "Enviar texto",
+      "retryOnFail": true,
+      "executeOnce": false,
+      "credentials": {
+        "evolutionApi": {
+          "id": "T7mqbm5QDviDjuzn",
+          "name": "Evolution account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT u.id, u.phone, u.name\nFROM users u\nJOIN user_subjects us ON u.id = us.user_id\nWHERE us.subject_code = '{{ $('Extractor de asignatura').item.json.output.code }}';",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        1920,
+        -272
+      ],
+      "id": "e0237ffd-497d-498a-982d-4249a3251953",
+      "name": "Get users where subject",
+      "credentials": {
+        "postgres": {
+          "id": "w8ulM5CTdc8r3obb",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=ASUNTO: {{ $('Correo').item.json.asunto }}",
+        "hasOutputParser": true,
+        "needsFallback": true,
+        "options": {
+          "systemMessage": "Tu trabajo es simple. Debes acceder a los codigos de clase y compararlo con el dado en el asunto, si el asunto no contiene un código como los de las bases de datos debes marcar como error.\n\nPara realizar mejor tu trabajo te brindamos de las siguientes herramientas:\n\n- Get code and name from Subjects: Que te servirá para hacer la querry de `SELECT code, name FROM subjects`"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        128,
+        -272
+      ],
+      "id": "edc18116-c94e-458c-b1d9-99262b67b170",
+      "name": "Extractor de asignatura",
+      "retryOnFail": true,
+      "executeOnce": false,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=ASUNTO: {{ $('Correo').item.json.asunto }}\nCLASE: {{ $json.name }}\nREMITENTE: {{ $('Correo').item.json.remitente }}\nMENSAJE:  {{ $('Correo').item.json.cuerpo }}",
+        "needsFallback": true,
+        "options": {
+          "systemMessage": "Contexto y Rol\nEres **Iris**, una asistente con el propósito es recoger la información que te pide el usuario y responderle si es que es posible con las herramientas que tienes Tu objetivo es sintetizar correos en mensajes visualmente perfectos, respetando estrictamente la sintaxis de formato de la aplicación.\n\n### Especificaciones de Tono y Estilo\n- **Tono:** Muy cercano, coloquial, positivo y breve. Eres \"maja\" por naturaleza.\n- **Estilo:** Mensajería instantánea. Respuestas directas, ágiles y fáciles de leer en una pantalla móvil.\n- **Emojis:** Úsalos moderadamente para dar calidez (📚, ✨, 🤓, 💪), pero sin saturar.\n\nEntrada\nRecibirás un texto (correo) y una tabla de mapeo `Código-Asignatura`.\n\nReglas de Formato WhatsApp (ESTRICTO)\n1. Negrita: Usa un solo asterisco rodeando el texto (ej: *Texto importante*). NUNCA uses doble asterisco (**).\n2. Cursiva: Usa guiones bajos rodeando el texto para títulos de libros o notas suaves (ej: _Nombre del libro_).\n3. Listas: Usa siempre un guion medio y un espacio (- ) para los puntos. No uses asteriscos para listar.\n4. Espaciado: Deja siempre una línea vacía entre bloques para facilitar la lectura.\n\nInstrucciones de Procesamiento\n1. Parsing de Asignatura: Busca el código (ej: IYA022) y reemplázalo por el nombre completo según la tabla. Si no tienes tabla, mantén el código pero quita caracteres extraños.\n2. Síntesis Inteligente: Agrupa la información. Si el profesor pide algo en el texto y luego lo repite al final, ponlo solo una vez en la sección de acción.\n3. Integración de Datos: No separes los datos clave. (Ej: Si hay un libro, pon título y signatura en la misma línea).\n\nEstructura de Salida\nDebes generar ÚNICAMENTE el siguiente bloque:\n\n*Resumen*: [Pequeña descripción en tipo resumen]\n\n📢 *Novedades*\n- [Resumen de clases, temas o avisos informativos]\n- 📖 [Info de libros/material] (Usa _cursiva_ para el título del libro)\n\n⚡ *Para hacer*\n- ✅ [Tareas de verificación o entregas normales]\n- ⚠️ [Fechas límite urgentes o advertencias críticas]\n- (Si no hay acciones requeridas, omite este bloque entero)"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        1328,
+        -272
+      ],
+      "id": "ca93e095-7317-4347-8c15-9262ffd7bc13",
+      "name": "Redactor de texto"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=TEXTO:  {{ $('Correo').item.json.cuerpo }}",
+        "hasOutputParser": true,
+        "needsFallback": true,
+        "options": {
+          "systemMessage": "# Rol\n\nEres un **Experto en Minería de Textos y Procesamiento de Enlaces**. Tu especialidad es analizar notificaciones de plataformas educativas (Moodle) para extraer direcciones URL críticas ignorando el contenido administrativo.\n\n# Tarea\n\nTu único objetivo es identificar y extraer la **URL del hilo de discusión original** contenida en el cuerpo del texto proporcionado.\n\n# Reglas de Extracción\n\nPara considerar una URL como válida, debes aplicar estrictamente la siguiente lógica:\n\n1.  **Patrón Obligatorio (Whitelist):**\n\n      * Busca la línea que contenga: `https://campus.uneatlantico.es/mod/forum/discuss.php`\n      * La URL debe incluir sus parámetros completos (ej: `?d=...`) y anclas al final (ej: `#p...`).\n\n2.  **Patrones a Ignorar (Blacklist):**\n\n      * Ignora cualquier enlace que contenga `subscribe.php` (enlaces de suscripción/baja).\n      * Ignora cualquier enlace que contenga `index.php` (índices o preferencias).\n      * Ignora cualquier enlace a perfiles de usuario (`user/view.php`).\n\n# Ejemplos de Entrenamiento (Few-Shot)\n\n**Ejemplo 1:**\n*Input:*\n\n> \"IYA022... [https://campus.uneatlantico.es/mod/forum/discuss.php?d=2342\\#p2799](https://campus.uneatlantico.es/mod/forum/discuss.php?d=2342#p2799) ... Dar de baja: [https://campus.uneatlantico.es/mod/forum/subscribe.php](https://www.google.com/search?q=https://campus.uneatlantico.es/mod/forum/subscribe.php)...\"\n> *Output:*\n> `https://campus.uneatlantico.es/mod/forum/discuss.php?d=2342#p2799`\n\n**Ejemplo 2:**\n*Input:*\n\n> \"Fecha de examen parcial ... [https://campus.uneatlantico.es/mod/forum/discuss.php?d=52147\\#p98978](https://campus.uneatlantico.es/mod/forum/discuss.php?d=52147#p98978) ... Cambiar sus preferencias de resumen del foro: [https://campus.uneatlantico.es/mod/forum/index.php?id=3447](https://campus.uneatlantico.es/mod/forum/index.php?id=3447)\"\n> *Output:*\n> `https://campus.uneatlantico.es/mod/forum/discuss.php?d=52147#p98978`"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        752,
+        -288
+      ],
+      "id": "c135ace4-46c5-4140-9cd4-c35bb1dfdf0f",
+      "name": "Extractor de url",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "model": "={{ $json.id[0] }}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        -32,
+        64
+      ],
+      "id": "694a2808-0b45-4dac-aa24-2be95ee3e0d1",
+      "name": "Free model",
+      "credentials": {
+        "openRouterApi": {
+          "id": "PLltTo4VMZWq50Rt",
+          "name": "OpenRouter account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n\t\"url\" : \"inserta aquí la url\"\n}",
+        "autoFix": true
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        960,
+        -48
+      ],
+      "id": "a9de75d1-78d4-4e39-804e-8463258e07bb",
+      "name": "Structured Output Parser1"
+    },
+    {
+      "parameters": {
+        "content": "# Flujo principal de trabajo",
+        "height": 672,
+        "width": 3504
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -672,
+        -448
+      ],
+      "typeVersion": 1,
+      "id": "24da98b5-7478-4397-b577-ad3cb30fc84f",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "02b5dd31-36d3-4a16-b3af-37de7f5e5e03",
+              "name": "d_mensaje",
+              "value": "={{ $json.body.id_mensaje }}",
+              "type": "string"
+            },
+            {
+              "id": "cd3e4ca9-d272-4121-bd7b-3430d704a221",
+              "name": "asunto",
+              "value": "={{ $json.body.asunto }}",
+              "type": "string"
+            },
+            {
+              "id": "a48a1f50-6430-44ac-bba6-1f1318d36b99",
+              "name": "remitente",
+              "value": "={{ $json.body.remitente }}",
+              "type": "string"
+            },
+            {
+              "id": "9755501b-575b-4ca5-b7a7-6f3e0bbad807",
+              "name": "cuerpo",
+              "value": "={{\n  (() => {\n    const cuerpo = $json.body.cuerpo || \"\";\n    const parts = cuerpo.split('---------------------------------------------------------------------');\n    // parts[0] = cabecera + enlace\n    // parts[1] = mensaje del profe\n    const nuevo = parts[0] + '---------------------------------------------------------------------' + parts[1];\n    return nuevo.trim();\n  })()\n}}\n",
+              "type": "string"
+            },
+            {
+              "id": "48634152-b0f2-46ee-99ee-44eb42f791e8",
+              "name": "fecha",
+              "value": "={{ $json.body.fecha }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -336,
+        -272
+      ],
+      "id": "11b4e8ed-42a4-4548-a6e0-779f6f219ead",
+      "name": "Correo"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "8a274b3c-198b-4004-a110-9f766f084bb4",
+              "leftValue": "={{ $json.output.error }}",
+              "rightValue": false,
+              "operator": {
+                "type": "boolean",
+                "operation": "false",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        512,
+        -288
+      ],
+      "id": "a501b541-01f0-44f9-8671-5a6897d1b80f",
+      "name": "Error Handler"
+    },
+    {
+      "parameters": {
+        "content": "## Recoger appscript webhook",
+        "height": 240,
+        "width": 432,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -624,
+        -336
+      ],
+      "typeVersion": 1,
+      "id": "11bbb56d-15b3-4934-97c0-68488aad6ee1",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "## Formateador de texto",
+        "height": 480,
+        "width": 1568,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        32,
+        -336
+      ],
+      "typeVersion": 1,
+      "id": "556b7d5c-8354-41a2-865b-0293f3663a13",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {
+        "content": "## Enviar mensaje a cada contacto",
+        "height": 240,
+        "width": 976,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1824,
+        -336
+      ],
+      "typeVersion": 1,
+      "id": "e361aa1a-3c5b-4111-ba61-d4bc362e4533",
+      "name": "Sticky Note4"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "JOIXZ6Bre7ldeVSX",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/JOIXZ6Bre7ldeVSX",
+          "cachedResultName": "extraer modelos gratuitos de openrouter"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -128,
+        -272
+      ],
+      "name": "extraer modelos gratuitos de openrouter",
+      "id": "5045c5ea-105e-490a-9e29-da8fdd64e11a"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "iris-evolution",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -592,
+        544
+      ],
+      "id": "dcaa3bb2-6724-4c0a-b609-70c0464259ab",
+      "name": "Recibir mensajes",
+      "webhookId": "8cc8d567-7cc6-4c4e-b068-435196e5a7dc"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "4d3e74d8-7005-46fb-83ca-b43b3772c6a4",
+              "name": "numero",
+              "value": "={{ $json.body.data.key.remoteJid.split('@')[0] }}",
+              "type": "string"
+            },
+            {
+              "id": "93ca6193-e2ab-4478-9d4e-7be5903278db",
+              "name": "mensaje",
+              "value": "={{ $json.body.data.message.conversation }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -368,
+        544
+      ],
+      "id": "3af89228-c109-496b-9d65-a38916894c19",
+      "name": "numero y mensaje"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT name \nFROM subjects\nWHERE code = '{{ $('Extractor de asignatura').item.json.output.code }}';",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        1120,
+        -272
+      ],
+      "id": "08197cfb-b1e1-4036-8bca-7f7793a89c4c",
+      "name": "Execute a SQL query",
+      "credentials": {
+        "postgres": {
+          "id": "w8ulM5CTdc8r3obb",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "JOIXZ6Bre7ldeVSX",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/JOIXZ6Bre7ldeVSX",
+          "cachedResultName": "extraer modelos gratuitos de openrouter"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -144,
+        544
+      ],
+      "name": "extraer modelos gratuitos de openrouter1",
+      "id": "bfdead82-64a0-4160-bc75-a2525302efe7"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('numero y mensaje').item.json.mensaje }}",
+        "needsFallback": true,
+        "options": {
+          "systemMessage": "### Contexto y Rol\nEres **Iris**, una asistente con el propósito es recoger la información que te pide el usuario y responderle si es que es posible con las herramientas que tienes.\n\n### Especificaciones de Tono y Estilo\n- **Tono:** Muy cercano, coloquial, positivo y breve. Eres \"maja\" por naturaleza.\n- **Estilo:** Mensajería instantánea. Respuestas directas, ágiles y fáciles de leer en una pantalla móvil.\n- **Emojis:** Úsalos moderadamente para dar calidez (📚, ✨, 🤓, 💪), pero sin saturar.\n\n### Reglas de Formato WhatsApp (ESTRICTO)\nDebes formatear **toda** tu salida siguiendo estrictamente estas reglas visuales para simular la app:\n\n1.  *Negrita:* Usa UN SOLO asterisco rodeando el texto para resaltar palabras clave.\n    -   *Correcto:* *Concepto clave*\n    -   *Prohibido:* **Concepto clave**\n2.  _Cursiva:_ Usa guiones bajos para títulos o notas al margen.\n    -   *Ejemplo:* _El Quijote_\n3.  *Listas:* Usa siempre un guion medio y un espacio para enumerar.\n    -   *Correcto:* - Primer punto\n    -   *Prohibido:* * Primer punto, 1. Primer punto\n4.  *Espaciado:* Es vital que dejes UNA LÍNEA VACÍA entre cada bloque de texto o párrafo para que la lectura \"respire\".\n5.  *Longitud:* Evita los \"muros de texto\". Divide la información en bloques cortos.\n\n### Reglas de uso de las herramientas\n\nSi no es necesario utilizar la herramienta o el usuario no te lo pide ¡NO LO UTILICES! Si te pone un hola, para que va a querer que le respondas con la lista de tareas que tenga que hacer???!!! Si que puedes usar el catalogo de herramientas para decirle que puedes hacer, si es que te pide información de que tienes que hacer, pero no respondas y utilices herramientas por utilizar.\n\n### Protocolo de Respuesta (Fallback)\n\nSi no tienes la información necesaria o no sabes cómo responder, NO inventes. Debes responder estrictamente con la siguiente frase: \"no tengo mucha idea de como responder a eso, escribe a +34 622 21 12 46 para resolver tu duda o que me ayude a mejorar 💖\""
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        64,
+        544
+      ],
+      "id": "edd9a64f-5196-4598-b3a1-3296be6fcc41",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('numero y mensaje').item.json.numero }}",
+        "contextWindowLength": 10
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryPostgresChat",
+      "typeVersion": 1.3,
+      "position": [
+        -144,
+        848
+      ],
+      "id": "d9cda9cd-c729-492f-8e23-0a7ad0abf73c",
+      "name": "Postgres Chat Memory",
+      "credentials": {
+        "postgres": {
+          "id": "w8ulM5CTdc8r3obb",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "Recoger las asignaturas a las que el usuario esté suscrito",
+        "operation": "executeQuery",
+        "query": "SELECT s.name \nFROM subjects s \nJOIN user_subjects us ON s.code = us.subject_code \nJOIN users u ON u.id = us.user_id \nWHERE u.phone = '{{ $('numero y mensaje').item.json.numero }}';",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgresTool",
+      "typeVersion": 2.6,
+      "position": [
+        480,
+        848
+      ],
+      "id": "1b9eecaf-84ac-43bc-99dd-71405ed7a5e9",
+      "name": "Recoger asignaturas usuario",
+      "credentials": {
+        "postgres": {
+          "id": "w8ulM5CTdc8r3obb",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT code\nFROM subjects",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgresTool",
+      "typeVersion": 2.6,
+      "position": [
+        208,
+        -48
+      ],
+      "id": "6c74038c-ec4d-44f1-8667-7d2cd56ea5ea",
+      "name": "Get code from Subjects",
+      "credentials": {
+        "postgres": {
+          "id": "w8ulM5CTdc8r3obb",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "={{ $json.id[1] }}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        96,
+        64
+      ],
+      "id": "a94325d6-63c2-497d-8f53-125ae066e94c",
+      "name": "Free model1",
+      "credentials": {
+        "openRouterApi": {
+          "id": "PLltTo4VMZWq50Rt",
+          "name": "OpenRouter account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "messages-api",
+        "instanceName": "iris",
+        "remoteJid": "={{ $('numero y mensaje').item.json.numero }}",
+        "messageText": "={{ $json.output }}",
+        "options_message": {}
+      },
+      "type": "CUSTOM.evolutionApi",
+      "typeVersion": 1,
+      "position": [
+        416,
+        544
+      ],
+      "id": "17a03e5d-78ca-41db-88c8-d1f1b7eef877",
+      "name": "Enviar texto1",
+      "credentials": {
+        "evolutionApi": {
+          "id": "T7mqbm5QDviDjuzn",
+          "name": "Evolution account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "mensajes_enviados",
+          "mode": "list",
+          "cachedResultName": "mensajes_enviados"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "mensaje_id": "={{ $('Guardar Log en BD1').item.json.id }}",
+            "user_id": "={{ $('Get users where subject').item.json.id }}",
+            "fecha_envio": "={{ $json.currentDate }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "mensaje_id",
+              "displayName": "mensaje_id",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "user_id",
+              "displayName": "user_id",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "fecha_envio",
+              "displayName": "fecha_envio",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        2560,
+        -272
+      ],
+      "id": "0b6021fc-bbf1-4169-9f33-2077e28ccc1e",
+      "name": "Guardar Log en BD",
+      "credentials": {
+        "postgres": {
+          "id": "w8ulM5CTdc8r3obb",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "INSERT INTO mensajes (remitente, asunto, cuerpo, mensaje_formateado)\nVALUES (\n  '{{ $('Correo').item.json.remitente }}',\n  '{{ $('Correo').item.json.asunto }}',\n  '{{ $('Correo').item.json.cuerpo }}',\n  '{{ $json.output }}'\n)\nRETURNING id;",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        1664,
+        -272
+      ],
+      "id": "625cf815-94e2-41f7-b972-b711daee3089",
+      "name": "Guardar Log en BD1",
+      "credentials": {
+        "postgres": {
+          "id": "w8ulM5CTdc8r3obb",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.dateTime",
+      "typeVersion": 2,
+      "position": [
+        2352,
+        -272
+      ],
+      "id": "0f352933-1c94-403d-b0c1-d0240ba70db5",
+      "name": "Date & Time"
+    }
+  ],
+  "pinData": {
+    "Webhook": [
+      {
+        "json": {
+          "headers": {
+            "host": "rowan-courtly-milena.ngrok-free.dev",
+            "x-real-ip": "172.19.0.2",
+            "x-forwarded-for": "77.243.87.64, 34.116.22.104, 172.19.0.2",
+            "x-forwarded-proto": "http",
+            "connection": "close",
+            "content-length": "1950",
+            "user-agent": "Mozilla/5.0 (compatible; Google-Apps-Script; beanserver; +https://script.google.com; id: UAEmdDd-YWk8-H6dYY8U7mo1vY7crbVczpA)",
+            "accept-encoding": "gzip, deflate, br",
+            "content-type": "application/json",
+            "x-forwarded-host": "rowan-courtly-milena.ngrok-free.dev"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "asunto": "IYA022-V2016||2025: Semana 14: 10 y 11 de diciembre",
+            "remitente": "\"Mariano Benito Hoz (vía UNEATLANTICO)\" <noreply@uneatlantico.es>",
+            "cuerpo": "\r\nIYA022-V2016||2025 -> Foros -> Comunicaciones docentes -> Semana 14: 10 y\r\n11 de diciembre\r\nhttps://campus.uneatlantico.es/mod/forum/discuss.php?d=2836#p3345\r\nSemana 14: 10 y 11 de diciembre\r\nde Mariano Benito Hoz - martes, 9 de diciembre de 2025, 11:03\r\n---------------------------------------------------------------------\r\n¡Buenas!\r\n\r\nEsta semana tenemos la práctica 6 y la cuarta sesión de la práctica 8.\r\nComo siempre, el miércoles el grupo 1 de prácticas realiza la práctica 6\r\ny el jueves la realizará el grupo 2.\r\n\r\nLos alumnos de segunda convocatoria PUEDEN no asistir a la práctica 6 y\r\nguardarán la nota de la práctica 5 del año pasado siempre que suban la\r\nmemoria de la práctica. Respecto a esto, el apartado 4.6.c lo podéis\r\nhacer con cualquier captura de tráfico realizada desde vuestra casa. Os\r\ninformo que hay una parte de la práctica que es nueva, este año ven port\r\nmirroring aunque es suficiente con que leáis la información que os\r\npresento en la introducción y la entendáis. No obstante, si tenéis\r\ncualquier duda de esta parte o queréis realizar la práctica, sois\r\nbienvenidos.\r\n\r\nOs deseo una buena semana.\r\n\r\nUn saludo,\r\nMariano B.\r\n\r\n---------------------------------------------------------------------\r\nEsta es una copia del mensaje publicado en IYA022-V2016||2025.\r\n\r\nDar de baja mi suscripción al foro:\r\nhttps://campus.uneatlantico.es/mod/forum/subscribe.php?id=6254\r\nDar de baja mi suscripción a la discusión:\r\nhttps://campus.uneatlantico.es/mod/forum/subscribe.php?id=6254&d=2836\r\nCambiar sus preferencias de resumen del foro:\r\nhttps://campus.uneatlantico.es/mod/forum/index.php?id=1572\r\n",
+            "fecha": "2025-12-09T10:05:05.000Z",
+            "id_mensaje": "19b0292613d67690"
+          },
+          "webhookUrl": "http://localhost:5678/webhook/iris-correo",
+          "executionMode": "production"
+        }
+      }
+    ],
+    "Get users where subject": [
+      {
+        "json": {
+          "id": 8,
+          "phone": "34622211246",
+          "name": "Javier Liaño Rioz"
+        }
+      }
+    ]
+  },
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Correo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Extractor de asignatura",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get users where subject": {
+      "main": [
+        [
+          {
+            "node": "Enviar texto",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extractor de asignatura": {
+      "main": [
+        [
+          {
+            "node": "Error Handler",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Redactor de texto": {
+      "main": [
+        [
+          {
+            "node": "Guardar Log en BD1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extractor de url": {
+      "main": [
+        [
+          {
+            "node": "Execute a SQL query",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Free model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Extractor de asignatura",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "Extractor de url",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "Redactor de texto",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "Structured Output Parser1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser1": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Extractor de url",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Correo": {
+      "main": [
+        [
+          {
+            "node": "extraer modelos gratuitos de openrouter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Error Handler": {
+      "main": [
+        [
+          {
+            "node": "Extractor de url",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "extraer modelos gratuitos de openrouter": {
+      "main": [
+        [
+          {
+            "node": "Extractor de asignatura",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Recibir mensajes": {
+      "main": [
+        [
+          {
+            "node": "numero y mensaje",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute a SQL query": {
+      "main": [
+        [
+          {
+            "node": "Redactor de texto",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "numero y mensaje": {
+      "main": [
+        [
+          {
+            "node": "extraer modelos gratuitos de openrouter1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "extraer modelos gratuitos de openrouter1": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Postgres Chat Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Recoger asignaturas usuario": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get code from Subjects": {
+      "ai_tool": [
+        [
+          {
+            "node": "Extractor de asignatura",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Free model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Extractor de asignatura",
+            "type": "ai_languageModel",
+            "index": 1
+          },
+          {
+            "node": "Extractor de url",
+            "type": "ai_languageModel",
+            "index": 1
+          },
+          {
+            "node": "Redactor de texto",
+            "type": "ai_languageModel",
+            "index": 1
+          },
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Enviar texto1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enviar texto": {
+      "main": [
+        [
+          {
+            "node": "Date & Time",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Guardar Log en BD1": {
+      "main": [
+        [
+          {
+            "node": "Get users where subject",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Date & Time": {
+      "main": [
+        [
+          {
+            "node": "Guardar Log en BD",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "fa9c25be-3215-4f7d-a0b7-7e0863089999",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "1e9872c0492489315110fe305fd3dc9029088192d491513d6b36fc4d654c5913"
+  },
+  "id": "041wy5NUcfC72mIj",
+  "tags": []
+}

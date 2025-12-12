@@ -1,0 +1,179 @@
+{
+  "name": "extraer modelos gratuitos de openrouter",
+  "nodes": [
+    {
+      "parameters": {
+        "fieldToSplitOut": "data",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        112,
+        -272
+      ],
+      "id": "9e45f03f-5348-4336-8358-2fa379259e98",
+      "name": "Split Out"
+    },
+    {
+      "parameters": {
+        "url": "https://openrouter.ai/api/v1/models",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        -112,
+        -272
+      ],
+      "id": "7bd8dba8-6a10-4a84-9ed1-a1aeaabe6eb6",
+      "name": "Request de modelos a openrouter"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "36a6b51f-f7e7-4f11-a433-52a7acad8d75",
+              "leftValue": "={{ $json.id }}",
+              "rightValue": ":free",
+              "operator": {
+                "type": "string",
+                "operation": "endsWith"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        336,
+        -272
+      ],
+      "id": "763c8b9d-74b5-493c-9127-52d1f006b4ca",
+      "name": "Sacar modelos gratuitos",
+      "executeOnce": false
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        560,
+        -272
+      ],
+      "id": "8daf0197-3361-452f-8fd5-4aeabdb1d55b",
+      "name": "Devolver solo uno de los modelos gratuitos"
+    },
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "id": "bd519f50-f5b4-46d7-81b4-f683e1cbbceb",
+      "typeVersion": 1.1,
+      "name": "Start",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "position": [
+        -320,
+        -272
+      ]
+    },
+    {
+      "parameters": {
+        "fieldsToAggregate": {
+          "fieldToAggregate": [
+            {
+              "fieldToAggregate": "id"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        816,
+        -272
+      ],
+      "id": "be8880bf-d4cb-4d10-b979-968f5928ca21",
+      "name": "Aggregate"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Split Out": {
+      "main": [
+        [
+          {
+            "node": "Sacar modelos gratuitos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Request de modelos a openrouter": {
+      "main": [
+        [
+          {
+            "node": "Split Out",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sacar modelos gratuitos": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "Start": {
+      "main": [
+        [
+          {
+            "node": "Request de modelos a openrouter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Devolver solo uno de los modelos gratuitos": {
+      "main": [
+        []
+      ]
+    },
+    "Aggregate": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "9d456a88-ba1e-4247-80cc-f6b5d72124de",
+  "meta": {
+    "instanceId": "1e9872c0492489315110fe305fd3dc9029088192d491513d6b36fc4d654c5913"
+  },
+  "id": "JOIXZ6Bre7ldeVSX",
+  "tags": []
+}
