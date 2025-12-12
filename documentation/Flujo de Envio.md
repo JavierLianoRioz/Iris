@@ -2,36 +2,39 @@
 sequenceDiagram
     autonumber
     %% Actores
-    participant Email as "Gmail Universidad"
-    participant Trigger as "Email Trigger<br/>(Script/Forwarder)"
-    participant n8n as "n8n Orchestrator"
+    participant Email as "Gmail (Script)"
+    participant Webhook as "n8n Webhook"
+    participant Agent as "AI Agent (n8n)"
     participant DB as "PostgreSQL"
-    participant LLM as "OpenRouter (IA)"
     participant Evo as "Evolution API"
     participant Whatsapp as "WhatsApp Alumno"
 
-    %% 1. El detonante
-    Note over Email, n8n: A. Ingesta del Correo
-    Email->>Trigger: Nuevo correo etiquetado "IRIS"
-    Trigger->>n8n: POST Webhook<br/>(Cuerpo, Asunto, Remitente)
-    
-    activate n8n
-    
-    %% 2. Buscar a quién enviar (Tu punto C)
-    Note over n8n, DB: C. Obtener Audiencia
-    n8n->>DB: SELECT numbers FROM subs<br/>WHERE subject = Asignatura_Detectada
-    DB-->>n8n: Lista: [+34600..., +34611...]
+    %% 1. Ingesta
+    Note over Email, Webhook: 1. Polling & Trigger (Google Apps Script)
+    Email->>Email: Buscar label:IRIS -label:IRIS-LEIDO
+    Email->>Webhook: POST /webhook/iris-correo<br/>{asunto, remitente, cuerpo, fecha, id_mensaje}
 
-    %% 3. La IA trabaja (Tu punto D)
-    Note over n8n, LLM: D. Transformación del Mensaje
-    n8n->>LLM: Prompt: "Reescribe esto claro y conciso..."
-    LLM-->>n8n: Texto: "Examen mañana aula 2..."
+    activate Webhook
 
-    %% 4. El envío masivo (Tu punto E)
-    Note over n8n, Whatsapp: E. Bucle de Envío
-    loop Para cada número en la Lista
-        n8n->>Evo: POST /message/sendText<br/>{phone, text}
-        Evo->>Whatsapp: 🔔 Mensaje Final
+    Note right of Email: Si 200 OK:<br/>Asignar label:IRIS-LEIDO
+
+    %% 2. Proceso AI
+    Note over Webhook, Agent: 2. Análisis y Transformación
+    Webhook->>Agent: Pasa contenido del correo
+    Agent->>Agent: Seleccionar Modelo Free (OpenRouter)
+    Agent->>Agent: Structured Output Parser<br/>(Extraer Asignatura, Resumen)
+
+    %% 3. Audiencia
+    Note over Agent, DB: 3. Obtener Destinatarios
+    Agent->>DB: SELECT phone FROM users...
+    DB-->>Agent: Lista [+34600...]
+
+    %% 4. Envío
+    Note over Agent, Whatsapp: 4. Dispatch
+    loop Para cada número
+        Agent->>Evo: POST /message/sendText<br/>{phone, cleaned_text}
+        Evo->>Whatsapp: 🔔 Notificación
     end
-    
-    deactivate n8n
+
+    deactivate Webhook
+```
