@@ -98,9 +98,10 @@ Se ha realizado una revisión y actualización de la documentación del proyecto
 **Cambios Realizados:**
 
 - Actualización de `Arquitectura.md`:
-  - Corrección de la tecnología de Frontend a Astro/React.
-  - Actualización de la tabla de puertos para coincidir con `docker-compose.yml`.
-- Actualización de `Bitacora.md`: Inclusión del historial de commits recientes.
+  - Inclusión de capa Gateway (Ngrok + Nginx) en diagrama y tabla de puertos.
+  - Actualización de la tabla de puertos para reflejar todos los servicios.
+- Actualización de `README.md`: Mención explicita de Nginx en el resumen de arquitectura.
+- Actualización de `Bitacora.md`: Registro de cambios.
 
 **Commits Recientes:**
 
