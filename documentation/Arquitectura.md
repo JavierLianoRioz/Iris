@@ -16,10 +16,9 @@ graph TD
             Proxy["Nginx Reverse Proxy"]:::network
         end
 
-        %% Bloque Web (Suscripción)
-        subgraph Web_Stack ["Stack de Suscripción"]
-            Frontend["Frontend (Astro/React)"]:::front
-            Backend["FastAPI Backend"]:::docker
+        %% Bloque Web & API (Suscripción)
+        subgraph Web_Stack ["Stack Fullstack"]
+            Frontend["Frontend + API (Astro SSR)"]:::front
         end
 
         %% Bloque Lógico (Procesamiento)
@@ -55,12 +54,12 @@ graph TD
 
     %% Enrutamiento Interno
     Proxy -- "/ (Root) -> 4321" --> Frontend
-    Proxy -- "/api/* -> 8000" --> Backend
+    Proxy -- "/api/* -> 4321" --> Frontend
     Proxy -- "/webhook/* -> 5678" --> Webhook
 
     %% Interacciones Internas
-    Frontend -- "Internal API Calls" --> Proxy
-    Backend -- "Upsert User & Link Subjects" --> PG
+    Frontend -- "Internal API Calls (SSR)" --> Proxy
+    Frontend -- "Drizzle ORM Query" --> PG
 
     %% Automation Flow
     Webhook --> AIAgent
@@ -81,16 +80,15 @@ graph TD
 
 Para facilitar el desarrollo y evitar conflictos, se establece la siguiente asignación de puertos para los servicios en entorno local (Docker Host):
 
-| Servicio          | Tecnología       | Puerto Interno (Container) | Puerto Externo (Host) | Descripción                                            |
-| :---------------- | :--------------- | :------------------------- | :-------------------- | :----------------------------------------------------- |
-| **Proxy**         | Nginx            | `80`                       | -                     | Reverse Proxy y Gateway principal (Acceso vía Ngrok).  |
-| **Frontend**      | Astro + React    | `4321`                     | **10001**             | Interfaz de usuario web (Dev/Preview).                 |
-| **Backend**       | FastAPI (Python) | `8000`                     | **10000**             | API REST principal.                                    |
-| **Base de Datos** | PostgreSQL       | `5432`                     | **10004**             | Persistencia de datos relacional.                      |
-| **Orquestador**   | n8n              | `5678`                     | **10002**             | Automatización de flujos y Webhooks.                   |
-| **WhatsApp API**  | Evolution API    | `8080`                     | **10003**             | Gateway de WhatsApp.                                   |
-| **Cache**         | Redis            | `6379`                     | -                     | Cola de mensajes y caché (Solo uso interno).           |
-| **PgAdmin**       | PgAdmin 4        | `80`                       | **10005**             | Interfaz de administración de base de datos.           |
-| **Ngrok**         | Ngrok            | `4040`                     | **10006**             | Túnel seguro exponiendo el **Proxy (Nginx)** al mundo. |
+| Servicio          | Tecnología    | Puerto Interno (Container) | Puerto Externo (Host) | Descripción                                            |
+| :---------------- | :------------ | :------------------------- | :-------------------- | :----------------------------------------------------- |
+| **Proxy**         | Nginx         | `80`                       | -                     | Reverse Proxy y Gateway principal (Acceso vía Ngrok).  |
+| **Frontend**      | Astro (SSR)   | `4321`                     | **10001**             | Fullstack: UI + API REST.                              |
+| **Base de Datos** | PostgreSQL    | `5432`                     | **10004**             | Persistencia de datos relacional.                      |
+| **Orquestador**   | n8n           | `5678`                     | **10002**             | Automatización de flujos y Webhooks.                   |
+| **WhatsApp API**  | Evolution API | `8080`                     | **10003**             | Gateway de WhatsApp.                                   |
+| **Cache**         | Redis         | `6379`                     | -                     | Cola de mensajes y caché (Solo uso interno).           |
+| **PgAdmin**       | PgAdmin 4     | `80`                       | **10005**             | Interfaz de administración de base de datos.           |
+| **Ngrok**         | Ngrok         | `4040`                     | **10006**             | Túnel seguro exponiendo el **Proxy (Nginx)** al mundo. |
 
 _Nota: Asegúrese de que estos puertos no estén ocupados por otros servicios en su máquina local antes de levantar el entorno. Los servicios marcados con "-" en el puerto externo no deben ser expuestos al host por seguridad o porque se accede a ellos a través de otro servicio (como Ngrok o Proxy)._

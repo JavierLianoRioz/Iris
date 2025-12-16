@@ -110,4 +110,67 @@ Se ha realizado una revisión y actualización de la documentación del proyecto
 - `32c2c87`: Añadido banner al README.
 
 **Estado Actual:**
-El sistema está estabilizado con la integración de Astro en el frontend. La documentación ahora refleja fielmente la infraestructura Dockerizada.
+
+### 12/12/2025 - Gran Migración a AstroJS Fullstack
+
+Se ha completado una reestructuración mayor de la arquitectura del proyecto, eliminando el servicio de backend en Python (FastAPI) y consolidando toda la lógica en el Frontend con AstroJS (SSR).
+
+**Cambios Principales:**
+
+1.  **Unificación del Stack**:
+
+    - Backend Python eliminado.
+    - Frontend ahora maneja la API REST y la conexión a Base de Datos.
+    - Uso de **Astro SRR** con adaptador Node.js.
+
+2.  **Capa de Datos**:
+
+    - Implementación de **Drizzle ORM** para consultas Type-Safe.
+    - Cliente Postgres-JS.
+    - Soporte para transacciones y cascadas (`ON DELETE CASCADE` parchado en DB).
+
+3.  **Clean Code & Refactor**:
+
+    - Servicios (`src/services/`) desacoplados de los controladores.
+    - Código auto-descripivo sin comentarios redundantes en el frontend.
+    - Refactorización de `subscription.ts` y `users.ts` siguiendo principios SOLID/DRY.
+
+4.  **Testing (TDD)**:
+
+    - Implementación de **Vitest** para tests de integración.
+    - Tests creados _antes_ de la migración de endpoints para asegurar paridad.
+    - Cobertura de flujos críticos: Creación de asignaturas, Suscripción de usuarios (transaccional), Borrado de usuarios.
+
+5.  **Infraestructura**:
+    - Simplificación de `docker-compose.yml` (1 servicio menos).
+    - Ajuste de Nginx para proxying interno eficiente.
+    - Solución de problemas de conectividad IPv6/Loopback en contenedores Docker.
+
+**Estado Final**: El sistema es ahora más ligero, mantenible y utiliza un único lenguaje (TypeScript) para todo el stack web.
+
+### 16/12/2025 - Refactorización de Esquema de Base de Datos (Mailbox Architecture)
+
+Se ha rediseñado la capa de persistencia de mensajes para soportar un modelo más robusto y escalable, separando la fuente de los mensajes de su contenido y su entrega.
+
+**Cambios Realizados:**
+
+1.  **Arquitectura de Buzón (Mailbox)**:
+
+    - **`correos`** (antes `mensajes`): Almacena solo la metadata del email original (remitente, asunto, cuerpo).
+    - **`mensajes`** (Nueva): Almacena el contenido procesado/formateado. Relación 1:1 opcional con `correos`.
+    - **`buzon`** (antes `mensajes_enviados`): Tabla pivote para gestionar entregas (N:M). Soporta `external_id` (WhatsApp ID) y estados individuales por usuario.
+
+2.  **Migración ACID y UTF-8**:
+
+    - Se ejecutó un script de migración transaccional (`BEGIN...COMMIT`) para asegurar cero pérdida de datos.
+    - Preservación de IDs para mantener integridad referencial automática.
+    - Soporte explícito para caracteres UTF-8 (tildes, ñ) en todo el proceso.
+
+3.  **Limpieza y Normalización**:
+    - Eliminación de campos redundantes (`mensaje_formateado` en tabla origen).
+    - Estandarización de timestamps (`DEFAULT NOW()`).
+    - Constraints `ON DELETE CASCADE` para auto-limpieza de datos.
+
+**Documentación Actualizada:**
+
+- `Base de Datos.md`: Nuevo diagrama ER reflejando el flujo `Usuario` <-> `Buzón` <-> `Mensaje` <-> `Correo`.
