@@ -1,10 +1,10 @@
+import { subscribeUser } from '../../../services/backend/subscription.repository';
 import type { APIRoute } from 'astro';
-import { subscribeUser } from '../../../services/subscription';
 
 export const POST: APIRoute = async ({ request }) => {
   try {
     const data = await request.json();
-    const { email, subjectCodes } = data; // data might be full object, subscribeUser takes { email, name, phone, subjectCodes }
+    const { email } = data; // data might be full object, subscribeUser takes { email, name, phone, subjectCodes }
     // Wait, the API receives `subjects: [...]`. Service expects `subjectCodes`.
     
     if (!email || !data.subjects || !Array.isArray(data.subjects)) {
@@ -26,6 +26,9 @@ export const POST: APIRoute = async ({ request }) => {
     });
 
   } catch (error: any) {
+    if (error.message.includes("Assertion failed")) {
+        return new Response(JSON.stringify({ error: error.message }), { status: 400 });
+    }
     if (error.message === "One or more subjects not found") {
         return new Response(JSON.stringify({ error: error.message }), { status: 400 });
     }
