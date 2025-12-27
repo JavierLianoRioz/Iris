@@ -1,9 +1,15 @@
 import { useState, useEffect } from 'react';
-import { api } from '../services/api';
-import type { BackendSubject, FrontendSubject, User } from '../types';
+import { getSubjects, type SubjectProto } from '../services/client/subjects.service';
+import type { User } from '../types/user';
+
+export interface FrontendSubject {
+        id: string; 
+        name: string;
+        subscribed: boolean;
+}
 
 export const useSubjects = (user: User | null) => {
-        const [allSubjects, setAllSubjects] = useState<BackendSubject[]>([]);
+        const [allSubjects, setAllSubjects] = useState<SubjectProto[]>([]);
         const [subjects, setSubjects] = useState<FrontendSubject[]>([]);
         const [isLoading, setIsLoading] = useState(true);
         const [error, setError] = useState<string | null>(null);
@@ -12,11 +18,11 @@ export const useSubjects = (user: User | null) => {
                 const fetchSubjects = async () => {
                         try {
                                 setIsLoading(true);
-                                const fetchedSubjects = await api.getSubjects();
+                                const fetchedSubjects = await getSubjects();
                                 setAllSubjects(fetchedSubjects);
                                 setError(null);
                         } catch (err) {
-                                console.error("Error fetching subjects:", err);
+                                console.error(err);
                                 setError("Failed to load subjects. Please try again.");
                         } finally {
                                 setIsLoading(false);

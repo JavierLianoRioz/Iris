@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Modal } from '../ui/Modal';
+import { validateSpanishPhone, formatForApi, PHONE_PREFIX_DISPLAY } from '../../utils/phone';
 
 interface PhoneOnboardingModalProps {
     isOpen: boolean;
@@ -12,17 +13,16 @@ export default function PhoneOnboardingModal({ isOpen, onSave }: PhoneOnboarding
 
     const handleSave = () => {
         if (phoneInput.includes('+')) {
-            setError('No escribas el prefijo (+34), solo tu número.');
+            setError(`No escribas el prefijo (${PHONE_PREFIX_DISPLAY}), solo tu número.`);
             return;
         }
 
-        const cleanPhone = phoneInput.replace(/\D/g, '');
-        if (cleanPhone.length < 9) {
+        if (!validateSpanishPhone(phoneInput)) {
             setError('Por favor, introduce un número válido.');
             return;
         }
-        // Prepend 34 for Spain
-        onSave(`34${cleanPhone}`);
+
+        onSave(formatForApi(phoneInput));
     };
 
     return (
@@ -41,7 +41,7 @@ export default function PhoneOnboardingModal({ isOpen, onSave }: PhoneOnboarding
                     <label htmlFor="phone" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Número de teléfono</label>
                     <div className="relative">
                         <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
-                            <span className="text-slate-500 dark:text-slate-400 font-medium">+34</span>
+                            <span className="text-slate-500 dark:text-slate-400 font-medium">{PHONE_PREFIX_DISPLAY}</span>
                         </div>
                         <input
                             type="tel"

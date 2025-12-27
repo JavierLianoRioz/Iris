@@ -1,6 +1,6 @@
 import { defineAction } from 'astro:actions';
 import { z } from 'astro:schema';
-import { subscribeUser } from '../services/subscription';
+import { subscribeUser } from '../services/backend/subscription.repository';
 
 export const server = {
   subscribe: defineAction({
