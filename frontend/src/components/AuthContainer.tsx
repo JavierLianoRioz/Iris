@@ -1,16 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { googleLogout } from '@react-oauth/google';
 import { jwtDecode } from "jwt-decode";
+import type { GoogleCredentialResponse, GoogleJwtPayload } from '../types/auth';
+import type { User } from '../types/user';
 import LoginCard from './ui/LoginCard';
 import LoadingSpinner from './ui/LoadingSpinner';
 
-interface User {
-  name: string;
-  email: string;
-  picture: string;
-}
-
 const CLIENT_ID = import.meta.env.PUBLIC_GOOGLE_CLIENT_ID || "MOCK_CLIENT_ID";
+
+const ALLOWED_DOMAIN = 'alumnos.uneatlantico.es';
+const ALLOWED_EMAIL_SUFFIX = '@' + ALLOWED_DOMAIN;
+
+function isAllowedDomain(payload: GoogleJwtPayload): boolean {
+    return payload.hd === ALLOWED_DOMAIN || payload.email.endsWith(ALLOWED_EMAIL_SUFFIX);
+}
 
 export default function AuthContainer() {
   const [user, setUser] = useState<User | null>(null);
@@ -42,13 +45,16 @@ export default function AuthContainer() {
     }
   }, [user]);
 
-  const handleLoginSuccess = (credentialResponse: any) => {
+  const handleLoginSuccess = (credentialResponse: GoogleCredentialResponse) => {
     setIsLoading(true);
     try {
-      const decoded: any = jwtDecode(credentialResponse.credential);
+      if (!credentialResponse.credential) {
+          throw new Error("No credential received");
+      }
+      const decoded = jwtDecode<GoogleJwtPayload>(credentialResponse.credential);
       
-      if (!decoded.email.endsWith('@alumnos.uneatlantico.es')) {
-        setError('El acceso está restringido exclusivamente a cuentas @alumnos.uneatlantico.es');
+      if (!isAllowedDomain(decoded)) {
+        setError(`El acceso está restringido exclusivamente a cuentas ${ALLOWED_DOMAIN}`);
         googleLogout();
         setUser(null);
         setIsLoading(false);
@@ -58,7 +64,8 @@ export default function AuthContainer() {
       const newUser: User = {
         name: decoded.name,
         email: decoded.email,
-        picture: decoded.picture
+        picture: decoded.picture,
+        subjects: []
       };
       setUser(newUser);
       setError(null);
@@ -84,7 +91,8 @@ export default function AuthContainer() {
             error={error} 
             clientId={CLIENT_ID} 
             onSuccess={handleLoginSuccess} 
-            onError={handleLoginError} 
+            onError={handleLoginError}
+            hostedDomain="alumnos.uneatlantico.es"
         />
     );
   }

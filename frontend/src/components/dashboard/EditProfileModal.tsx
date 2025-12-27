@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Modal } from '../ui/Modal';
+import { stripCountryCode, validateSpanishPhone, formatForApi, PHONE_PREFIX_DISPLAY } from '../../utils/phone';
 
 interface EditProfileModalProps {
     isOpen: boolean;
@@ -17,33 +18,28 @@ export default function EditProfileModal({ isOpen, onClose, onSave, initialName,
     useEffect(() => {
         if (isOpen) {
             setName(initialName);
-            // Strip 34 prefix if present for display
-            let phoneToDisplay = initialPhone;
-            if (phoneToDisplay.startsWith('34')) {
-                phoneToDisplay = phoneToDisplay.substring(2);
-            }
-            setPhone(phoneToDisplay);
+            setPhone(stripCountryCode(initialPhone));
             setError('');
         }
     }, [isOpen, initialName, initialPhone]);
 
     const handleSave = () => {
         if (phone.includes('+')) {
-            setError('No escribas el prefijo (+34), solo tu número.');
+            setError(`No escribas el prefijo (${PHONE_PREFIX_DISPLAY}), solo tu número.`);
             return;
         }
 
-        const cleanPhone = phone.replace(/\D/g, '');
-        if (cleanPhone.length < 9) {
+        if (!validateSpanishPhone(phone)) {
             setError('Por favor, introduce un número válido.');
             return;
         }
+
         if (!name.trim()) {
             setError('El nombre no puede estar vacío.');
             return;
         }
-        // Prepend 34
-        onSave(name, `34${cleanPhone}`);
+
+        onSave(name, formatForApi(phone));
     };
 
     return (
@@ -63,7 +59,7 @@ export default function EditProfileModal({ isOpen, onClose, onSave, initialName,
                     <label htmlFor="edit-phone" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Número de teléfono</label>
                     <div className="relative">
                         <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
-                            <span className="text-slate-500 dark:text-slate-400 font-medium">+34</span>
+                            <span className="text-slate-500 dark:text-slate-400 font-medium">{PHONE_PREFIX_DISPLAY}</span>
                         </div>
                         <input
                             type="tel"

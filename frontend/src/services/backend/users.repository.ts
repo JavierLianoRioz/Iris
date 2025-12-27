@@ -1,9 +1,9 @@
-import { db } from '../db';
-import { users } from '../db/schema';
+import { db } from '../../db';
+import { users } from '../../db/schema';
 import { eq } from 'drizzle-orm';
 
 export const getUserByEmail = async (email: string) => {
-    return await db.query.users.findFirst({
+    return db.query.users.findFirst({
         where: eq(users.email, email),
         with: {
             subjects: {
@@ -15,8 +15,7 @@ export const getUserByEmail = async (email: string) => {
     });
 };
 
-export const deleteUserByEmail = async (email: string) => {
+export const deleteUserByEmail = async (email: string): Promise<boolean> => {
     const result = await db.delete(users).where(eq(users.email, email)).returning();
-
     return result.length > 0;
 };

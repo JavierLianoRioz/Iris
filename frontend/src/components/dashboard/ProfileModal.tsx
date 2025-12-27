@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import EditProfileModal from './EditProfileModal';
 import { useUser } from '../../hooks/useUser';
+import { assert } from '../../utils/assert';
 
 export default function ProfileModal() {
         const { user, updateProfile } = useUser();
@@ -13,20 +14,16 @@ export default function ProfileModal() {
         }, []);
 
         const handleSave = async (name: string, phone: string) => {
-                if (!user) return;
-                // We need to pass the current subjects to updateProfile because the API expects it
-                // But wait, useUser.updateProfile takes (name, phone, subjects)
-                // We can get subjects from user.subjects (BackendSubject[]) -> map to codes
-                const subjectCodes = user.subjects ? user.subjects.map(s => s.code) : [];
+                assert(user, "User missing during save");
+                
+                const subjectCodes = user.subjects.map(s => s.code);
 
                 try {
                         await updateProfile(name, phone, subjectCodes);
                         setIsOpen(false);
-                        // Force reload to update the header (since it reads from localStorage on load)
-                        // Or dispatch an event to update the header without reload
                         window.location.reload();
                 } catch (error) {
-                        console.error("Failed to update profile", error);
+                        console.error(error);
                         alert("Error al actualizar el perfil");
                 }
         };

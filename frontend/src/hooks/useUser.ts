@@ -1,7 +1,8 @@
 import { useState, useEffect, useCallback } from 'react';
 import { googleLogout } from '@react-oauth/google';
-import { api } from '../services/api';
-import type { User, BackendSubject } from '../types';
+import { usersService } from '../services/client/users.service';
+import { assert } from '../utils/assert';
+import type { User } from '../types/user';
 
 export const useUser = () => {
         const [user, setUser] = useState<User | null>(null);
@@ -22,9 +23,9 @@ export const useUser = () => {
                 setUser(parsedUser);
 
                 try {
-                        const backendUser = await api.getUser(parsedUser.email);
+                        const backendUser = await usersService.getUser(parsedUser.email);
                         if (backendUser) {
-                                const updatedUser = {
+                                const updatedUser: User = {
                                         ...parsedUser,
                                         name: backendUser.name,
                                         phone: backendUser.phone,
@@ -40,7 +41,7 @@ export const useUser = () => {
                                 if (!parsedUser.phone) setShowPhoneModal(true);
                         }
                 } catch (err) {
-                        console.error("Error syncing user with backend:", err);
+                        console.error(err);
                         if (!parsedUser.phone) setShowPhoneModal(true);
                 } finally {
                         setIsLoading(false);
@@ -58,18 +59,18 @@ export const useUser = () => {
         };
 
         const updateProfile = async (name: string, phone: string, subjects: string[]) => {
-                if (!user) return;
+                assert(user, "User must be logged in to update profile");
                 setIsSaving(true);
                 setError(null);
                 try {
-                        const updatedBackendUser = await api.updateSubscription({
+                        const updatedBackendUser = await usersService.updateSubscription({
                                 email: user.email,
                                 name,
                                 phone,
                                 subjects,
                         });
 
-                        const updatedUser = {
+                        const updatedUser: User = {
                                 ...user,
                                 name: updatedBackendUser.name,
                                 phone: updatedBackendUser.phone,
@@ -79,7 +80,7 @@ export const useUser = () => {
                         localStorage.setItem('irisUser', JSON.stringify(updatedUser));
                         setShowPhoneModal(false);
                 } catch (err: any) {
-                        console.error("Error updating profile:", err);
+                        console.error(err);
                         setError(err.message || "Failed to update profile.");
                         throw err;
                 } finally {

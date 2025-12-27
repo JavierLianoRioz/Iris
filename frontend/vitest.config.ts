@@ -5,4 +5,4 @@ export default getViteConfig({
   test: {
     setupFiles: ['./test/setup.ts'],
   },
-});
+} as any);
