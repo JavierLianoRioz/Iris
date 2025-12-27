@@ -6,9 +6,10 @@ interface LoginCardProps {
     clientId: string;
     onSuccess: (response: any) => void;
     onError: () => void;
+    hostedDomain?: string;
 }
 
-export default function LoginCard({ error, clientId, onSuccess, onError }: LoginCardProps) {
+export default function LoginCard({ error, clientId, onSuccess, onError, hostedDomain }: LoginCardProps) {
     return (
         <div className="flex flex-col items-center justify-center min-h-[calc(100vh-4rem)] p-4 relative overflow-hidden">
             
@@ -46,6 +47,7 @@ export default function LoginCard({ error, clientId, onSuccess, onError }: Login
                     shape="pill"
                     text="signin_with"
                     width="100%"
+                    hosted_domain={hostedDomain}
                 />
                 </GoogleOAuthProvider>
             </div>
