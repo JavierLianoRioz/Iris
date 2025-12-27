@@ -1,7 +1,8 @@
-import { db } from '../db';
-import { users, subjects, userSubjects } from '../db/schema';
-import { eq, inArray } from 'drizzle-orm';
-import { getSubjectsByCodes } from './subjects';
+import { db } from '../../db';
+import { users, userSubjects } from '../../db/schema';
+import { eq } from 'drizzle-orm';
+import { getSubjectsByCodes, type Subject } from './subjects.repository';
+import { assert } from '../../utils/assert';
 
 export interface SubscriptionData {
     email: string;
@@ -10,14 +11,20 @@ export interface SubscriptionData {
     subjectCodes: string[];
 }
 
-export const subscribeUser = async (data: SubscriptionData) => {
+export interface UserResult {
+    id: number;
+    email: string;
+    name: string | null;
+    phone: string | null;
+    subjects: Subject[];
+}
+
+export const subscribeUser = async (data: SubscriptionData): Promise<UserResult> => {
     const { email, name, phone, subjectCodes } = data;
 
     const existingSubjects = await getSubjectsByCodes(subjectCodes);
     
-    if (existingSubjects.length !== subjectCodes.length) {
-        throw new Error("One or more subjects not found");
-    }
+    assert(existingSubjects.length === subjectCodes.length, "One or more subjects not found");
 
     const resultUser = await db.transaction(async (tx) => {
         const [upsertedUser] = await tx.insert(users)
@@ -44,6 +51,6 @@ export const subscribeUser = async (data: SubscriptionData) => {
 
     return {
         ...resultUser,
-        subjects: existingSubjects
+        subjects: existingSubjects as Subject[]
     };
 };
