@@ -75,4 +75,12 @@ erDiagram
         VARCHAR session_id
         JSONB message
     }
+
+    metricas_modelos {
+        VARCHAR model_id PK
+        INTEGER latencia_ms
+        INTEGER num_muestras
+        TIMESTAMP ultima_medicion
+        BOOLEAN es_lento
+    }
 ```
