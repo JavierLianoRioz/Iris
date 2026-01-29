@@ -1,0 +1,192 @@
+{
+  "name": "Iris Notification System v2.2",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "iris-v2-2-correo",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [-200, 300],
+      "id": "email-webhook",
+      "name": "Incoming Email Webhook"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=ASUNTO: {{ $json.body.asunto }}\nCUERPO: {{ $json.body.cuerpo }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "Eres un experto en clasificación académica. Extrae el código de la asignatura (e.g. AS-102) y un resumen breve.\nSi no estás seguro del código, pon 'CONFIDENCE_LOW' en el campo code."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [0, 300],
+      "id": "classifier-agent",
+      "name": "Classify Email"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "low-conf",
+              "leftValue": "={{ $json.output.code }}",
+              "rightValue": "CONFIDENCE_LOW",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [200, 300],
+      "id": "confidence-check",
+      "name": "Confidence Check"
+    },
+    {
+      "parameters": {
+        "resource": "messages-api",
+        "instanceName": "iris",
+        "remoteJid": "34622211246@s.whatsapp.net",
+        "messageText": "=He recibido un correo pero no estoy segura de la asignatura.\nAsunto: {{ $('Incoming Email Webhook').item.json.body.asunto }}\n¿Es de {{ $json.output.predicted_subject }}?",
+        "options_message": {
+          "footer": "Responde 'Sí' o el código correcto."
+        }
+      },
+      "type": "CUSTOM.evolutionApi",
+      "typeVersion": 1,
+      "position": [400, 200],
+      "id": "human-in-loop",
+      "name": "Human-in-the-loop (Admin)"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "=SELECT u.jid, u.name\nFROM users u\nJOIN user_subjects us ON u.id = us.user_id\nWHERE us.subject_code = '{{ $json.output.code }}';",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [400, 400],
+      "id": "get-subscribers",
+      "name": "Get Subscribed Users",
+      "credentials": {
+        "postgres": {
+          "id": "w8ulM5CTdc8r3obb",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "messages-api",
+        "instanceName": "iris",
+        "remoteJid": "={{ $json.jid }}",
+        "messageText": "={{ $('Classify Email').item.json.output.summary }}",
+        "options_message": {}
+      },
+      "type": "CUSTOM.evolutionApi",
+      "typeVersion": 1,
+      "position": [600, 400],
+      "id": "send-notification",
+      "name": "Send WA Notification"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "=INSERT INTO chat_history (user_id, role, content, tokens) \nVALUES ((SELECT id FROM users WHERE jid = '{{ $json.jid }}'), 'iris', '{{ $('Classify Email').item.json.output.summary }}', 100);",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [800, 400],
+      "id": "log-history",
+      "name": "Log Notification History",
+      "credentials": {
+        "postgres": {
+          "id": "w8ulM5CTdc8r3obb",
+          "name": "Postgres account"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Incoming Email Webhook": {
+      "main": [
+        [
+          {
+            "node": "Classify Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Classify Email": {
+      "main": [
+        [
+          {
+            "node": "Confidence Check",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Confidence Check": {
+      "main": [
+        [
+          {
+            "node": "Human-in-the-loop (Admin)",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get Subscribed Users",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Subscribed Users": {
+      "main": [
+        [
+          {
+            "node": "Send WA Notification",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send WA Notification": {
+      "main": [
+        [
+          {
+            "node": "Log Notification History",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}
