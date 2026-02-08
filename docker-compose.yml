@@ -23,6 +23,9 @@ services:
       - N8N_RUNNERS_ENABLED=true
       - N8N_BLOCK_ENV_ACCESS_IN_NODE=false
       - N8N_GIT_NODE_DISABLE_BARE_REPOS=true
+      - GOOGLE_CLIENT_ID=${PUBLIC_GOOGLE_CLIENT_ID}
+      - N8N_BASE_URL=${N8N_BASE_URL}
+      - WEBHOOK_URL=${N8N_BASE_URL}/
     depends_on:
       db:
         condition: service_healthy

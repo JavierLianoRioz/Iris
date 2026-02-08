@@ -1,0 +1,233 @@
+{
+  "name": "enviar codigo de verificación",
+  "nodes": [
+    {
+      "parameters": {
+        "sendTo": "={{ $json.email }}",
+        "subject": "=🔑 Tu código de acceso a Iris",
+        "message": "=¡Hola! 👋\n\nPara terminar de vincular tu cuenta de la universidad con Iris en WhatsApp, utiliza el siguiente código de verificación:    \n\n{{ $json.verification_code }}  \n\nSimplemente escribe estos 6 dígitos en el chat de WhatsApp y ya estarás listo para recibir tus notificaciones académicas.  Si tú no has solicitado este código, puedes ignorar este correo con total seguridad.",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        1168,
+        352
+      ],
+      "id": "8565de71-bfdc-4b3c-bbd7-1df5c13cd033",
+      "name": "Send a message",
+      "webhookId": "74ce1888-b0fc-4b29-9ec2-0dfd2e0a967f",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "AWOe1xNHRUfSqAvO",
+          "name": "iris account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "return {\n  verification_code: Math.floor(100000 + Math.random() * 900000).toString()\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        720,
+        352
+      ],
+      "id": "a5fc1b9e-9ad9-427d-b05e-239efb89c0b3",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "operation": "upsert",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "users",
+          "mode": "list",
+          "cachedResultName": "users"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "jid": "={{ $('Start').item.json.jid }}",
+            "verification_code": "={{ $json.verification_code }}",
+            "verification_requested_at": "={{ $now }}"
+          },
+          "matchingColumns": [
+            "jid"
+          ],
+          "schema": [
+            {
+              "id": "email",
+              "displayName": "email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "name",
+              "displayName": "name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": true
+            },
+            {
+              "id": "phone",
+              "displayName": "phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": true
+            },
+            {
+              "id": "jid",
+              "displayName": "jid",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "conversation_token_limit",
+              "displayName": "conversation_token_limit",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": false,
+              "removed": true
+            },
+            {
+              "id": "verification_code",
+              "displayName": "verification_code",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": false
+            },
+            {
+              "id": "is_verified",
+              "displayName": "is_verified",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "boolean",
+              "canBeUsedToMatch": false,
+              "removed": true
+            },
+            {
+              "id": "verification_requested_at",
+              "displayName": "verification_requested_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        944,
+        352
+      ],
+      "id": "113fa8ee-8314-45f1-b5c1-6dd124f19d34",
+      "name": "insertar codigo de verificación del usuario",
+      "credentials": {
+        "postgres": {
+          "id": "w8ulM5CTdc8r3obb",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "jid",
+              "type": "any"
+            }
+          ]
+        }
+      },
+      "id": "0b387623-55f3-40a5-92df-96ef41efa10e",
+      "typeVersion": 1.1,
+      "name": "Start",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "position": [
+        512,
+        352
+      ]
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "insertar codigo de verificación del usuario",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "insertar codigo de verificación del usuario": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Start": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "3fd93f48-87be-4556-8060-ca6eb37ace7f",
+  "meta": {
+    "instanceId": "1e9872c0492489315110fe305fd3dc9029088192d491513d6b36fc4d654c5913"
+  },
+  "id": "NX4CCdyYY1BnyWuL",
+  "tags": []
+}
