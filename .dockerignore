@@ -1,0 +1,28 @@
+.git
+.gitignore
+*.md
+.env*
+.agent
+.agents
+.gemini
+.pytest_cache
+
+# Data volumes (never include in build context)
+pgdata
+n8n_data
+redis_data
+evolution_store
+evolution_instances
+
+# IDE and OS
+.vscode
+.idea
+*.swp
+*.swo
+*~
+Thumbs.db
+.DS_Store
+
+# Documentation
+documentation
+img
