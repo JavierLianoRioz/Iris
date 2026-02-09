@@ -1,0 +1,238 @@
+{
+  "name": "asignar correo a usuario",
+  "nodes": [
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "email"
+            },
+            {
+              "name": "jid"
+            }
+          ]
+        }
+      },
+      "id": "c055762a-8fe7-4141-a639-df2372f30060",
+      "typeVersion": 1.1,
+      "name": "When Executed by Another Workflow",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "position": [
+        272,
+        352
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "upsert",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "users",
+          "mode": "list",
+          "cachedResultName": "users"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "jid": "={{ $json.jid }}",
+            "email": "={{ $json.email }}"
+          },
+          "matchingColumns": [
+            "jid"
+          ],
+          "schema": [
+            {
+              "id": "email",
+              "displayName": "email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "name",
+              "displayName": "name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": true
+            },
+            {
+              "id": "phone",
+              "displayName": "phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": true
+            },
+            {
+              "id": "jid",
+              "displayName": "jid",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "conversation_token_limit",
+              "displayName": "conversation_token_limit",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": false,
+              "removed": true
+            },
+            {
+              "id": "verification_code",
+              "displayName": "verification_code",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": true
+            },
+            {
+              "id": "is_verified",
+              "displayName": "is_verified",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "boolean",
+              "canBeUsedToMatch": false,
+              "removed": true
+            },
+            {
+              "id": "verification_requested_at",
+              "displayName": "verification_requested_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": false,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        496,
+        352
+      ],
+      "id": "222940c9-91c5-48e9-b8e6-0327f180fba5",
+      "name": "Insertar correo",
+      "credentials": {
+        "postgres": {
+          "id": "w8ulM5CTdc8r3obb",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "NX4CCdyYY1BnyWuL",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/NX4CCdyYY1BnyWuL",
+          "cachedResultName": "enviar codigo de verificación"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "jid": "={{ $('When Executed by Another Workflow').item.json.jid }}"
+          },
+          "matchingColumns": [
+            "jid"
+          ],
+          "schema": [
+            {
+              "id": "jid",
+              "displayName": "jid",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        736,
+        352
+      ],
+      "name": "enviar codigo de verificación",
+      "id": "c718379a-aa80-4279-bb08-4b9bc9efb237"
+    }
+  ],
+  "pinData": {
+    "When Executed by Another Workflow": [
+      {
+        "json": {
+          "email": "javier.liano@alumnos.uneatlantico.es",
+          "jid": "34622211246@s.whatsapp.net"
+        }
+      }
+    ]
+  },
+  "connections": {
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Insertar correo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Insertar correo": {
+      "main": [
+        [
+          {
+            "node": "enviar codigo de verificación",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "86ef06ab-a399-425e-9a82-79d84c873421",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "1e9872c0492489315110fe305fd3dc9029088192d491513d6b36fc4d654c5913"
+  },
+  "id": "gVwwYpncRlonXmBD",
+  "tags": []
+}

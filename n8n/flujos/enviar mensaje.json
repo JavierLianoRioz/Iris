@@ -1,0 +1,89 @@
+{
+  "name": "enviar mensaje",
+  "nodes": [
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "jid"
+            },
+            {
+              "name": "mensaje"
+            }
+          ]
+        }
+      },
+      "id": "b4a27ece-00c4-4974-97b4-7bcfd440419f",
+      "typeVersion": 1.1,
+      "name": "Start",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "position": [
+        48,
+        272
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "messages-api",
+        "instanceName": "=iris",
+        "remoteJid": "={{ $json.jid }}",
+        "messageText": "={{ $json.mensaje }}",
+        "options_message": {}
+      },
+      "type": "CUSTOM.evolutionApi",
+      "typeVersion": 1,
+      "position": [
+        272,
+        272
+      ],
+      "id": "66aaac87-1418-4832-9659-cbbbbf485483",
+      "name": "enviar mensaje",
+      "credentials": {
+        "evolutionApi": {
+          "id": "T7mqbm5QDviDjuzn",
+          "name": "Evolution account"
+        }
+      }
+    }
+  ],
+  "pinData": {
+    "Start": [
+      {
+        "json": {
+          "jid": "34622211246@s.whatsapp.net",
+          "mensaje": "Hola, no te conozco, ¿puedes presentarte?"
+        }
+      }
+    ]
+  },
+  "connections": {
+    "Start": {
+      "main": [
+        [
+          {
+            "node": "enviar mensaje",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "enviar mensaje": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "adc91e76-6b45-4cdc-aaaf-b83ace049d74",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "1e9872c0492489315110fe305fd3dc9029088192d491513d6b36fc4d654c5913"
+  },
+  "id": "GqjOsNpwcrrWKumD",
+  "tags": []
+}
