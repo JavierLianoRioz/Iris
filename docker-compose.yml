@@ -19,6 +19,8 @@ services:
       - GOOGLE_CLIENT_ID=${PUBLIC_GOOGLE_CLIENT_ID}
       - N8N_BASE_URL=${N8N_BASE_URL}
       - WEBHOOK_URL=${N8N_BASE_URL}/
+      - IRIS_PROMPT_BASE=${IRIS_PROMPT_BASE}
+      - FALLBACK_MODEL=${FALLBACK_MODEL}
     depends_on:
       db:
         condition: service_healthy
