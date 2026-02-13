@@ -1,0 +1,5 @@
+BEGIN;
+
+ALTER TABLE subjects ADD COLUMN IF NOT EXISTS google_calendar_id VARCHAR(255);
+
+COMMIT;
