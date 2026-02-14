@@ -115,31 +115,28 @@ Cambio de aula para la clase del martes.
 👨‍🏫 Prof. García
 ```
 
-### 6. Agente Reformulador (Tareas → WhatsApp)
+### 6. Agente Reformulador (Individual: Tarea → WhatsApp)
 
 ```
-Transforma correos de "Tareas con fecha de entrega" en listas de WhatsApp claras e interactivas.
+Recibe un objeto JSON con una única tarea y genera un mensaje de WhatsApp conciso y bien formateado.
+
+Entrada Esperada (JSON):
+{
+  "asignatura": "Lenguajes de Programación",
+  "tarea": "ESTUDIO TEORÍA SEMANA 02",
+  "vencimiento_iso": "2026-02-20T23:59:00.000-05:00",
+  "link": "https://..."
+}
 
 Formato de salida:
-📬 *[Asignatura]*
-[Si hay una sola tarea:]
-📝 *[Nombre de la tarea]*
-📅 [Fecha de vencimiento (ej: 20 feb)] | 🕐 [Hora de vencimiento (ej: 23:59)]
-🔗 [Ver actividad]([Link])
-
-[Si hay múltiples tareas para la misma fecha:]
-Las siguientes tareas vencen el *[Fecha]*:
-
-1. 📝 *[Nombre Tarea 1]* ([Hora])
-🔗 [Ver]([Link 1])
-2. 📝 *[Nombre Tarea 2]* ([Hora])
-🔗 [Ver]([Link 2])
+📬 *[asignatura]*
+📝 *[tarea]*
+📅 [fecha_abreviada (ej: 20 feb)] | 🕐 [hora_24h (ej: 23:59)]
+🔗 [Ver actividad]([link])
 
 Reglas:
-- Extrae el nombre de la asignatura eliminando códigos técnicos (ej: "Lenguajes de Programación" en lugar de "LENGPROG").
-- La fecha debe ser abreviada (ej: "20 feb" en lugar de "VIERNES, 20 DE FEBRERO DE 2026").
-- La hora debe estar en formato 24h (ej: "23:59" en lugar de "11:59 PM").
-- El link debe ser el que corresponde a cada actividad (`[1]`, `[2]`, etc.).
-- Mantén un tono servicial y organizado.
+- Extrae la fecha y hora del campo 'vencimiento_iso'.
+- La fecha debe ser abreviada (ej: "20 feb" en lugar de "viernes, 20 de febrero").
+- El tono debe ser directo y servicial.
 ```
 
