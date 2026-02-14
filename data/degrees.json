@@ -1,0 +1,76 @@
+{
+  "faculties": [
+    {
+      "name": "Facultad de Ciencias de la Salud",
+      "degrees": [
+        "Grado en Ciencias de la Actividad Física y del Deporte",
+        "Grado en Nutrición Humana y Dietética",
+        "Grado en Ciencia y Tecnología de los Alimentos",
+        "Grado en Gastronomía",
+        "Grado en Psicología"
+      ]
+    },
+    {
+      "name": "Escuela Politécnica Superior",
+      "degrees": [
+        "Grado en Ingeniería de las Industrias Agrarias y Alimentarias",
+        "Grado en Ingeniería Informática",
+        "Grado en Ingeniería Informática + Experto Universitario en Ciberseguridad",
+        "Grado en Ingeniería Informática + Experto Universitario en Big Data e Inteligencia Artificial",
+        "Grado en Ingeniería de Organización Industrial",
+        "Grado en Ingeniería de Organización Industrial + Experto Universitario en Inteligencia Artificial en los Negocios"
+      ]
+    },
+    {
+      "name": "Facultad de Ciencias Sociales y Humanidades",
+      "degrees": [
+        "Grado en Administración y Dirección de Empresas",
+        "Grado en Administración y Dirección de Empresas + Experto Universitario en Negocios Internacionales",
+        "Grado en Administración  y Dirección de Empresas + Experto Universitario en Marketing",
+        "Grado en Administración y Dirección de Empresas + Experto Universitario en Relaciones Internacionales",
+        "Grado en Administración y Dirección de Empresas + Experto Universitario en Inteligencia Artificial en los Negocios",
+        "Grado en Educación Primaria",
+        "Grado en Traducción y Enseñanza de Lenguas",
+        "Grado en Traducción y Enseñanza de Lenguas + Experto Universitario en Relaciones Internacionales",
+        "Grado en Lenguas Aplicadas",
+        "Grado en Traducción e Interpretación",
+        "Grado en Relaciones Internacionales",
+        "Grado en Periodismo",
+        "Grado en Periodismo + Experto Universitario en Relaciones Internacionales",
+        "Grado en Periodismo + Experto Universitario en Periodismo Deportivo",
+        "Grado en Publicidad y Relaciones Públicas",
+        "Grado en Publicidad y Relaciones Públicas + Experto Universitario en Relaciones Internacionales",
+        "Grado en Publicidad y Relaciones Públicas + Experto Universitario en Inteligencia Artificial Aplicada al Marketing y la Comunicación",
+        "Grado en Comunicación Audiovisual",
+        "Grado en Comunicación Audiovisual + Experto Universitario en Animación Digital y 3D",
+        "Grado en Comunicación Audiovisual + Experto Universitario Inteligencia Artificial Aplicada al Marketing y Comunicación"
+      ]
+    }
+  ],
+  "double_degrees": [
+    "Doble Grado en Ciencias de la Actividad Física y del Deporte y Nutrición Humana y Dietética",
+    "Doble Grado en Nutrición Humana y Dietética y Ciencias de la Actividad Física y del Deporte",
+    "Doble Grado en Nutrición Humana y Dietética y Ciencia y Tecnología de los Alimentos",
+    "Doble Grado en Nutrición Humana y Dietética y Ingeniería de las Industrias Agrarias y Alimentarias",
+    "Doble Grado en Nutrición Humana y Dietética y Gastronomía",
+    "Doble Grado en Ciencia y Tecnología de los Alimentos y Nutrición Humana y Dietética",
+    "Doble Grado en Ciencia y Tecnología de los Alimentos y Ingeniería de las Industrias Agrarias y Alimentarias",
+    "Doble Grado en Ciencia y Tecnología de los Alimentos y Gastronomía",
+    "Doble Grado en Gastronomía y Nutrición Humana y Dietética",
+    "Doble Grado en Gastronomía y Ciencia y Tecnología de los Alimentos",
+    "Doble Grado en Ingeniería de las Industrias Agrarias y Alimentarias y Nutrición Humana y Dietética",
+    "Doble Grado en Ingeniería de las Industrias Agrarias y Alimentarias y Ciencia y Tecnología de los Alimentos",
+    "Doble Grado en Ingeniería de las Industrias Agrarias y Alimentarias y Ingeniería de Organización Industrial",
+    "Doble Grado en Ingeniería Informática y Ingeniería de Organización Industrial",
+    "Doble Grado en Ingeniería de Organización Industrial y Ingeniería Informática",
+    "Doble Grado en Ingeniería de Organización Industrial y Administración y Dirección de Empresas",
+    "Doble Grado en Ingeniería de Organización Industrial y Ingeniería de las Industrias Agrarias y Alimentarias",
+    "Doble Grado en Administración y Dirección de Empresas y Ingeniería de Organización Industrial",
+    "Doble Grado en Periodismo y Publicidad y Relaciones Públicas",
+    "Doble Grado en Periodismo y Comunicación Audiovisual",
+    "Doble Grado en Publicidad y Relaciones Públicas y Periodismo",
+    "Doble Grado en Publicidad y Relaciones Públicas y Comunicación Audiovisual",
+    "Doble Grado en Comunicación Audiovisual y Periodismo",
+    "Doble Grado en Comunicación Audiovisual y Publicidad y Relaciones Públicas"
+  ]
+}

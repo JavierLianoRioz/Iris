@@ -1,0 +1,2532 @@
+{
+  "Grado en Ciencias de la Actividad Física y del Deporte": {
+    "Curso Primero": {
+      "SEMESTRE 1": [
+        "Anatomía Humana",
+        "Historia de la Actividad Física y del Deporte",
+        "Bioestadística",
+        "Fundamentos de la Actividad Física y la Motricidad Humana",
+        "Fisiología del Cuerpo Humano"
+      ],
+      "SEMESTRE 2": [
+        "Sociología del Deporte",
+        "Biomecánica del Movimiento Humano",
+        "Tecnologías de la Información y la Comunicación",
+        "Deportes Colectivos I: Baloncesto",
+        "Deportes Individuales I: Atletismo - Carreras",
+        "Deportes Individuales II: Natación"
+      ]
+    },
+    "Curso Segundo": {
+      "SEMESTRE 1": [
+        "Inglés I",
+        "Fisiología del Deporte",
+        "Psicopedagogía del Aprendizaje y de la Educación",
+        "Análisis de la Conducta Deportiva",
+        "Deportes Colectivos II: Voleibol",
+        "Deportes Individuales III: Atletismo - Saltos y Lanzamientos"
+      ],
+      "SEMESTRE 2": [
+        "Inglés II",
+        "Valoración del Estado Nutricional y la Composición Corporal",
+        "Sistemática del ejercicio",
+        "Fundamentos del Entrenamiento",
+        "Deportes Colectivos III: Balonmano"
+      ]
+    },
+    "Curso Tercero": {
+      "SEMESTRE 1": [
+        "Juegos e Iniciación deportiva",
+        "Nutrición y Deporte",
+        "Expresión y Comunicación Corporal",
+        "Economía y Gestión en el Deporte",
+        "Deportes Individuales IV: Habilidades Gimnásticas",
+        "Deportes de Raqueta"
+      ],
+      "SEMESTRE 2": [
+        "Educación Física y su Didáctica",
+        "Planificación y Entrenamiento Físico de Alto Nivel",
+        "Deportes Colectivos IV: Fútbol",
+        "Prevención y Readaptación de Lesiones en el Deporte"
+      ],
+      "OPTATIVAS DISPONIBLES": [
+        "Psicología del Desarrollo: Infancia y Adolescencia",
+        "Antropología y Psicología del Comportamiento Alimentario",
+        "Ayudas Ergogénicas",
+        "Nuevas Tendencias en Fitness y Wellness"
+      ]
+    },
+    "Curso Cuarto": {
+      "SEMESTRE 1": [
+        "Métodos y Técnicas de Investigación en el Deporte",
+        "Educación Física Inclusiva",
+        "Socorrismo Acuático y Primeros Auxilios",
+        "Actividades en el Medio Natural"
+      ],
+      "OPTATIVAS DISPONIBLES": [
+        "Promoción y Programación del ejercicio físico para la salud",
+        "Sistemas Educativos, Contexto Institucional y Gestión Escolar",
+        "Resolución de Conflictos y Mediación",
+        "Nuevas Tecnologías Aplicadas a la Actividad Física y Deporte",
+        "Inglés III",
+        "Psicología del Deporte",
+        "Currículo de la Educación Física en la Educación Primaria",
+        "Inglés IV",
+        "Coaching",
+        "Valoración de la Condición Física",
+        "Salud Pública",
+        "Economía de la Empresa y Emprendedores"
+      ],
+      "SEMESTRE 2": [
+        "Instalaciones y Equipamientos Deportivos",
+        "Prácticas Externas",
+        "Trabajo Fin de Grado"
+      ]
+    }
+  },
+  "Grado en Nutrición Humana y Dietética": {
+    "Curso Primero": {
+      "SEMESTRE 1": [
+        "Química General y Análisis Químico",
+        "Biología Celular y Molecular",
+        "Anatomía Humana",
+        "Bioestadística",
+        "Fisiología del Cuerpo Humano I"
+      ],
+      "SEMESTRE 2": [
+        "Microbiología y Parasitología",
+        "Fisiología del Cuerpo Humano II",
+        "Química Orgánica",
+        "Bioquímica",
+        "Antropología y Psicología del Comportamiento Alimentario"
+      ]
+    },
+    "Curso Segundo": {
+      "SEMESTRE 1": [
+        "Nutrición y Metabolismo",
+        "Nutrición y Dietética",
+        "Bromatología I",
+        "Fisiopatología y Farmacología I",
+        "Técnicas Culinarias y Gastronomía"
+      ],
+      "SEMESTRE 2": [
+        "Fisiopatología y Farmacología II",
+        "Bromatología II",
+        "Valoración del Estado Nutricional y la Composición Corporal",
+        "Salud Pública",
+        "Dietética Aplicada"
+      ]
+    },
+    "Curso tercero": {
+      "SEMESTRE 1": [
+        "Higiene y Seguridad Alimentaria",
+        "Restauración Colectiva",
+        "Calidad y Gestión de la Empresa Alimentaria",
+        "Dietoterapia I"
+      ],
+      "OPTATIVAS DISPONIBLES": [
+        "Producción de Materias Primas Animales",
+        "Nutrición y Deporte",
+        "Intolerancias y Alergias Alimentarias",
+        "Psicología de la Motivación",
+        "Inglés I",
+        "Higiene en la Industria Alimentaria",
+        "Ayudas Ergogénicas",
+        "Gestión de Servicios de Restauración Colectiva y Catering",
+        "Valoración del Estado Nutricional y la Composición Corporal",
+        "Inglés II"
+      ],
+      "SEMESTRE 2": [
+        "Epidemiología y Nutrición Comunitaria",
+        "Deontología y Legislación Alimentaria",
+        "Dietoterapia II",
+        "Prácticas Externas I"
+      ]
+    },
+    "Curso cuarto": {
+      "SEMESTRE 1": [
+        "Métodos y Técnicas de Investigación en Nutrición",
+        "Nutrición Artificial",
+        "Educación y Coaching Nutricional",
+        "Prescripción Dietética"
+      ],
+      "OPTATIVAS DISPONIBLES": [
+        "Alimentos Funcionales",
+        "Diseño e Innovación en Alimentación",
+        "Promoción y Prescripción de Actividad Física para la Salud",
+        "Análisis Sensorial de los Alimentos",
+        "Resolución de Conflictos y Mediación",
+        "Alimentos funcionales"
+      ],
+      "SEMESTRE 2": [
+        "Prácticas Externas II",
+        "Trabajo Fin de Grado"
+      ]
+    }
+  },
+  "Grado en Ciencia y Tecnología de los Alimentos": {
+    "Curso Primero": {
+      "SEMESTRE 1": [
+        "Química",
+        "Biología Celular y Molecular",
+        "Matemáticas",
+        "Física",
+        "Fisiología del Cuerpo Humano"
+      ],
+      "SEMESTRE 2": [
+        "Bioquímica",
+        "Estadística",
+        "Química Orgánica",
+        "Microbiología y Parasitología de los Alimentos",
+        "Antropología y Psicología del Comportamiento Alimentario"
+      ]
+    },
+    "Curso Segundo": {
+      "SEMESTRE 1": [
+        "Nutrición",
+        "Bromatología I",
+        "Técnicas Culinarias y Gastronomía",
+        "Química y Bioquímica de los Alimentos",
+        "Fundamentos de Ingeniería Química"
+      ],
+      "SEMESTRE 2": [
+        "Bromatología II",
+        "Inglés II",
+        "Salud Pública y Nutrición Comunitaria",
+        "Deontología y Legislación Alimentaria",
+        "Operaciones Básicas en la Industria Alimentaria"
+      ]
+    },
+    "Curso Tercero": {
+      "SEMESTRE 1": [
+        "Higiene, Seguridad Alimentaria y Calidad",
+        "Producción de Materias Primas Animales",
+        "Producción de Materias Primas Vegetales",
+        "Economía y Gestión de la Empresa Alimentaria"
+      ],
+      "OPTATIVAS DISPONIBLES": [
+        "Inglés III",
+        "Gestión de Riesgos Laborales",
+        "Restauración Colectiva",
+        "Intolerancias y Alergias Alimentarias",
+        "Inglés IV",
+        "Gestión de Servicios de Restauración Colectiva y Catering",
+        "Fisiología del Cuerpo Humano II",
+        "Economía de la Empresa y los Emprendedores",
+        "Tecnología Medioambiental",
+        "Ingeniería de la Producción en la Industria Alimentaria"
+      ],
+      "SEMESTRE 2": [
+        "Tecnología de los Alimentos",
+        "Higiene en la Industria Alimentaria",
+        "Procesado de Alimentos de Origen Vegetal",
+        "Procesado de Alimentos de Origen Animal"
+      ]
+    },
+    "Curso Cuarto": {
+      "SEMESTRE 1": [
+        "Diseño e Innovación en Alimentación",
+        "Optimización de la Producción y Valorización de Alimentos",
+        "Gestión de Proyectos en Ciencia y Tecnología de los Alimentos",
+        "Biotecnología Alimentaria"
+      ],
+      "OPTATIVAS DISPONIBLES": [
+        "Intensificación en el Sector Cárnico, el Pescado y Ovoproductos",
+        "Nutrición y Dietética",
+        "Intensificación en Análisis Sensorial de los Alimentos",
+        "Dirección Estratégica y Competencias Directivas",
+        "Intensificación en el Sector Lácteo",
+        "Gestión y Control de Calidad de Procesos y Productos",
+        "Dietética Aplicada",
+        "Gestión de Residuos y Aprovechamiento de Subproductos",
+        "Coaching",
+        "Intensificación en el Sector del Aceite y Productos Derivados del Cereal",
+        "Técnicas Culinarias y Gastronomía II",
+        "Sumillería y Gestión de Bodegas"
+      ],
+      "SEMESTRE 2": [
+        "Envasado y Vida útil de los Alimentos Comerciales",
+        "Prácticas Externas",
+        "Trabajo de Fin de Grado"
+      ]
+    }
+  },
+  "Grado en Gastronomía": {
+    "Curso Primero": {
+      "SEMESTRE 1": [
+        "Físico-Química Alimentaria",
+        "Biología Celular y Molecular",
+        "Contabilidad",
+        "Técnicas Culinarias I",
+        "Fisiología del Cuerpo Humano I"
+      ],
+      "SEMESTRE 2": [
+        "Microbiología y Parasitología Alimentaria",
+        "Técnicas Culinarias II",
+        "Tecnologías de la Información y la Comunicación",
+        "Control y Gestión de Costes",
+        "Antropología y Psicología de la Alimentación y la Gastronomía"
+      ]
+    },
+    "Curso Segundo": {
+      "SEMESTRE 1": [
+        "Calidad y Gestión de la Empresa Alimentaria",
+        "Análisis Sensorial de los Alimentos",
+        "Bromatología",
+        "Sistemas y Procesos de Cocina y Restauración",
+        "Repostería y Panificación"
+      ],
+      "SEMESTRE 2": [
+        "Inglés I",
+        "Estadística",
+        "Emprendimiento y Gastronomía",
+        "Gastronomía Española",
+        "Sumillería y Gestión de Bodegas"
+      ]
+    },
+    "Curso Tercero": {
+      "SEMESTRE 1": [
+        "Restauración Colectiva",
+        "Producción de Materias Primas Animales",
+        "Higiene y Seguridad Alimentaria",
+        "Gastronomía Cántabra",
+        "Producción de Materias Primas Vegetales"
+      ],
+      "SEMESTRE 2": [
+        "Gastronomía Internacional",
+        "Prácticas Académicas Externas I",
+        "Tecnología de Alimentos, Equipos e Instalaciones en Restauración",
+        "Gestión de Servicios de Restauración Colectiva y Catering"
+      ],
+      "OPTATIVAS DISPONIBLES": [
+        "Fisiología del Cuerpo Humano II",
+        "Inglés II",
+        "Bioquímica",
+        "Recursos Humanos"
+      ]
+    },
+    "Curso Cuarto": {
+      "SEMESTRE 1": [
+        "Técnicas de Vanguardia en Gastronomía",
+        "Dirección Comercial",
+        "Prácticas Académicas Externas II",
+        "Proyectos en Gastronomía"
+      ],
+      "OPTATIVAS DISPONIBLES": [
+        "Diseño e Innovación en Alimentación",
+        "Resolución de Conflictos y Mediación",
+        "Dirección Estratégica y Competencias Directivas",
+        "Intolerancias y Alergias Alimentarias"
+      ],
+      "SEMESTRE 2": [
+        "Prácticas Académicas Externas III",
+        "Trabajo Fin de Grado",
+        "Deontología y Legislación Alimentaria"
+      ]
+    }
+  },
+  "Grado en Psicología": {
+    "Curso Primero": {
+      "SEMESTRE 1": [
+        "Fundamentos de Psicobiología",
+        "Historia de la Psicología",
+        "Psicología del Aprendizaje",
+        "Psicología de la Motivación",
+        "Tecnologías de la Información y la Comunicación"
+      ],
+      "SEMESTRE 2": [
+        "Psicofisiología",
+        "Estadística",
+        "Psicología del Desarrollo: Infancia y Adolescencia",
+        "Psicología de la Emoción",
+        "Psicología Social"
+      ]
+    },
+    "Curso Segundo": {
+      "SEMESTRE 1": [
+        "Psicología de la Personalidad y de las Diferencias Individuales",
+        "Metodología de la Investigación en Psicología I",
+        "Psicología del Desarrollo: Juventud, Adultez y Adulto Mayor",
+        "Procesos Cognitivos: Percepción, Atención y Memoria",
+        "Inglés I"
+      ],
+      "SEMESTRE 2": [
+        "Psicometría",
+        "Metodología de la Investigación en Psicología II",
+        "Neuropsicología",
+        "Procesos Cognitivos: Pensamiento y Lenguaje",
+        "Inglés II"
+      ]
+    },
+    "Curso Tercero": {
+      "SEMESTRE 1": [
+        "Psicología de los Grupos",
+        "Psicología de la Educación",
+        "Psicopatología",
+        "Inglés III"
+      ],
+      "OPTATIVAS DISPONIBLES": [
+        "Organización de Empresas - MPSITRA - ORG",
+        "Sociología de la Educación: Cambios Sociales, Educativos y Multiculturalidad - MPSIEDU",
+        "Fundamentos de la Actividad Física y Motricidad Humana - MPSIDEP",
+        "Psicología de la Salud - MPSISA",
+        "Recursos Humanos - MPSITRA - ORG",
+        "Diversidad y Educación Inclusiva - MPSIEDU",
+        "Sociología del Deporte - MPSIDEP",
+        "Psicofarmacología - MPSISAL"
+      ],
+      "SEMESTRE 2": [
+        "Psicología de las Organizaciones",
+        "Diagnóstico Psicológico",
+        "Psicología Clínica",
+        "Inglés IV"
+      ]
+    },
+    "Curso Cuarto": {
+      "SEMESTRE 1": [
+        "Intervención Psicológica",
+        "Resolución de Conflictos y Mediación",
+        "Evaluación de Programas e Intervenciones en Diferentes Contextos"
+      ],
+      "OPTATIVAS DISPONIBLES": [
+        "Proyectos",
+        "Dirección Estratégica y Competencias Directivas - MPSITRA - ORG",
+        "Sistemas Educativos, Contexto Institucional y Gestión Escolar - MPSIEDU",
+        "Análisis Comportamental del Deporte - MPSIDEP",
+        "Técnicas de Entrevista Psicológica - MPSISAL",
+        "Comunicación Corporativa e Institucional - MPSITRA - ORG",
+        "Orientación Educativa y Tutorial - MPSIEDU",
+        "Psicología del Deporte - MPSIDEP",
+        "Psicología de la Sexualidad - MPSISAL"
+      ],
+      "SEMESTRE 2": [
+        "Coaching",
+        "Economía de la Empresa y Emprendedores",
+        "Trabajo Fin de Grado"
+      ],
+      "SEMESTRE 1 Y 2": [
+        "Prácticum"
+      ],
+      "OTROS": [
+        "Psicología de la Salud - MPSISA",
+        "Psicofarmacología - MPSISAL",
+        "Técnicas de entrevista psicológica - MPSISAL",
+        "Psicología de la sexualidad - MPSISAL",
+        "Psicología clínica",
+        "Diagnóstico psicológico",
+        "Prácticum",
+        "Sociología de la educación: cambios sociales, educativos y multiculturalidad - MPSIEDU",
+        "Diversidad y educación inclusiva - MPSIEDU",
+        "Sistemas educativos, contexto institucional y gestión escolar - MPSIEDU",
+        "Orientación educativa y tutorial - MPSIEDU",
+        "Psicología del desarrollo: infancia y adolescencia",
+        "Psicología de la educación",
+        "Prácticum",
+        "Organización de empresas - MPSITRA - ORG",
+        "Recursos humanos - MPSITRA - ORG",
+        "Dirección estratégica y competencias directivas - MPSITRA - ORG",
+        "Comunicación corporativa e institucional - MPSITRA - ORG",
+        "Psicología de los grupos",
+        "Psicología de las organizaciones",
+        "Prácticum",
+        "Fundamentos de la actividad física y motricidad humana - MPSIDEP",
+        "Sociología del deporte - MPSIDEP",
+        "Psicología del Deporte - MPSIDEP",
+        "Análisis comportamental del deporte - MPSIDEP",
+        "Psicología de los grupos",
+        "Coaching",
+        "Prácticum"
+      ]
+    }
+  },
+  "Grado en Ingeniería de las Industrias Agrarias y Alimentarias": {
+    "Curso Primero": {
+      "SEMESTRE 1": [
+        "Química",
+        "Biología",
+        "Física",
+        "Expresión Gráfica",
+        "Matemáticas"
+      ],
+      "SEMESTRE 2": [
+        "Bioquímica",
+        "Informática",
+        "Electricidad y Electrónica",
+        "Microbiología y Parasitología",
+        "Topografía y Cartografía"
+      ]
+    },
+    "Curso Segundo": {
+      "SEMESTRE 1": [
+        "Matemática Numérica",
+        "Operaciones Básicas en la Industria Alimentaria",
+        "Bromatología I",
+        "Electrotecnia, Motores y Máquinas Eléctricas",
+        "Economía y Gestión de la Empresa Alimentaria"
+      ],
+      "SEMESTRE 2": [
+        "Inglés II",
+        "Hidráulica",
+        "Ingeniería de la Producción en la Industria Alimentaria",
+        "Edafología y Climatología",
+        "Estadística"
+      ]
+    },
+    "Curso Tercero": {
+      "SEMESTRE 1": [
+        "Producción de Materias Primas Animales",
+        "Producción de Materias Primas Vegetales",
+        "Gestión de Calidad y Seguridad Alimentaria",
+        "Tecnología de Industrias Agroalimentarias"
+      ],
+      "OPTATIVAS DISPONIBLES": [
+        "Inglés III",
+        "Gestión de Riesgos Laborales",
+        "Química y Bioquímica de los Alimentos",
+        "Fisiología del Cuerpo Humano",
+        "Dirección Estratégica y Competencias Directivas",
+        "Inglés IV",
+        "Deontología y Legislación Alimentarias",
+        "Dirección de Sistemas de Información",
+        "Higiene en la Industria Alimentaria",
+        "Aplicaciones tecnológicas en la industria alimentaria"
+      ],
+      "SEMESTRE 2": [
+        "Resistencia de Materiales",
+        "Procesado de Alimentos de Origen Animal",
+        "Ingeniería de Instalaciones, Equipos y Maquinaria de la Industria Agroalimentaria",
+        "Procesado de Alimentos de Origen Vegetal"
+      ]
+    },
+    "Curso Cuarto": {
+      "SEMESTRE 1": [
+        "Optimización de la Producción y Valorización de Alimentos",
+        "Prácticas Externas I",
+        "Construcciones Agroindustriales",
+        "Proyectos y Evaluación del Impacto Ambiental"
+      ],
+      "OPTATIVAS DISPONIBLES": [
+        "Diseño e Innovación en Alimentación",
+        "Tecnología Energética",
+        "Análisis Sensorial de los Alimentos",
+        "Nutrición",
+        "Ingeniería de Calidad",
+        "Bromatología II",
+        "Economía de la Empresa y Emprendedores",
+        "Responsabilidad Social Corporativa",
+        "Coaching",
+        "Ingeniería Química",
+        "Envasado y Vida Útil de los Alimentos Comerciales",
+        "Tecnología Medioambiental"
+      ],
+      "SEMESTRE 2": [
+        "Gestión de Residuos y Aprovechamiento de Subproductos",
+        "Prácticas Externas II",
+        "Trabajo de Fin de Grado"
+      ]
+    }
+  },
+  "Grado en Ingeniería Informática": {
+    "Curso Primero": {
+      "SEMESTRE 1": [
+        "Tecnología y Estructura de Ordenadores",
+        "Programación I",
+        "Introducción a la Gestión de Proyectos de Software",
+        "Matemática I",
+        "Física"
+      ],
+      "SEMESTRE 2": [
+        "Matemática II",
+        "Programación II",
+        "Tecnologías de la Información y Comunicación",
+        "Matemática Discreta",
+        "Lógica"
+      ]
+    },
+    "Curso Segundo": {
+      "SEMESTRE 1": [
+        "Redes de Ordenadores",
+        "Estadística",
+        "Bases de Datos I",
+        "Estructuras de Datos y Algoritmos I",
+        "Matemática Numérica"
+      ],
+      "SEMESTRE 2": [
+        "Lenguajes de Programación",
+        "Sistemas Operativos",
+        "Bases de Datos II",
+        "Estructuras de Datos y Algoritmos II",
+        "Inglés II"
+      ]
+    },
+    "Curso Tercero": {
+      "SEMESTRE 1": [
+        "Ingeniería de Software I",
+        "Sistemas Distribuidos y Programación en Paralelo",
+        "Ética y Legislación Informática",
+        "Inglés III"
+      ],
+      "OPTATIVAS DISPONIBLES": [
+        "Organización de Empresas",
+        "Investigación de Mercados",
+        "Teoría y Práctica de la Comunicación Visual",
+        "Contabilidad I",
+        "Laboratorio de Nuevas Tendencias en Tecnologías I",
+        "Recursos Humanos",
+        "Marketing Estratégico y Operativo",
+        "Sociedad de la Información y el Conocimiento",
+        "Contabilidad II",
+        "Laboratorio de Nuevas Tendencias en Tecnologías II"
+      ],
+      "SEMESTRE 2": [
+        "Ingeniería de Software II",
+        "Dirección de Sistemas de Información",
+        "Seguridad Informática y Criptografía",
+        "Inglés IV"
+      ]
+    },
+    "Curso Cuarto": {
+      "SEMESTRE 1": [
+        "Practicum",
+        "Programación Web I",
+        "Inteligencia Artificial",
+        "Proyectos"
+      ],
+      "OPTATIVAS DISPONIBLES": [
+        "Automática y Control",
+        "Marketing Digital y Medios Interactivos",
+        "Animación Digital",
+        "Matemáticas Financieras",
+        "Taller de gestión de proyectos de software I",
+        "Administración de la Producción y Logística",
+        "Comunicación Corporativa e Institucional",
+        "Creación de Productos Multimedia",
+        "Análisis de Estados Financieros",
+        "Taller de gestión de proyectos de software II"
+      ],
+      "SEMESTRE 2": [
+        "Trabajo de Fin de Grado",
+        "Programación Web II",
+        "Economía de la Empresa y Emprendedores"
+      ]
+    }
+  },
+  "Grado en Ingeniería Informática + Experto Universitario en Ciberseguridad": {
+    "Curso Primero": {
+      "SEMESTRE 1": [
+        "Tecnología y Estructura de Ordenadores",
+        "Programación I",
+        "Introducción a la Gestión de Proyectos de Software",
+        "Matemática I",
+        "Física"
+      ],
+      "SEMESTRE 2": [
+        "Matemática II",
+        "Programación II",
+        "Tecnologías de la Información y Comunicación",
+        "Matemática Discreta",
+        "Lógica"
+      ]
+    },
+    "Curso Segundo": {
+      "SEMESTRE 1": [
+        "Redes de Ordenadores",
+        "Estadística",
+        "Bases de Datos I",
+        "Estructuras de Datos y Algoritmos I",
+        "Matemática Numérica"
+      ],
+      "SEMESTRE 2": [
+        "Lenguajes de Programación",
+        "Sistemas Operativos",
+        "Bases de Datos II",
+        "Estructuras de Datos y Algoritmos II",
+        "Inglés II"
+      ]
+    },
+    "Curso Tercero": {
+      "SEMESTRE 1": [
+        "Ingeniería de Software I",
+        "Sistemas Distribuidos y Programación en Paralelo",
+        "Ética y Legislación Informática",
+        "Inglés III"
+      ],
+      "OPTATIVAS DISPONIBLES": [
+        "Organización de Empresas",
+        "Investigación de Mercados",
+        "Teoría y Práctica de la Comunicación Visual",
+        "Contabilidad I",
+        "Laboratorio de Nuevas Tendencias en Tecnologías I",
+        "Recursos Humanos",
+        "Marketing Estratégico y Operativo",
+        "Sociedad de la Información y el Conocimiento",
+        "Contabilidad II",
+        "Laboratorio de Nuevas Tendencias en Tecnologías II"
+      ],
+      "SEMESTRE 2": [
+        "Ingeniería de Software II",
+        "Dirección de Sistemas de Información",
+        "Seguridad Informática y Criptografía",
+        "Inglés IV"
+      ]
+    },
+    "Curso Cuarto": {
+      "SEMESTRE 1": [
+        "Practicum",
+        "Programación Web I",
+        "Inteligencia Artificial",
+        "Proyectos",
+        "Ciberinteligencia"
+      ],
+      "OPTATIVAS DISPONIBLES": [
+        "Automática y Control",
+        "Marketing Digital y Medios Interactivos",
+        "Animación Digital",
+        "Matemáticas Financieras",
+        "Taller de Gestión de Proyectos de Software I",
+        "Administración de la Producción y Logística",
+        "Comunicación Corporativa e Institucional",
+        "Creación de Productos Multimedia",
+        "Análisis de Estados Financieros",
+        "Taller de Gestión de Proyectos de Software II"
+      ],
+      "SEMESTRE 2": [
+        "Trabajo de Fin de Grado",
+        "Programación Web II",
+        "Economía de la Empresa y Emprendedores",
+        "Desarrollo y Seguridad del Software"
+      ]
+    }
+  },
+  "Grado en Ingeniería Informática + Experto Universitario en Big Data e Inteligencia Artificial": {
+    "Curso Primero": {
+      "SEMESTRE 1": [
+        "Matemáticas I",
+        "Programación I",
+        "Introducción a la Gestión de Proyectos de Software",
+        "Tecnología y Estructura de Ordenadores",
+        "Física"
+      ],
+      "SEMESTRE 2": [
+        "Matemática II",
+        "Programación II",
+        "Lógica",
+        "Matemática Discreta",
+        "Tecnologías de la Información y Comunicación"
+      ]
+    },
+    "Curso Segundo": {
+      "SEMESTRE 1": [
+        "Redes de Ordenadores",
+        "Estadística",
+        "Bases de Datos I",
+        "Estructuras de Datos y Algoritmos I",
+        "Matemática Numérica"
+      ],
+      "SEMESTRE 2": [
+        "Sistemas Operativos",
+        "Bases de Datos II",
+        "Estructuras de Datos y Algoritmos II",
+        "Inglés II",
+        "Lenguajes de Programación"
+      ]
+    },
+    "Curso Tercero": {
+      "SEMESTRE 1": [
+        "Ingeniería de Software I",
+        "Sistemas Distribuidos y Programación en Paralelo",
+        "Ética y Legislación Informática",
+        "Inglés III"
+      ],
+      "OPTATIVAS DISPONIBLES": [
+        "Organización de Empresas",
+        "Investigación de Mercados",
+        "Teoría y Práctica de la Comunicación Visual",
+        "Contabilidad I",
+        "Laboratorio de Nuevas Tendencias en Tecnologías I",
+        "Técnicas de programación en Inteligencia Artificial",
+        "Contabilidad II",
+        "Marketing Estratégico y Operativo",
+        "Recursos Humanos",
+        "Sociedad de la Información y el Conocimiento",
+        "Laboratorio de Nuevas Tendencias en Tecnologías II",
+        "Gestión de grandes volumenes de datos"
+      ],
+      "SEMESTRE 2": [
+        "Dirección de Sistemas de Información",
+        "Ingeniería de Software II",
+        "Inglés IV",
+        "Seguridad Informática y Criptografía"
+      ]
+    },
+    "Curso Cuarto": {
+      "SEMESTRE 1": [
+        "Prácticum",
+        "Programación Web I",
+        "Inteligencia Artificial",
+        "Proyectos"
+      ],
+      "OPTATIVAS DISPONIBLES": [
+        "Automática y Control",
+        "Marketing Digital y Medios Interactivos",
+        "Animación Digital",
+        "Matemáticas Financieras",
+        "Taller de Gestión de Proyectos de Software I",
+        "Administración de la Producción y Logística",
+        "Análisis de Estados Financieros",
+        "Comunicación Corporativa e Institucional",
+        "Creación de Productos Multimedia",
+        "Taller de Gestión de Proyectos de Software II",
+        "Aplicación de Análisis de Datos"
+      ],
+      "SEMESTRE 2": [
+        "Economía de la Empresa y Emprendedores",
+        "Programación Web II",
+        "Trabajo de Fin de Grado"
+      ]
+    }
+  },
+  "Grado en Ingeniería de Organización Industrial": {
+    "Curso Primero": {
+      "SEMESTRE 1": [
+        "Matemáticas I",
+        "Física",
+        "Química",
+        "Expresión Gráfica",
+        "Contabilidad I"
+      ],
+      "SEMESTRE 2": [
+        "Matemáticas II",
+        "Ingeniería de Materiales",
+        "Contabilidad de Gestión",
+        "Electricidad y Electrónica",
+        "Informática"
+      ]
+    },
+    "Curso Segundo": {
+      "SEMESTRE 1": [
+        "Tecnología Eléctrica",
+        "Mecánica",
+        "Termodinámica",
+        "Estadística I",
+        "Matemática Numérica"
+      ],
+      "SEMESTRE 2": [
+        "Mecánica de Fluidos",
+        "Tecnología Mecánica",
+        "Administración de la Producción y Logística",
+        "Estadística II",
+        "Inglés II"
+      ]
+    },
+    "Curso Tercero": {
+      "SEMESTRE 1": [
+        "Ingeniería de Calidad",
+        "Organización de Empresas",
+        "Gestión de Riesgos Laborales",
+        "Investigación de Operaciones"
+      ],
+      "OPTATIVAS DISPONIBLES": [
+        "Inglés III",
+        "Investigación de Mercados",
+        "Tecnología y Estructura de Ordenadores",
+        "Finanzas Empresariales",
+        "Tecnología de Frío y Calor",
+        "Inglés IV",
+        "Marketing Estratégico y Operativo",
+        "Programación",
+        "Contabilidad II",
+        "Instalaciones Eléctricas de Baja Tensión, Luminotecnia y Otras Instalaciones Industriales"
+      ],
+      "SEMESTRE 2": [
+        "Recursos Humanos",
+        "Dirección de Sistemas de Información",
+        "Tecnología Medioambiental",
+        "Resistencia de Materiales"
+      ]
+    },
+    "Curso Cuarto": {
+      "SEMESTRE 1": [
+        "Practicum I",
+        "Tecnología Energética",
+        "Automática y Control",
+        "Proyectos"
+      ],
+      "OPTATIVAS DISPONIBLES": [
+        "Dirección Estratégica y Competencias Directivas",
+        "Estructura de Datos y Algoritmos I",
+        "Matemáticas Financieras",
+        "Construcción Industrial",
+        "Responsabilidad Social Corporativa",
+        "Estructura de Datos y Algoritmos II",
+        "Análisis de Estados Financieros",
+        "Coaching",
+        "Ingeniería Química"
+      ],
+      "SEMESTRE 2": [
+        "Practicum II",
+        "Economía de la Empresa y Emprendedores",
+        "Trabajo Fin de Grado"
+      ]
+    }
+  },
+  "Grado en Ingeniería de Organización Industrial + Experto Universitario en Inteligencia Artificial en los Negocios": {
+    "Curso Primero": {
+      "SEMESTRE 1": [
+        "Matemáticas I",
+        "Física",
+        "Química",
+        "Expresión Gráfica",
+        "Contabilidad I"
+      ],
+      "SEMESTRE 2": [
+        "Matemáticas II",
+        "Ingeniería de Materiales",
+        "Contabilidad de Gestión",
+        "Electricidad y Electrónica",
+        "Informática"
+      ]
+    },
+    "Curso Segundo": {
+      "SEMESTRE 1": [
+        "Tecnología Eléctrica",
+        "Mecánica",
+        "Termodinámica",
+        "Estadística I",
+        "Matemática Numérica"
+      ],
+      "SEMESTRE 2": [
+        "Mecánica de Fluidos",
+        "Tecnología Mecánica",
+        "Administración de la Producción y Logística",
+        "Estadística II",
+        "Inglés II"
+      ]
+    },
+    "Curso Tercero": {
+      "SEMESTRE 1": [
+        "Ingeniería de Calidad",
+        "Organización de Empresas",
+        "Gestión de Riesgos Laborales",
+        "Investigación de Operaciones",
+        "Inteligencia Artificial"
+      ],
+      "OPTATIVAS DISPONIBLES": [
+        "Inglés III",
+        "Investigación de Mercados",
+        "Tecnología y Estructura de Ordenadores",
+        "Finanzas Empresariales",
+        "Tecnología de Frío y Calor",
+        "Inglés IV",
+        "Marketing Estratégico y Operativo",
+        "Programación",
+        "Contabilidad II",
+        "Instalaciones Eléctricas de Baja Tensión, Luminotecnia y Otras Instalaciones Industriales"
+      ],
+      "SEMESTRE 2": [
+        "Recursos Humanos",
+        "Dirección de Sistemas de Información",
+        "Tecnología Medioambiental",
+        "Resistencia de Materiales"
+      ]
+    },
+    "Curso Cuarto": {
+      "SEMESTRE 1": [
+        "Practicum I",
+        "Tecnología Energética",
+        "Automática y Control",
+        "IA Aplicada a la Empresa I",
+        "Proyectos"
+      ],
+      "OPTATIVAS DISPONIBLES": [
+        "Dirección Estratégica y Competencias Directivas",
+        "Estructura de Datos y Algoritmos I",
+        "Matemáticas Financieras",
+        "Construcción Industrial",
+        "Responsabilidad Social Corporativa",
+        "Estructura de Datos y Algoritmos II",
+        "Análisis de Estados Financieros",
+        "Coaching",
+        "Ingeniería Química"
+      ],
+      "SEMESTRE 2": [
+        "IA Aplicada a la Empresa II",
+        "Practicum II",
+        "Economía de la Empresa y Emprendedores",
+        "Trabajo Fin de Grado"
+      ]
+    }
+  },
+  "Grado en Administración y Dirección de Empresas": {
+    "Curso Primero": {
+      "SEMESTRE 1": [
+        "Matemáticas",
+        "Microeconomía",
+        "Organización de Empresas",
+        "Contabilidad I",
+        "Tecnologías de la Información y Comunicación"
+      ],
+      "SEMESTRE 2": [
+        "Introducción al Derecho",
+        "Macroeconomía",
+        "Estructura Económica",
+        "Contabilidad II",
+        "Marketing Estratégico y Operativo"
+      ]
+    },
+    "Curso Segundo": {
+      "SEMESTRE 1": [
+        "Dirección Comercial",
+        "Estadística I",
+        "Derecho Laboral",
+        "Matemáticas Financieras",
+        "Inglés I"
+      ],
+      "SEMESTRE 2": [
+        "Administración de la Producción y Logística",
+        "Estadística II",
+        "Análisis de Estados Financieros",
+        "Derecho Mercantil",
+        "Inglés II"
+      ]
+    },
+    "Curso Tercero": {
+      "SEMESTRE 1": [
+        "Historia Económica",
+        "Finanzas Empresariales",
+        "Investigación de Mercados",
+        "Gestión de Riesgos Laborales"
+      ],
+      "OPTATIVAS DISPONIBLES": [
+        "Inglés III",
+        "Fundamentos de las Relaciones Públicas",
+        "Fundamentos de Programación",
+        "Investigación de Operaciones",
+        "Inglés IV",
+        "Diseño y Planificación de Campañas",
+        "Programación",
+        "Tecnología Medioambiental",
+        "Comportamiento del Consumidor",
+        "Contabilidad Internacional",
+        "Sociedad de la Información y el Conocimiento",
+        "Relaciones Internacionales",
+        "Integración Económica y Comercio Internacional"
+      ],
+      "SEMESTRE 2": [
+        "Dirección Financiera",
+        "Recursos Humanos",
+        "Contabilidad de Gestión",
+        "Dirección de Sistemas de Información"
+      ]
+    },
+    "Curso Cuarto": {
+      "SEMESTRE 1": [
+        "Proyectos",
+        "Dirección Estratégica y Competencias Directivas",
+        "Gestión Financiera"
+      ],
+      "OPTATIVAS DISPONIBLES": [
+        "Gestión de la Calidad",
+        "Marketing Digital y Medios Interactivos",
+        "Resolución de Conflictos y Mediación",
+        "Responsabilidad Social Corporativa",
+        "Comunicación Corporativa e Institucional",
+        "Coaching",
+        "Globalización, geopolítica y geoestrategia",
+        "Finanzas internacionales"
+      ],
+      "SEMESTRE 2": [
+        "Economía de la Empresa y Emprendedores",
+        "Derecho Fiscal",
+        "Trabajo Fin de Grado"
+      ],
+      "SEMESTRE 1 Y 2": [
+        "Prácticas Académicas Externas"
+      ]
+    }
+  },
+  "Grado en Administración y Dirección de Empresas + Experto Universitario en Negocios Internacionales": {
+    "Curso Primero": {
+      "SEMESTRE 1": [
+        "Matemáticas",
+        "Microeconomía",
+        "Organización de Empresas",
+        "Contabilidad I",
+        "Tecnologías de la Información y Comunicación"
+      ],
+      "SEMESTRE 2": [
+        "Introducción al Derecho",
+        "Macroeconomía",
+        "Estructura Económica",
+        "Contabilidad II",
+        "Marketing Estratégico y Operativo"
+      ]
+    },
+    "Curso Segundo": {
+      "SEMESTRE 3": [
+        "Dirección Comercial",
+        "Estadística I",
+        "Derecho Laboral",
+        "Matemáticas Financieras",
+        "Inglés III"
+      ],
+      "SEMESTRE 4": [
+        "Administración de la Producción y Logística",
+        "Estadística II",
+        "Análisis de Estados Financieros",
+        "Derecho Mercantil",
+        "Inglés IV",
+        "Relaciones Internacionales"
+      ]
+    },
+    "Curso Tercero": {
+      "SEMESTRE 5": [
+        "Historia Económica",
+        "Finanzas Empresariales",
+        "Investigación de Mercados",
+        "Gestión de Riesgos Laborales",
+        "Fundamentos de las Relaciones Públicas"
+      ],
+      "SEMESTRE 6": [
+        "Dirección Financiera",
+        "Recursos Humanos",
+        "Contabilidad de Gestión",
+        "Dirección de Sistemas de Información",
+        "Sociedad de la Información y el Conocimiento"
+      ]
+    },
+    "Curso Cuarto": {
+      "SEMESTRE 7": [
+        "Practicum I",
+        "Proyectos",
+        "Dirección Estratégica y Competencias Directivas",
+        "Gestión Financiera",
+        "Resolución de Conflictos y Mediación",
+        "Marketing Digital y Medios Interactivos",
+        "Integración Económica y Comercio Internacional"
+      ],
+      "SEMESTRE 8": [
+        "Practicum II",
+        "Economía de la Empresa y Emprendedores",
+        "Derecho Fiscal",
+        "Trabajo Fin de Grado",
+        "Finanzas internacionales"
+      ]
+    }
+  },
+  "Grado en Administración  y Dirección de Empresas + Experto Universitario en Marketing": {
+    "Curso Primero": {
+      "SEMESTRE 1": [
+        "Matemáticas",
+        "Microeconomía",
+        "Organización de Empresas",
+        "Contabilidad I",
+        "Tecnologías de la Información y Comunicación"
+      ],
+      "SEMESTRE 2": [
+        "Introducción al Derecho",
+        "Macroeconomía",
+        "Estructura Económica",
+        "Contabilidad II",
+        "Contabilidad de Gestión"
+      ]
+    },
+    "Curso Segundo": {
+      "SEMESTRE 1": [
+        "Dirección Comercial",
+        "Estadística I",
+        "Derecho Laboral",
+        "Matemáticas Financieras",
+        "Inglés I"
+      ],
+      "SEMESTRE 2": [
+        "Administración de la Producción y Logística",
+        "Estadística II",
+        "Análisis de Estados Financieros",
+        "Derecho Mercantil",
+        "Inglés II",
+        "Fundamentos de Publicidad"
+      ]
+    },
+    "Curso Tercero": {
+      "SEMESTRE 1": [
+        "Historia Económica",
+        "Finanzas Empresariales",
+        "Investigación de Mercados",
+        "Gestión de Riesgos Laborales",
+        "Fundamentos de las Relaciones Públicas",
+        "Creación Publicitaria (TV, Radio, Impresos)"
+      ],
+      "SEMESTRE 2": [
+        "Dirección Financiera",
+        "Recursos Humanos",
+        "Marketing Estratégico y Operativo",
+        "Dirección de Sistemas de Información",
+        "Diseño y Planificación de Campañas"
+      ]
+    },
+    "Curso Cuarto": {
+      "SEMESTRE 1": [
+        "Practicum I",
+        "Proyectos",
+        "Dirección Estratégica y Competencias Directivas",
+        "Gestión Financiera",
+        "Marketing Digital y Medios Interactivos"
+      ],
+      "SEMESTRE 2": [
+        "Practicum II",
+        "Economía de la Empresa y Emprendedores",
+        "Derecho Fiscal",
+        "Comunicación Corporativa e Institucional",
+        "Trabajo Fin de Grado"
+      ]
+    }
+  },
+  "Grado en Administración y Dirección de Empresas + Experto Universitario en Relaciones Internacionales": {
+    "Curso Primero": {
+      "SEMESTRE 1": [
+        "Matemáticas",
+        "Microeconomía",
+        "Organización de Empresas",
+        "Contabilidad I",
+        "Tecnologías de la Información y Comunicación"
+      ],
+      "SEMESTRE 2": [
+        "Introducción al Derecho",
+        "Macroeconomía",
+        "Estructura Económica",
+        "Contabilidad II",
+        "Marketing Estratégico y Operativo"
+      ]
+    },
+    "Curso Segundo": {
+      "SEMESTRE 3": [
+        "Dirección Comercial",
+        "Estadística I",
+        "Derecho Laboral",
+        "Matemáticas Financieras",
+        "Inglés III"
+      ],
+      "SEMESTRE 4": [
+        "Administración de la Producción y Logística",
+        "Estadística II",
+        "Análisis de Estados Financieros",
+        "Derecho Mercantil",
+        "Inglés IV",
+        "Relaciones Internacionales"
+      ]
+    },
+    "Curso Tercero": {
+      "SEMESTRE 5": [
+        "Historia Económica",
+        "Finanzas Empresariales",
+        "Investigación de Mercados",
+        "Gestión de Riesgos Laborales",
+        "Fundamentos de las Relaciones Públicas",
+        "Integración Económica y Comercio Internacional",
+        "Ciencias Políticas"
+      ],
+      "SEMESTRE 6": [
+        "Dirección Financiera",
+        "Recursos Humanos",
+        "Contabilidad de Gestión",
+        "Dirección de Sistemas de Información",
+        "Sistemas Políticos Comparados"
+      ]
+    },
+    "Curso Cuarto": {
+      "SEMESTRE 7": [
+        "Practicum I",
+        "Proyectos",
+        "Dirección Estratégica y Competencias Directivas",
+        "Gestión Financiera",
+        "Resolución de Conflictos y Mediación",
+        "Política Exterior",
+        "Organismos y Tratados Internacionales"
+      ],
+      "SEMESTRE 8": [
+        "Practicum II",
+        "Economía de la Empresa y Emprendedores",
+        "Derecho Fiscal",
+        "Trabajo Fin de Grado",
+        "Globalización, geopolítica y geoestrategia",
+        "Agenda Internacional para la Sostenibilidad Ambiental",
+        "Cooperación Internacional"
+      ]
+    }
+  },
+  "Grado en Administración y Dirección de Empresas + Experto Universitario en Inteligencia Artificial en los Negocios": {
+    "Curso Primero": {
+      "SEMESTRE 1": [
+        "Matemáticas",
+        "Microeconomía",
+        "Organización de Empresas",
+        "Contabilidad I",
+        "Tecnologías de la Información y Comunicación"
+      ],
+      "SEMESTRE 2": [
+        "Introducción al Derecho",
+        "Macroeconomía",
+        "Estructura Económica",
+        "Contabilidad II",
+        "Marketing Estratégico y Operativo"
+      ]
+    },
+    "Curso Segundo": {
+      "SEMESTRE 3": [
+        "Dirección Comercial",
+        "Estadística I",
+        "Derecho Laboral",
+        "Matemáticas Financieras",
+        "Inglés I"
+      ],
+      "SEMESTRE 4": [
+        "Administración de la Producción y Logística",
+        "Estadística II",
+        "Análisis de Estados Financieros",
+        "Derecho Mercantil",
+        "Inglés II"
+      ]
+    },
+    "Curso Tercero": {
+      "SEMESTRE 5": [
+        "Historia Económica",
+        "Finanzas Empresariales",
+        "Investigación de Mercados",
+        "Gestión de Riesgos Laborales",
+        "Inteligencia Artificial"
+      ],
+      "OPTATIVAS": [
+        "Inglés III",
+        "Fundamentos de las Relaciones Públicas",
+        "Fundamentos de la Programación",
+        "Investigación de Operaciones",
+        "Inglés IV",
+        "Diseño y Planificación de Campañas",
+        "Programación",
+        "Tecnología Medioambiental",
+        "Comportamiento del Consumidor"
+      ],
+      "SEMESTRE 6": [
+        "Dirección Financiera",
+        "Recursos Humanos",
+        "Contabilidad de Gestión",
+        "Dirección de Sistemas de Información"
+      ]
+    },
+    "Curso Cuarto": {
+      "SEMESTRE 7": [
+        "Proyectos",
+        "Dirección Estratégica y Competencias Directivas",
+        "Gestión Financiera",
+        "Inteligencia Artificial Aplicada a la Empresa"
+      ],
+      "OPTATIVAS": [
+        "Gestión de la Calidad",
+        "Marketing Digital y Medios Interactivos",
+        "Resolución de Conflictos y Mediación",
+        "Responsabilidad Social Corporativa",
+        "Comunicación Corporativa e Institucional",
+        "Coaching"
+      ],
+      "SEMESTRE 8": [
+        "Practicum",
+        "Economía de la Empresa y Emprendedores",
+        "Derecho Fiscal",
+        "Inteligencia Artificial Aplicada a la Empresa II",
+        "Trabajo Fin de Grado"
+      ]
+    }
+  },
+  "Grado en Educación Primaria": {
+    "Curso Primero": {
+      "SEMESTRE 1": [
+        "Sociología de la Educación: cambios sociales, educativos y multiculturalidad",
+        "Estrategias de Aprendizaje y Competencias en TIC",
+        "Lengua Española y Comunicación I",
+        "Historia y Antropología de la Educación: Teorías y Prácticas",
+        "Inglés I"
+      ],
+      "SEMESTRE 2": [
+        "Didáctica, diseño curricular y programación",
+        "Lengua Española y Comunicación II",
+        "Psicología del Desarrollo: Infancia y Adolescencia",
+        "Inglés II",
+        "Aprendizaje de las matemáticas y su didáctica I"
+      ]
+    },
+    "Curso Segundo": {
+      "SEMESTRE 1": [
+        "Psicopedagogía del Aprendizaje y de la Educación",
+        "Planificación, Investigación e Innovación",
+        "Sistemas Educativos, Contexto Institucional y Gestión Escolar",
+        "Inglés III",
+        "Aprendizaje de las matemáticas y su didáctica II"
+      ],
+      "SEMESTRE 2": [
+        "Didáctica de la Lengua y la Literatura Infantil",
+        "Didáctica de las ciencias experimentales",
+        "Orientación Educativa y Tutorial",
+        "Diversidad y Educación Inclusiva",
+        "Inglés IV"
+      ]
+    },
+    "Curso Tercero": {
+      "SEMESTRE 1": [
+        "Currículo de la educación física en la educación primaria",
+        "Prácticas I: Taller de competencias profesionales",
+        "Enseñanza y Aprendizaje de Lenguas",
+        "Enseñanza y Aprendizaje del conocimiento del medio natural, social y cultural"
+      ],
+      "OPTATIVAS DISPONIBLES": [
+        "Inglés V * - MLENEXTING",
+        "Fundamentos de la Actividad Física y la Motricidad Humana * - MEDUFIS",
+        "Psicología de los Grupos",
+        "Análisis y Diseño de Materiales Didácticos para la Enseñanza de LLEE y las TIC - MILENEXTING",
+        "Adquisición de Segundas Lenguas * - MLENEXTING",
+        "Sistemática del ejercicio - MEDUFIS",
+        "Educación en valores desde la educación física y el deporte * - MEDUFIS",
+        "Psicología de la Emoción",
+        "Psicología del Deporte - MEDUFIS"
+      ],
+      "SEMESTRE 2": [
+        "Prácticas II"
+      ]
+    },
+    "Curso Cuarto": {
+      "SEMESTRE 1": [
+        "Educación plástica y visual",
+        "Educación musical",
+        "Aprendizaje integrado de contenido y lengua"
+      ],
+      "OPTATIVAS DISPONIBLES": [
+        "Factores individuales en el proceso de aprendizaje de lenguas extranjeras * - MLENEXTING",
+        "Historia y cultura de los países de habla inglesa - MLENEXTING",
+        "Inglés oral y estrategias comunicativas para gestionar la clase - MLENEXTING",
+        "Juegos e iniciación deportiva * - MEDUFIS",
+        "Educación Física Inclusiva - MEDUFIS",
+        "Expresión y comunicación corporal - MEDUFIS",
+        "Actividades en el medio natural - MEDUFIS",
+        "Religión, cultura y valores",
+        "Resolución de conflictos y mediación"
+      ],
+      "SEMESTRE 2": [
+        "Prácticas III",
+        "Didáctica de las Ciencias Sociales",
+        "Trabajo de Fin de Grado"
+      ]
+    }
+  },
+  "Grado en Traducción y Enseñanza de Lenguas": {
+    "Curso Primero": {
+      "SEMESTRE 1": [
+        "Inglés",
+        "Francés I / Alemán I",
+        "Edición y Revisión",
+        "Estrategias de Aprendizaje y Competencias en TIC",
+        "Lengua Española y Comunicación I"
+      ],
+      "SEMESTRE 2": [
+        "Inglés II",
+        "Francés II/ Alemán II",
+        "Iniciación a la Traductología y a la Traducción B-A",
+        "Morfosintaxis",
+        "Lengua Española y Comunicación II"
+      ]
+    },
+    "Curso Segundo": {
+      "SEMESTRE 1": [
+        "Inglés III",
+        "Francés III / Alemán III",
+        "Traducción Literaria y Humanística B-A",
+        "Terminología y Documentación aplicada",
+        "Lingüística Descriptiva I"
+      ],
+      "SEMESTRE 2": [
+        "Inglés IV",
+        "Francés IV / Alemán IV",
+        "Lingüística Aplicada a la Educación y a la Tecnología",
+        "Traducción Jurídico-Financiera B-A",
+        "Lingüística Descriptiva II"
+      ]
+    },
+    "Curso tercero": {
+      "SEMESTRE 1": [
+        "Enseñanza y Aprendizaje de Lenguas",
+        "Traducción Científico-Técnica B-A",
+        "Francés V / Alemán V",
+        "Estructura y Significado de las Lenguas"
+      ],
+      "OPTATIVAS DISPONIBLES": [
+        "Factores Individuales en el Proceso de Aprendizaje de Lenguas Extranjeras (MEL)",
+        "Iniciación a la Interpretación I (MTI)",
+        "Análisis y Diseño de Materiales Didácticos para E/A LLEE y las TIC (MEL)",
+        "Adquisición de Segundas Lenguas (MEL)",
+        "Iniciación a la Interpretación II (MTI)",
+        "Traducción Inversa A-B (MTI)"
+      ],
+      "SEMESTRE 2": [
+        "Tecnologías de la Traducción",
+        "Francés VI y su Cultura / Alemán VI y su Cultura",
+        "Lenguas de Especialidad y su Enseñanza"
+      ]
+    },
+    "Curso cuarto": {
+      "SEMESTRE 1": [
+        "Traducción Audiovisual y Localización B-A",
+        "Métodos e Instrumentos para los Estudios Traductológicos y del Lenguaje",
+        "Lingüística de Corpus y Herramientas de Análisis Textual"
+      ],
+      "OPTATIVAS DISPONIBLES": [
+        "Aprendizaje Integrado de Contenido y Lengua (MEL)",
+        "Producción de Idiomas B y C para Docentes (MEL)",
+        "Traducción C-A I (MTI)",
+        "Producción de Idiomas B y C para Traductores e Intérpretes (MTI)",
+        "Diseño curricular, programación y evaluación (MEL)",
+        "Traducción C-A II (MTI)",
+        "Prácticas Externas: Enseñanza Lenguas (MEL)",
+        "Prácticas Externas: Traducción e Interpretación (MTI)"
+      ],
+      "SEMESTRE 2": [
+        "La Intercomprensión Aplicada a la Didáctica y a la Traducción",
+        "Trabajo Fin de Grado"
+      ]
+    }
+  },
+  "Grado en Traducción y Enseñanza de Lenguas + Experto Universitario en Relaciones Internacionales": {
+    "Curso Primero": {
+      "SEMESTRE 1": [
+        "Inglés",
+        "Francés I / Alemán I",
+        "Edición y Revisión",
+        "Estrategias de Aprendizaje y Competencias en TIC",
+        "Lengua Española y Comunicación I"
+      ],
+      "SEMESTRE 2": [
+        "Inglés II",
+        "Francés II / Alemán II",
+        "Iniciación a la Traductología y a la Traducción B-A",
+        "Morfosintaxis",
+        "Lengua Española y Comunicación II"
+      ]
+    },
+    "Curso Segundo": {
+      "SEMESTRE 1": [
+        "Inglés III",
+        "Francés III / Alemán III",
+        "Traducción Literaria y Humanística B-A",
+        "Terminología y Documentación aplicada",
+        "Lingüística Descriptiva I"
+      ],
+      "SEMESTRE 2": [
+        "Inglés IV",
+        "Francés IV / Alemán IV",
+        "Lingüística Aplicada a la Educación y a la Tecnología",
+        "Traducción Jurídico-Financiera B-A",
+        "Lingüística Descriptiva II",
+        "Relaciones Internacionales (EXP)"
+      ]
+    },
+    "Curso tercero": {
+      "SEMESTRE 1": [
+        "Enseñanza y Aprendizaje de Lenguas",
+        "Traducción Científico-Técnica B-A",
+        "Francés V / Alemán V",
+        "Estructura y Significado de las Lenguas",
+        "Ciencias Políticas (EXP)",
+        "Integración Económica y Comercio Internacional (EXP)"
+      ],
+      "OPTATIVAS I": [
+        "Factores Individuales en el Proceso de Aprendizaje de Lenguas Extranjeras (MEL)",
+        "Iniciación a la Interpretación I (MTI)"
+      ],
+      "SEMESTRE 2": [
+        "Tecnologías de la Traducción",
+        "Francés VI y su Cultura / Alemán VI y su Cultura",
+        "Lenguas de Especialidad y su Enseñanza",
+        "Sistemas Políticos Comparados (EXP)"
+      ],
+      "OPTATIVAS II Y III": [
+        "Análisis y Diseño de Materiales Didácticos para E/A LLEE y las TIC (MEL)",
+        "Adquisición de Segundas Lenguas (MEL)",
+        "Iniciación a la Interpretación II (MTI)",
+        "Traducción Inversa A-B (MTI)"
+      ]
+    },
+    "Curso cuarto": {
+      "SEMESTRE 1": [
+        "Traducción Audiovisual y Localización B-A",
+        "Métodos e Instrumentos para los Estudios Traductológicos y del Lenguaje",
+        "Lingüística de Corpus y Herramientas de Análisis Textual",
+        "Políticas Exterior (EXP)",
+        "Organismos y Tratados Internacionales (EXP)"
+      ],
+      "OPTATIVAS IV Y V": [
+        "Aprendizaje Integrado de Contenido y Lengua (MEL)",
+        "Producción de Idiomas B y C para Docentes (MEL)",
+        "Traducción C-A I (MTI)",
+        "Producción de Idiomas B y C para Traductores e Intérpretes (MTI)"
+      ],
+      "SEMESTRE 2": [
+        "La Intercomprensión Aplicada a la Didáctica y a la Traducción",
+        "Globalización, Geopolítixca y Geoestrategia (EXP)",
+        "Cooperación Intemacional (EXP)",
+        "Trabajo Fin de Grado"
+      ],
+      "OPTATIVAS VI Y VII": [
+        "Diseño curricular, programación y evaluación (MEL)",
+        "Prácticas Externas: Enseñanza Lenguas (MEL)",
+        "Traducción C-A II (MTI)",
+        "Prácticas Externas: Traducción e Interpretación (MTI)"
+      ]
+    }
+  },
+  "Grado en Lenguas Aplicadas": {
+    "Curso Primero": {
+      "SEMESTRE 1": [
+        "Inglés I",
+        "Francés I / Alemán I",
+        "Lingüística Aplicada y Sociedad",
+        "Estrategias de Aprendizaje y Competencias en TIC",
+        "Lengua Española y Comunicación I"
+      ],
+      "SEMESTRE 2": [
+        "Inglés II",
+        "Francés II / Alemán II",
+        "Lingüística Aplicada a la Educación",
+        "Informática Aplicada",
+        "Lengua Española y Comunicación II"
+      ]
+    },
+    "Curso Segundo": {
+      "SEMESTRE 1": [
+        "Inglés III",
+        "Francés III / Alemán III",
+        "Lingüística Descriptiva I",
+        "Documentación Aplicada",
+        "Lingüística Aplicada y Mente"
+      ],
+      "SEMESTRE 2": [
+        "Inglés IV",
+        "Francés IV / Alemán IV",
+        "Lingüística Descriptiva II",
+        "Lingüística Aplicada a la Empresa",
+        "Comunicación especializada y terminología"
+      ]
+    },
+    "Curso Tercero": {
+      "SEMESTRE 1": [
+        "Sociolingüística, Comunidad e Ideología",
+        "Francés V / Alemán V",
+        "Estructura y Significado de las Lenguas",
+        "Producción Idiomas B y C"
+      ],
+      "OPTATIVAS DISPONIBLES": [
+        "Enseñanza y Aprendizaje de Lenguas - MLEN y ENTEDU",
+        "Organización de Empresas - MLEN y ENTEMP",
+        "Lengua de Especialidad A y B",
+        "Literatura en Lengua Inglesa",
+        "Traducción Científico-Técnica - MLEN y ENTEMP",
+        "Traducción Jurídico-Financiera - MLEN y ENTEMP",
+        "Traducción Literaria y Humanística B-A",
+        "Literatura Española",
+        "Análisis y Diseño de Materiales Didácticos para la Enseñanza y Aprendizaje de LLEE y las TIC - MLEN y ENTEDU",
+        "Adquisición de Segundas Lenguas - MLEN y ENTEDU"
+      ],
+      "SEMESTRE 2": [
+        "Iniciación a la Traducción B-A",
+        "Idioma C Francés y su Cultura / Idioma C Alemán y su Cultura",
+        "Lingüística Aplicada a la Tecnología"
+      ]
+    },
+    "Curso Cuarto": {
+      "SEMESTRE 1": [
+        "Métodos de Investigación Empírica para el Estudio del Lenguaje",
+        "Lingüística de Corpus y Herramientas de Análisis Textual",
+        "Historia y Cultura de los Países de Habla Inglesa",
+        "Edición y Revisión"
+      ],
+      "OPTATIVAS DISPONIBLES": [
+        "Aprendizaje Integrado de Contenido y Lengua - MLEN y ENTEDU",
+        "Fundamentos de las Relaciones Públicas - MLEN y ENTEMP",
+        "Traducción Audiovisual y Localización B-A",
+        "Traducción B-A I",
+        "Traducción C-A I Alemán-Español",
+        "Traducción C-A I Francés-Español",
+        "Diseño Curricular, Programación y Evaluación - MLEN y ENTEDU",
+        "Empresas, Emprendedores y Comunicación",
+        "Traducción B-A II",
+        "Traducción C-A II Alemán-Español",
+        "Traducción C-A II Francés-Español"
+      ],
+      "SEMESTRE 2": [
+        "La Intercomprensión y su Didáctica",
+        "Prácticas",
+        "Trabajo de Fin de Grado"
+      ]
+    }
+  },
+  "Grado en Traducción e Interpretación": {
+    "Curso Primero": {
+      "SEMESTRE 1": [
+        "Inglés I",
+        "Francés I / Alemán I",
+        "Historia y Teoría de la Traducción y la Interpretación",
+        "Estrategias de Aprendizaje y Competencias en TIC",
+        "Lengua Española y Comunicación I"
+      ],
+      "SEMESTRE 2": [
+        "Inglés II",
+        "Francés II / Alemán II",
+        "Iniciación a la Traducción B-A",
+        "Informática Aplicada",
+        "Lengua Española y Comunicación II"
+      ]
+    },
+    "Curso Segundo": {
+      "SEMESTRE 1": [
+        "Inglés III",
+        "Francés III / Alemán III",
+        "Traducción B-A I",
+        "Lingüística Descriptiva I",
+        "Documentación Aplicada"
+      ],
+      "SEMESTRE 2": [
+        "Inglés IV",
+        "Francés IV / Alemán IV",
+        "Traducción B-A II",
+        "Iniciación a la Traducción Especializada B-A I",
+        "Iniciación a la Interpretación I"
+      ]
+    },
+    "Curso Tercero": {
+      "SEMESTRE 1": [
+        "Iniciación a la Interpretación II",
+        "Traducción B-A III",
+        "Francés V / Alemán V",
+        "Iniciación a la Traducción Especializada B-A II"
+      ],
+      "OPTATIVAS DISPONIBLES": [
+        "Lengua de Especialidad A y B - MTRAESP",
+        "Enseñanza y Aprendizaje de Lenguas",
+        "Literatura en Lengua Inglesa - MTRALITyHUM",
+        "Traducción Científico-Técnica - MTRAESP",
+        "Traducción Jurídico-Financiera - MTRAESP",
+        "Traducción Literaria y Humanística B-A - MTRALITyHUM",
+        "Literatura Española - MTRALITyHUM",
+        "Análisis y Diseño de Materiales Didácticos para la Enseñanza y el Aprendizaje de LLEE y las TIC",
+        "Adquisición de Segundas Lenguas"
+      ],
+      "SEMESTRE 2": [
+        "Tecnologías de la Traducción y de la Interpretación",
+        "Idioma C Francés y su Cultura / Idioma C Alemán y su Cultura",
+        "Comunicación Especializada y Terminología"
+      ]
+    },
+    "Curso Cuarto": {
+      "SEMESTRE 1": [
+        "Traducción C-A I Alemán / Traducción C-A I Francés",
+        "Métodos e instrumentos para los estudios traductológicos",
+        "Historia y Cultura de los Países de Habla Inglesa",
+        "Traducción Inversa A-B"
+      ],
+      "OPTATIVAS DISPONIBLES": [
+        "Traducción Audiovisual y Localización B-A - MTRAESP",
+        "Edición y Revisión - MTRALITyHUM",
+        "Aprendizaje Integrado de Contenido y Lengua",
+        "Pensamiento Contemporáneo e Interculturalidad",
+        "Traducción Inversa Especializada A-B - MTRAESP",
+        "Literatura en Francés y su Traducción",
+        "Literatura en Alemán y su Traducción - MTRALITyHUM",
+        "Diseño Curricular, Programación y Evaluación",
+        "Servicios Lingüísticos en Organizaciones"
+      ],
+      "SEMESTRE 2": [
+        "Traducción C-A II Alemán / Traducción C-A II Francés",
+        "Prácticas",
+        "Trabajo Fin de Grado"
+      ]
+    }
+  },
+  "Grado en Relaciones Internacionales": {
+    "Curso Primero": {
+      "SEMESTRE 1": [
+        "Análisis de asuntos mundiales contemporáneos",
+        "Microeconomía",
+        "Ciencias Políticas",
+        "Inglés I",
+        "Francés o Alemán I"
+      ],
+      "SEMESTRE 2": [
+        "Introducción al derecho",
+        "Tecnologías de la información y comunicación",
+        "Macroeconomía",
+        "Inglés II",
+        "Francés o Alemán II"
+      ]
+    },
+    "Curso Segundo": {
+      "SEMESTRE 1": [
+        "Paz, seguridad y defensa",
+        "Metodología de la investigación",
+        "Política Exterior",
+        "Inglés III",
+        "Francés o Alemán III"
+      ],
+      "SEMESTRE 2": [
+        "Relaciones internacionales",
+        "Estructura económica",
+        "Derecho internacional",
+        "Inglés IV",
+        "Francés o Alemán IV"
+      ]
+    },
+    "Curso Tercero": {
+      "SEMESTRE 1": [
+        "Fundamento de Relaciones Públicas",
+        "Historia económica",
+        "Estadística",
+        "Instituciones y política de la Unión Europea",
+        "Estudios regionales de América del Norte"
+      ],
+      "SEMESTRE 2": [
+        "Sistemas políticos comparados",
+        "Integración económica y comercio internacional",
+        "Organización y políticas regionales de América Latina",
+        "Relaciones internacionales y dinámicas regionales en la región Asia-Pacífico",
+        "Cooperación internacional"
+      ]
+    },
+    "Curso Cuarto": {
+      "SEMESTRE 1": [
+        "Organismos y tratados internacionales",
+        "Agenda internacional para el desarrollo sostenible",
+        "Estudios regionales de África y Oriente Medio",
+        "Resolución de conflictos y mediación",
+        "Dirección estratégica y competencias directivas"
+      ],
+      "SEMESTRE 2": [
+        "Globalización, geopolítica y geoestrategia",
+        "Prácticas externas",
+        "Trabajo fin de grado"
+      ]
+    }
+  },
+  "Grado en Periodismo": {
+    "Curso Primero": {
+      "SEMESTRE 1": [
+        "Expresión Oral y Escrita de la Lengua Española",
+        "Teoría de la Comunicación",
+        "Teoría y Práctica de la Comunicación Visual",
+        "Sociedad Contemporánea",
+        "Tecnologías de la Información y la Comunicación-TIC"
+      ],
+      "SEMESTRE 2": [
+        "Teoría y Práctica de la Redacción Periodística (La Noticia)",
+        "Comunicación Interpersonal",
+        "Introducción a la Realización Audiovisual I",
+        "Fundamentos de Fotografía Periodística",
+        "Estructura General de la Comunicación"
+      ]
+    },
+    "Curso Segundo": {
+      "SEMESTRE 1": [
+        "Teoría y Práctica de los Géneros Periodísticos (Interpretación y Opinión)",
+        "Introducción a la Realización Audiovisual II",
+        "Opinión Pública y Comunicación Política",
+        "Métodos y Técnicas de Investigación",
+        "Inglés I"
+      ],
+      "SEMESTRE 2": [
+        "Soportes Multimedia en la Producción Informativa",
+        "Historia del Periodismo",
+        "Técnicas de Análisis de Mensajes",
+        "Rutinas de Producción Periodística: Radio y TV I",
+        "Inglés II"
+      ]
+    },
+    "Curso Tercero": {
+      "SEMESTRE 1": [
+        "Historia del Cine y la TV",
+        "Fotoperiodismo",
+        "Diseño y Composición en Prensa",
+        "Inglés III"
+      ],
+      "OPTATIVAS DISPONIBLES": [
+        "Evolución de la Tecnología Audiovisual",
+        "Creación Publicitaria (TV, Radio, Impresos)",
+        "Fundamentos de Relaciones Públicas",
+        "Rutinas de producción periodísticas: Radio y TV II",
+        "Producción en Nuevos Medios y Formatos",
+        "Diseño y Planificación de Campañas",
+        "Comunicación Corporativa e Institucional"
+      ],
+      "SEMESTRE 2": [
+        "Sociedad de la Información y del Conocimiento",
+        "Producción en Prensa y Cibermedios",
+        "Documentación Periodística",
+        "Inglés IV"
+      ]
+    },
+    "Curso Cuarto": {
+      "SEMESTRE 1": [
+        "Practicum I",
+        "Periodismo Especializado",
+        "Periodismo de Investigación",
+        "Gestión de Proyectos en Periodismo"
+      ],
+      "OPTATIVAS DISPONIBLES": [
+        "Animación Digital",
+        "Dirección Estratégica de Gabinetes de Comunicación y Agencias de Publicidad",
+        "Dirección Cinematográfica",
+        "Ética y Deontología de la Comunicación"
+      ],
+      "SEMESTRE 2": [
+        "Practicum II",
+        "Derecho de la Información",
+        "Economía de la Empresa y Emprendedores",
+        "Trabajo de Fin de Grado-TFG"
+      ]
+    }
+  },
+  "Grado en Periodismo + Experto Universitario en Relaciones Internacionales": {
+    "Curso Primero": {
+      "SEMESTRE 1": [
+        "Expresión Oral y Escrita de la Lengua Española",
+        "Estructura General de la Comunicación",
+        "Teoría y Práctica de la Comunicación Visual",
+        "Sociedad Contemporánea",
+        "Tecnologías de la Información y la Comunicación-TIC"
+      ],
+      "SEMESTRE 2": [
+        "Teoría y Práctica de la Redacción Periodística (La Noticia)",
+        "Comunicación Interpersonal",
+        "Introducción a la Realización Audiovisual I",
+        "Fundamentos de Fotografía Periodística",
+        "Teoría de la Comunicación"
+      ]
+    },
+    "Curso Segundo": {
+      "SEMESTRE 1": [
+        "Teoría y Práctica de los Géneros Periodísticos (Interpretación y Opinión)",
+        "Introducción a la Realización Audiovisual II",
+        "Opinión Pública y Comunicación Política",
+        "Métodos y Técnicas de Investigación",
+        "Inglés I"
+      ],
+      "SEMESTRE 2": [
+        "Soportes Multimedia en la Producción Informativa",
+        "Historia del Periodismo",
+        "Técnicas de Análisis de Mensajes",
+        "Rutinas de Producción Periodística: Radio y TV",
+        "Inglés II",
+        "Relaciones Internacionales"
+      ]
+    },
+    "Curso Tercero": {
+      "SEMESTRE 1": [
+        "Historia del Cine y la TV",
+        "Fotoperiodismo",
+        "Diseño y Composición en Prensa",
+        "Inglés III",
+        "Fundamentos de Relaciones Públicas",
+        "Integración Económica y Comercio Internacional",
+        "Ciencias Políticas"
+      ],
+      "SEMESTRE 2": [
+        "Sociedad de la Información y del Conocimiento",
+        "Producción en Prensa y Cibermedios",
+        "Documentación Periodística",
+        "Inglés IV",
+        "Sistemas Políticos Comparados"
+      ]
+    },
+    "Curso Cuarto": {
+      "SEMESTRE 1": [
+        "Practicum I",
+        "Periodismo Especializado",
+        "Periodismo de Investigación",
+        "Gestión de Proyectos en Periodismo",
+        "Resolución de Conflictos y Mediación",
+        "Política Exterior",
+        "Organismos y Tratados Internacionales"
+      ],
+      "SEMESTRE 2": [
+        "Practicum II",
+        "Derecho de la Información",
+        "Economía de la Empresa y Emprendedores",
+        "Trabajo de Fin de Grado-TFG",
+        "Globalización, Geopolítica y Estrategia",
+        "Agenda Internacional para la Sostenibilidad Ambiental",
+        "Cooperación Internacional"
+      ]
+    }
+  },
+  "Grado en Periodismo + Experto Universitario en Periodismo Deportivo": {
+    "Curso Primero": {
+      "SEMESTRE 1": [
+        "Expresión Oral y Escrita de la Lengua Española",
+        "Teoría de la Comunicación",
+        "Teoría y Práctica de la Comunicación Visual",
+        "Sociedad Contemporánea",
+        "Tecnologías de la Información y la Comunicación-TIC"
+      ],
+      "SEMESTRE 2": [
+        "Teoría y Práctica de la Redacción Periodística (La Noticia)",
+        "Comunicación Interpersonal",
+        "Introducción a la Realización Audiovisual I",
+        "Fundamentos de Fotografía Periodística",
+        "Estructura General de la Comunicación"
+      ]
+    },
+    "Curso Segundo": {
+      "SEMESTRE 1": [
+        "Teoría y Práctica de los Géneros Periodísticos (Interpretación y Opinión)",
+        "Introducción a la Realización Audiovisual II",
+        "Opinión Pública y Comunicación Política",
+        "Métodos y Técnicas de Investigación",
+        "Inglés I"
+      ],
+      "SEMESTRE 2": [
+        "Soportes Multimedia en la Producción Informativa",
+        "Historia del Periodismo",
+        "Técnicas de Análisis de Mensajes",
+        "Rutinas de Producción Periodística: Radio y TV I",
+        "Análisis de la Conducta Deportiva (EXP)",
+        "Inglés II"
+      ]
+    },
+    "Curso Tercero": {
+      "SEMESTRE 1": [
+        "Historia del Cine y la TV",
+        "Fotoperiodismo",
+        "Diseño y Composición en Prensa",
+        "Inglés III"
+      ],
+      "OPTATIVAS DISPONIBLES": [
+        "Evolución de la Tecnología Audiovisual",
+        "Creación Publicitaria (TV, Radio, Impresos)",
+        "Fundamentos de Relaciones Públicas",
+        "Rutinas de producción periodísticas: radio y TV II",
+        "Producción en Nuevos Medios y Formatos",
+        "Diseño y Planificación de Campañas",
+        "Comunicación Corporativa e Institucional"
+      ],
+      "SEMESTRE 2": [
+        "Sociedad de la Información y del Conocimiento",
+        "Producción en Prensa y Cibermedios",
+        "Documentación Periodística",
+        "Inglés IV",
+        "Sociología del Deporte (EXP)"
+      ]
+    },
+    "Curso Cuarto": {
+      "SEMESTRE 1": [
+        "Practicum I",
+        "Periodismo Especializado",
+        "Periodismo de Investigación",
+        "Gestión de Proyectos en Periodismo"
+      ],
+      "OPTATIVAS DISPONIBLES": [
+        "Animación Digital",
+        "Dirección Estratégica de Gabinetes de Comunicación y Agencias de Publicidad",
+        "Dirección Cinematográfica",
+        "Ética y Deontología de la Comunicación"
+      ],
+      "SEMESTRE 2": [
+        "Practicum II",
+        "Derecho de la Información",
+        "Economía de la Empresa y Emprendedores",
+        "Periodismo Deportivo (EXP)",
+        "Trabajo de Fin de Grado-TFG"
+      ]
+    }
+  },
+  "Grado en Publicidad y Relaciones Públicas": {
+    "Curso Primero": {
+      "SEMESTRE 1": [
+        "Expresión Oral y Escrita de la Lengua Española",
+        "Teoría de la Comunicación",
+        "Teoría y Práctica de la Comunicación Visual",
+        "Sociedad Contemporánea",
+        "Tecnologías de Información y la Comunicación-TIC"
+      ],
+      "SEMESTRE 2": [
+        "Diseño Gráfico",
+        "Técnicas de Comunicación Oral",
+        "Comunicación Audiovisual I",
+        "Fundamentos de Fotografía Publicitaria",
+        "Estructura General de la Comunicación"
+      ]
+    },
+    "Curso Segundo": {
+      "SEMESTRE 1": [
+        "Fundamentos de Relaciones Públicas",
+        "Comunicación Audiovisual II",
+        "Opinión Pública",
+        "Métodos y Técnicas de Investigación",
+        "Inglés I"
+      ],
+      "SEMESTRE 2": [
+        "Aplicaciones Multimedia en la Creación Publicitaria",
+        "Comunicación Corporativa e Institucional",
+        "Técnicas de Análisis de Mensajes",
+        "Fundamentos de Publicidad",
+        "Inglés II"
+      ]
+    },
+    "Curso Tercero": {
+      "SEMESTRE 1": [
+        "Historia del Cine y la TV",
+        "Investigación de Mercados",
+        "Creación Publicitaria (TV, Radio, Impresos)",
+        "Inglés III"
+      ],
+      "OPTATIVAS DISPONIBLES": [
+        "Contabilidad I",
+        "Diseño y Composición en Prensa",
+        "Evolución de la Tecnología Audiovisual",
+        "Organización de empresas",
+        "Contabilidad II",
+        "Teoría y Práctica de la Redacción Periodística (La Noticia)",
+        "Guion Dramático, Guion Argumental y Documental",
+        "Recursos Humanos",
+        "Comportamiento del consumidor"
+      ],
+      "SEMESTRE 2": [
+        "Sociedad de la Información y el Conocimiento",
+        "Marketing Estratégico y Operativo",
+        "Diseño y Planificación de Campañas",
+        "Inglés IV"
+      ]
+    },
+    "Curso Cuarto": {
+      "SEMESTRE 1": [
+        "Practicum I",
+        "Gestión de Proyectos de Publicidad y Relaciones Públicas",
+        "Marketing Digital y Medios Interactivos",
+        "Dirección Estratégica en Gabinetes de Comunicación y Agencias de Publicidad"
+      ],
+      "OPTATIVAS DISPONIBLES": [
+        "Dirección Comercial",
+        "Teoría y Práctica de los Géneros Periodísticos (Interpretación y Opinión)",
+        "Producción e Industria Audiovisual",
+        "Responsabilidad Social Corporativa",
+        "Derecho de la Información",
+        "Dirección Cinematográfica",
+        "Coaching"
+      ],
+      "SEMESTRE 2": [
+        "Practicum II",
+        "Economía de la Empresa y Emprendedores",
+        "Ética y Deontología de la Comunicación",
+        "Trabajo de Fin de Grado-TFG"
+      ]
+    }
+  },
+  "Grado en Publicidad y Relaciones Públicas + Experto Universitario en Relaciones Internacionales": {
+    "Curso Primero": {
+      "SEMESTRE 1": [
+        "Expresión Oral y Escrita de la Lengua Española",
+        "Estructura General de la Comunicación",
+        "Teoría y Práctica de la Comunicación Visual",
+        "Sociedad Contemporánea",
+        "Tecnologías de Información y la Comunicación-TIC"
+      ],
+      "SEMESTRE 2": [
+        "Diseño Gráfico",
+        "Técnicas de Comunicación Oral",
+        "Comunicación Audiovisual I",
+        "Fundamentos de Fotografía Publicitaria",
+        "Teoría de la Comunicación"
+      ]
+    },
+    "Curso Segundo": {
+      "SEMESTRE 1": [
+        "Fundamentos de Relaciones Públicas",
+        "Comunicación Audiovisual II",
+        "Opinión Pública",
+        "Métodos y Técnicas de Investigación",
+        "Inglés I"
+      ],
+      "SEMESTRE 2": [
+        "Aplicaciones Multimedia en la Creación Publicitaria",
+        "Comunicación Corporativa e Institucional",
+        "Técnicas de Análisis de Mensajes",
+        "Fundamentos de Publicidad",
+        "Inglés II",
+        "Relaciones Internacionales"
+      ]
+    },
+    "Curso Tercero": {
+      "SEMESTRE 1": [
+        "Historia del Cine y la TV",
+        "Investigación de Mercados",
+        "Creación Publicitaria (TV, Radio, Impresos)",
+        "Inglés III",
+        "Organización de Empresas",
+        "Integración Económica y Comercio Internacional",
+        "Ciencias Políticas"
+      ],
+      "SEMESTRE 2": [
+        "Sociedad de la Información y el Conocimiento",
+        "Marketing Estratégico y Operativo",
+        "Diseño y Planificación de Campañas",
+        "Inglés IV",
+        "Sistemas Políticos Comparados"
+      ]
+    },
+    "Curso Cuarto": {
+      "SEMESTRE 1": [
+        "Practicum I",
+        "Gestión de Proyectos de Publicidad y Relaciones Públicas",
+        "Marketing Digital y Medios Interactivos",
+        "Dirección Estratégica en Gabinetes de Comunicación y Agencias de Publicidad",
+        "Resolución de Conflictos y Mediación",
+        "Política Exterior",
+        "Organismos, Tratados Internacionales y Cooperación"
+      ],
+      "SEMESTRE 2": [
+        "Practicum II",
+        "Economía de la Empresa y Emprendedores",
+        "Ética y Deontología de la Comunicación",
+        "Trabajo de Fin de Grado-TFG",
+        "Globalización, Geopolítica y Estrategia",
+        "Agenda Internacional para la Sostenibilidad Ambiental",
+        "Cooperación Internacional"
+      ]
+    }
+  },
+  "Grado en Publicidad y Relaciones Públicas + Experto Universitario en Inteligencia Artificial Aplicada al Marketing y la Comunicación": {
+    "Curso Primero": {
+      "SEMESTRE 1": [
+        "Expresión Oral y Escrita de la Lengua Española",
+        "Teoría de la Comunicación",
+        "Teoría y Práctica de la Comunicación Visual",
+        "Sociedad Contemporánea",
+        "Tecnologías de Información y la Comunicación-TIC"
+      ],
+      "SEMESTRE 2": [
+        "Diseño Gráfico",
+        "Técnicas de Comunicación Oral",
+        "Comunicación Audiovisual I",
+        "Fundamentos de Fotografía Publicitaria",
+        "Estructura General de la Comunicación"
+      ]
+    },
+    "Curso Segundo": {
+      "SEMESTRE 1": [
+        "Fundamentos de Relaciones Públicas",
+        "Comunicación Audiovisual II",
+        "Opinión Pública",
+        "Métodos y Técnicas de Investigación",
+        "Inglés I"
+      ],
+      "SEMESTRE 2": [
+        "Aplicaciones Multimedia en la Creación Publicitaria",
+        "Comunicación Corporativa e Institucional",
+        "Técnicas de Análisis de Mensajes",
+        "Fundamentos de Publicidad",
+        "Inglés II"
+      ]
+    },
+    "Curso Tercero": {
+      "SEMESTRE 1": [
+        "Historia del Cine y la TV",
+        "Investigación de Mercados",
+        "Creación Publicitaria (TV, Radio, Impresos)",
+        "Inglés III",
+        "Inteligencia Artificial"
+      ],
+      "OPTATIVAS DISPONIBLES": [
+        "Contabilidad I",
+        "Diseño y Composición en Prensa",
+        "Evolución de la Tecnología Audiovisual",
+        "Organización de empresas",
+        "Contabilidad II",
+        "Teoría y Práctica de la Redacción Periodística (La Noticia)",
+        "Guion Dramático, Guion Argumental y Documental",
+        "Recursos Humanos",
+        "Comportamiento del consumidor"
+      ],
+      "SEMESTRE 2": [
+        "Sociedad de la Información y el Conocimiento",
+        "Marketing Estratégico y Operativo",
+        "Diseño y Planificación de Campañas",
+        "Inglés IV"
+      ]
+    },
+    "Curso Cuarto": {
+      "SEMESTRE 1": [
+        "Practicum I",
+        "Gestión de Proyectos de Publicidad y Relaciones Públicas",
+        "Marketing Digital y Medios Interactivos",
+        "Dirección Estratégica en Gabinetes de Comunicación y Agencias de Publicidad",
+        "Inteligencia Artificial aplicada al Marketing y la Comunicación I"
+      ],
+      "OPTATIVAS DISPONIBLES": [
+        "Dirección Comercial",
+        "Teoría y Práctica de los Géneros Periodísticos (Interpretación y Opinión)",
+        "Producción e Industria Audiovisual",
+        "Responsabilidad Social Corporativa",
+        "Derecho de la Información",
+        "Dirección Cinematográfica",
+        "Coaching"
+      ],
+      "SEMESTRE 2": [
+        "Practicum II",
+        "Economía de la Empresa y Emprendedores",
+        "Ética y Deontología de la Comunicación",
+        "Trabajo de Fin de Grado-TFG",
+        "Inteligencia Artificial aplicada al Marketing y la Comunicación II"
+      ]
+    }
+  },
+  "Grado en Comunicación Audiovisual": {
+    "Curso Primero": {
+      "SEMESTRE 1": [
+        "Expresión Oral y Escrita de la Lengua Española",
+        "Teoría de la Comunicación",
+        "Teoría y Práctica de la Comunicación Visual",
+        "Sociedad Contemporánea",
+        "Tecnologías de Información y Comunicación-TIC"
+      ],
+      "SEMESTRE 2": [
+        "Guion Dramático, Guion Argumental y Documental",
+        "Técnicas de Comunicación Presencial",
+        "Lenguaje y Técnica Audiovisual I",
+        "Técnicas Fotográficas en Producción Audiovisual",
+        "Estructura General de la Comunicación"
+      ]
+    },
+    "Curso Segundo": {
+      "SEMESTRE 1": [
+        "Producción e Industria Audiovisual",
+        "Lenguaje y Técnica Audiovisual II",
+        "Televisión y Opinión Pública",
+        "Métodos y Técnicas de Investigación",
+        "Inglés I"
+      ],
+      "SEMESTRE 2": [
+        "Creación de Productos Audiovisuales y Multimedia",
+        "Técnicas de Análisis de Mensajes",
+        "Rutinas de Producción Periodística: Radio y TV I",
+        "Fundamentos de Publicidad",
+        "Inglés II"
+      ]
+    },
+    "Curso Tercero": {
+      "SEMESTRE 1": [
+        "Historia del Cine y la TV",
+        "Post-producción Audiovisual",
+        "Evolución de la Tecnología Audiovisual",
+        "Inglés III"
+      ],
+      "OPTATIVAS DISPONIBLES": [
+        "Diseño y Composición en Prensa",
+        "Creación Publicitaria (TV, Radio, Impresos)",
+        "Fundamentos de Programación",
+        "Fundamentos de Relaciones Públicas",
+        "Rutinas de producción periodísticas: Radio y TV II",
+        "Teoría y Práctica de la Redacción Periodística (La Noticia)",
+        "Diseño y Planificación de Campañas",
+        "Programación",
+        "Comunicación corporativa e institucional"
+      ],
+      "SEMESTRE 2": [
+        "Sociedad de la Información y el Conocimiento",
+        "Producción en Nuevos Medios y Formatos",
+        "Dirección de Fotografía",
+        "Inglés IV"
+      ]
+    },
+    "Curso Cuarto": {
+      "SEMESTRE 1": [
+        "Practicum I",
+        "Dirección Artística",
+        "Animación Digital",
+        "Gestión de Proyectos Audiovisuales"
+      ],
+      "OPTATIVAS DISPONIBLES": [
+        "Teoría y Práctica de los Géneros Periodísticos (Interpretación y Opinión)",
+        "Dirección Estratégica en Gabinetes de Comunicación y Agencias de Publicidad",
+        "Programación Web I",
+        "Derecho de la Información",
+        "Ética y Deontología de la Comunicación",
+        "Programación Web II"
+      ],
+      "SEMESTRE 2": [
+        "Practicum II",
+        "Dirección Cinematográfica",
+        "Economía de la Empresa y Emprendedores",
+        "Trabajo de Fin de Grado-TFG"
+      ]
+    }
+  },
+  "Grado en Comunicación Audiovisual + Experto Universitario en Animación Digital y 3D": {
+    "Curso Primero": {
+      "SEMESTRE 1": [
+        "Expresión Oral y Escrita de la Lengua Española",
+        "Teoría de la Comunicación",
+        "Teoría y Práctica de la Comunicación Visual",
+        "Sociedad Contemporánea",
+        "Tecnologías de Información y Comunicación-TIC"
+      ],
+      "SEMESTRE 2": [
+        "Guion Dramático, Guion Argumental y Documental",
+        "Técnicas de Comunicación Presencial",
+        "Lenguaje y Técnica Audiovisual I",
+        "Técnicas Fotográficas en Producción Audiovisual",
+        "Estructura General de la Comunicación"
+      ]
+    },
+    "Curso Segundo": {
+      "SEMESTRE 1": [
+        "Producción e Industria Audiovisual",
+        "Lenguaje y Técnica Audiovisual II",
+        "Televisión y Opinión Pública",
+        "Métodos y Técnicas de Investigación",
+        "Inglés I"
+      ],
+      "SEMESTRE 2": [
+        "Creación de Productos Audiovisuales y Multimedia",
+        "Técnicas de Análisis de Mensajes",
+        "Rutinas de Producción Periodística: Radio y TV I",
+        "Fundamentos de Publicidad",
+        "Inglés II"
+      ]
+    },
+    "Curso Tercero": {
+      "SEMESTRE 1": [
+        "Historia del Cine y la TV",
+        "Post-producción Audiovisual (EXP)",
+        "Evolución de la Tecnología Audiovisual",
+        "Inglés III"
+      ],
+      "OPTATIVAS DISPONIBLES": [
+        "Diseño y Composición en Prensa",
+        "Creación Publicitaria (TV, Radio, Impresos)",
+        "Fundamentos de Programación",
+        "Fundamentos de Relaciones Públicas",
+        "Rutinas de producción periodísticas: Radio y TV II",
+        "Teoría y Práctica de la Redacción Periodística (La Noticia)",
+        "Diseño y Planificación de Campañas",
+        "Programación",
+        "Comunicación corporativa e institucional"
+      ],
+      "SEMESTRE 2": [
+        "Sociedad de la Información y el Conocimiento",
+        "Producción en Nuevos Medios y Formatos",
+        "Dirección de Fotografía",
+        "Inglés IV"
+      ]
+    },
+    "Curso Cuarto": {
+      "SEMESTRE 1": [
+        "Practicum I",
+        "Dirección Artística",
+        "Animación Digital (EXP)",
+        "Gestión de Proyectos Audiovisuales"
+      ],
+      "OPTATIVAS DISPONIBLES": [
+        "Teoría y Práctica de los Géneros Periodísticos (Interpretación y Opinión)",
+        "Dirección Estratégica en Gabinetes de Comunicación y Agencias de Publicidad",
+        "Programación Web I",
+        "Derecho de la Información",
+        "Ética y Deontología de la Comunicación",
+        "Programación Web II"
+      ],
+      "SEMESTRE 2": [
+        "Practicum II",
+        "Dirección Cinematográfica",
+        "Economía de la Empresa y Emprendedores",
+        "Introducción a la Animación 3D (EXP)",
+        "Trabajo de Fin de Grado-TFG"
+      ]
+    }
+  },
+  "Grado en Comunicación Audiovisual + Experto Universitario Inteligencia Artificial Aplicada al Marketing y Comunicación": {
+    "Curso Primero": {
+      "SEMESTRE 1": [
+        "Expresión Oral y Escrita de la Lengua Española",
+        "Teoría de la Comunicación",
+        "Teoría y Práctica de la Comunicación Visual",
+        "Sociedad Contemporánea",
+        "Tecnologías de Información y Comunicación-TIC"
+      ],
+      "SEMESTRE 2": [
+        "Guion Dramático, Guion Argumental y Documental",
+        "Técnicas de Comunicación Presencial",
+        "Lenguaje y Técnica Audiovisual I",
+        "Técnicas Fotográficas en Producción Audiovisual",
+        "Estructura General de la Comunicación"
+      ]
+    },
+    "Curso Segundo": {
+      "SEMESTRE 1": [
+        "Producción e Industria Audiovisual",
+        "Lenguaje y Técnica Audiovisual II",
+        "Televisión y Opinión Pública",
+        "Métodos y Técnicas de Investigación",
+        "Inglés I"
+      ],
+      "SEMESTRE 2": [
+        "Creación de Productos Audiovisuales y Multimedia",
+        "Técnicas de Análisis de Mensajes",
+        "Rutinas de Producción Periodística: Radio y TV I",
+        "Fundamentos de Publicidad",
+        "Inglés II"
+      ]
+    },
+    "Curso Tercero": {
+      "SEMESTRE 1": [
+        "Historia del Cine y la TV",
+        "Post-producción Audiovisual",
+        "Evolución de la Tecnología Audiovisual",
+        "Inglés III",
+        "Inteligencia Artificial"
+      ],
+      "OPTATIVAS DISPONIBLES": [
+        "Diseño y Composición en Prensa",
+        "Creación Publicitaria (TV, Radio, Impresos)",
+        "Fundamentos de Programación",
+        "Fundamentos de Relaciones Públicas",
+        "Rutinas de producción periodísticas: Radio y TV II",
+        "Teoría y Práctica de la Redacción Periodística (La Noticia)",
+        "Diseño y Planificación de Campañas",
+        "Programación",
+        "Comunicación corporativa e institucional"
+      ],
+      "SEMESTRE 2": [
+        "Sociedad de la Información y el Conocimiento",
+        "Producción en Nuevos Medios y Formatos",
+        "Dirección de Fotografía",
+        "Inglés IV"
+      ]
+    },
+    "Curso Cuarto": {
+      "SEMESTRE 1": [
+        "Practicum I",
+        "Dirección Artística",
+        "Animación Digital",
+        "Gestión de Proyectos Audiovisuales",
+        "Inteligencia Artificial aplicada al Marketing y la Comunicación I"
+      ],
+      "OPTATIVAS DISPONIBLES": [
+        "Teoría y Práctica de los Géneros Periodísticos (Interpretación y Opinión)",
+        "Dirección Estratégica en Gabinetes de Comunicación y Agencias de Publicidad",
+        "Programación Web I",
+        "Derecho de la Información",
+        "Ética y Deontología de la Comunicación",
+        "Programación Web II"
+      ],
+      "SEMESTRE 2": [
+        "Practicum II",
+        "Dirección Cinematográfica",
+        "Economía de la Empresa y Emprendedores",
+        "Trabajo de Fin de Grado-TFG",
+        "Inteligencia Artificial aplicada al Marketing y la Comunicación II"
+      ]
+    }
+  }
+}
